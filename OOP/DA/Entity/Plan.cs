@@ -4,6 +4,8 @@ public class Plan : ISerializable
 {
     public string Id { get; set; }
 
+    public string Name { get; set; }
+
     public DateTime CreatedAt { get; }
 
     public IList<TaskRef> Tasks { get; set; }
@@ -13,22 +15,37 @@ public class Plan : ISerializable
         Id = Generator.GenerateId();
         Tasks = new List<TaskRef>();
     }
-    public Plan(List<TaskRef> tasks)
+    public Plan(List<TaskRef> tasks, string name)
     {
         CreatedAt = DateTime.Now;
         Id = Generator.GenerateId();
         Tasks = tasks;
+        Name = name;
     }
 
     public void GetObjectData(SerializationInfo info, StreamingContext context)
     {
-        info.AddValue("Id", Id);
-        info.AddValue("CreatedAt", CreatedAt);
-        info.AddValue("Tasks", Tasks);
+        info.AddValue("id", Id);
+        info.AddValue("createdAt", CreatedAt);
+        info.AddValue("tasks", Tasks);
+        info.AddValue("name", Name);
+    }
+
+    public Plan(SerializationInfo info, StreamingContext context)
+    {
+        Id = info.GetString("id");
+        Name = info.GetString("name");
+        CreatedAt = info.GetDateTime("createdAt");
+        List<TaskRef> tasksArray = info.GetValue("tasks", typeof(List<TaskRef>)) as List<TaskRef>;
     }
 
     public void AddTask(string id)
     {
         Tasks.Add(new TaskRef(id));
+    }
+    public override string ToString()
+    {
+        return 
+        $"{Name}, {CreatedAt}, {Tasks[0].Id}";
     }
 }

@@ -1,4 +1,6 @@
-﻿public class ShortTerm : Task
+﻿using System.Runtime.Serialization;
+
+public class ShortTerm : Task
 {
     public ShortTerm(string title, string content,
         DateTime notiTime, bool isCompleted,
@@ -11,6 +13,7 @@
         IsImportant = isImportant;
         IsRepeated = isRepeated;
     }
+    public ShortTerm() { }
     public override string ToString()
     {
         return $"{Id},{Title}";

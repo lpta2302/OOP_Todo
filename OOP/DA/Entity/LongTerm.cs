@@ -1,9 +1,11 @@
 ﻿public class LongTerm : Task
 {
-    public DateTime From { get; set; }
+    private DateTime from;
+    public DateTime From { get { return from; } set { from = value; } }
+    private DateTime to;
 
-    public DateTime To { get; set; }
-    
+    public DateTime To { get { return to; } set { to = value; } }
+
     public LongTerm(string title, string content,
         DateTime notiTime, DateTime from, DateTime to, bool isCompleted,
         bool isImportant, bool isRepeated)

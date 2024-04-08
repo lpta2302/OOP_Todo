@@ -29,8 +29,9 @@ public class EntityManager<EntityType>
 
     public void Save(List<EntityType> entities)
     {
-        string json = JsonSerializer.Serialize(entities,
-            new JsonSerializerOptions { WriteIndented = true });
+        JsonSerializerOptions jsonOption = new JsonSerializerOptions { WriteIndented = true };
+        jsonOption.Converters.Add(new TaskConverter());
+        string json = JsonSerializer.Serialize(entities, jsonOption);
 
         File.WriteAllText(path, json);
     }
