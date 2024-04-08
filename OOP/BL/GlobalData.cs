@@ -2,11 +2,14 @@
 
 public class GlobalData
 {
-    public static IList<Task> CurrentTasks;
-    public static IList<Plan> CurrentPlans;
+    public static IList<Task> CurrentTasks { get; set; }
+    public static IList<Plan> CurrentPlans { get; set; }
     static GlobalData()
     {
-        CurrentTasks = new List<Task>();
-        CurrentPlans = new List<Plan>();
+        if (CurrentTasks == null)
+            CurrentTasks = new List<Task>();
+        if (CurrentPlans == null)
+            CurrentPlans = new List<Plan>();
     }
+
 }

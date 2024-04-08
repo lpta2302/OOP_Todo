@@ -1,9 +1,8 @@
-﻿public class ShortTerm : Task, TaskManager
+﻿public class ShortTerm : Task
 {
-
     public ShortTerm(string title, string content,
         DateTime notiTime, bool isCompleted,
-        bool isImportant, bool isRepeated, Tag tagType)
+        bool isImportant, bool isRepeated)
     {
         Title = title;
         Content = content;
@@ -11,7 +10,6 @@
         IsCompleted = isCompleted;
         IsImportant = isImportant;
         IsRepeated = isRepeated;
-        TagType = tagType;
     }
     public override string ToString()
     {
