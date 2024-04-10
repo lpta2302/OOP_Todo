@@ -4,7 +4,6 @@ public class MyFakeData
 {
     public static void CreateShortTask()
     {
-        EntityManager<Task> entityManager = new EntityManager<Task>();
         Task task = new ShortTerm("Thức dậy nào",
                 "Buổi sáng rồi phải thức dậy thôi nào",
                 DateTime.Now, false, false, false);
@@ -16,7 +15,7 @@ public class MyFakeData
             new LongTerm("Learn Vocabulary","I have to learn vocabulary",
                 DateTime.Now,DateTime.Now,DateTime.Now.AddDays(30),false,false,false)
         };
-        entityManager.Save(tasks);
+        EntityManager<Task>.Save(tasks);
     }
     public static void CreatePlan()
     {
@@ -30,7 +29,7 @@ public class MyFakeData
                 new TaskRef(Generator.GenerateId())
             }
         };
-        entityManager.Save(new List<Plan>() { plan });
+        EntityManager<Plan>.Save(new List<Plan>() { plan });
     }
 
     public static void Init()

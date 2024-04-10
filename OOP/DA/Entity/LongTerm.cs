@@ -6,6 +6,7 @@
 
     public DateTime To { get { return to; } set { to = value; } }
 
+    public LongTerm() { }
     public LongTerm(string title, string content,
         DateTime notiTime, DateTime from, DateTime to, bool isCompleted,
         bool isImportant, bool isRepeated)

@@ -2,8 +2,8 @@
 
 public class EntityManager<EntityType>
 {
-    private string path;
-    public EntityManager()
+    private static string path;
+    static EntityManager()
     {
         string type = typeof(EntityType).ToString();
 
@@ -20,14 +20,14 @@ public class EntityManager<EntityType>
                 break;
         }
     }
-    public List<EntityType>? GetAll()
+    public static List<EntityType>? GetAll()
     {
         string newjson = File.ReadAllText(path);
         List<EntityType>? res = JsonSerializer.Deserialize<List<EntityType>>(newjson);
         return res;
     }
 
-    public void Save(List<EntityType> entities)
+    public static void Save(IList<EntityType> entities)
     {
         JsonSerializerOptions jsonOption = new JsonSerializerOptions { WriteIndented = true };
         jsonOption.Converters.Add(new TaskConverter());
@@ -36,6 +36,6 @@ public class EntityManager<EntityType>
         File.WriteAllText(path, json);
     }
 
-    public EntityType? Get(object id) { return default; }
-    public void Delete(object id) { }
+    public static EntityType? Get(object id) { return default; }
+    public static void Delete(object id) { }
 }
