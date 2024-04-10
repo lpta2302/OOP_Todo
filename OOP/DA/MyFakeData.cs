@@ -13,7 +13,7 @@ public class MyFakeData
                 "Thức dậy rồi đánh răng thôi nào",
                 DateTime.Now.AddHours(1), false, false, false),
             new LongTerm("Learn Vocabulary","I have to learn vocabulary",
-                DateTime.Now,DateTime.Now,DateTime.Now.AddDays(30),false,false,false)
+                DateTime.Now,DateTime.Now,DateTime.Now.AddDays(30),false,false,false, new List<Detail>())
         };
         EntityManager<Task>.Save(tasks);
     }

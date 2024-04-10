@@ -5,11 +5,12 @@
     private DateTime to;
 
     public DateTime To { get { return to; } set { to = value; } }
+    public IList<Detail> Details { get; set; }
 
     public LongTerm() { }
     public LongTerm(string title, string content,
         DateTime notiTime, DateTime from, DateTime to, bool isCompleted,
-        bool isImportant, bool isRepeated)
+        bool isImportant, bool isRepeated, IList<Detail> details)
     {
         Title = title;
         Content = content;
@@ -19,5 +20,6 @@
         IsCompleted = isCompleted;
         IsImportant = isImportant;
         IsRepeated = isRepeated;
+        Details = details;
     }
 }
