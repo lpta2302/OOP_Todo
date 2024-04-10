@@ -1,6 +1,6 @@
-﻿public class LongTermCRUD : ITaskCRUD<LongTerm>
+﻿public class LongTermCRUD : TaskCRUD<LongTerm>
 {
-    public LongTerm Create(object[] args)
+    public override LongTerm? Create(object[] args)
     {
         LongTerm task = new LongTerm(
             (string)args[0],
@@ -19,40 +19,5 @@
         EntityManager<Task>.Save(GlobalData.CurrentTasks);
 
         return task;
-    }
-
-    public LongTerm Delete(object i)
-    {
-        Task? deletedTask = Util.FindTask((string)i);
-        if (deletedTask == null)
-            throw new Exception("Không tìm thấy task");
-
-        GlobalData.CurrentTasks.Remove(deletedTask);
-
-        EntityManager<Task>.Save(GlobalData.CurrentTasks);
-
-        return (LongTerm)deletedTask;
-    }
-
-    public LongTerm Read(object i)
-    {
-        Task? task = Util.FindTask((string)i);
-        if (task == null)
-            throw new Exception("Không tìm thấy task");
-        return (LongTerm)task;
-    }
-
-    public LongTerm Update(Task newTask)
-    {
-        Task? task = Util.FindTask(newTask.Id);
-
-        if (task == null)
-            throw new Exception("Không tìm thấy task");
-
-        task = newTask;
-        EntityManager<Task>.Save(GlobalData.CurrentTasks);
-
-        return (LongTerm)task;
-        throw new NotImplementedException();
     }
 }
