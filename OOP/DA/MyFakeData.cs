@@ -12,7 +12,7 @@ public class MyFakeData
             new ShortTerm("Đánh răng thôi",
                 "Thức dậy rồi đánh răng thôi nào",
                 DateTime.Now.AddHours(1), false, false, false),
-            new LongTerm("Learn Vocabulary","I have to learn vocabulary",
+            new LongTerm("Learn Vocabulary","I have to learn vocabulary",Generator.GenerateId(),
                 DateTime.Now,DateTime.Now,DateTime.Now.AddDays(30),false,false,false, new List<Detail>())
         };
         EntityManager<Task>.Save(tasks);

@@ -5,12 +5,13 @@
         LongTerm task = new LongTerm(
             (string)args[0],
             (string)args[1],
-            (DateTime)args[2],
+            (string)args[2],
             (DateTime)args[3],
             (DateTime)args[4],
-            (bool)args[5],
+            (DateTime)args[5],
             (bool)args[6],
             (bool)args[7],
+            (bool)args[8],
             new List<Detail>()
         );
 

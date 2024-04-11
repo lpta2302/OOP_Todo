@@ -23,7 +23,9 @@ public class EntityManager<EntityType>
     public static List<EntityType>? GetAll()
     {
         string newjson = File.ReadAllText(path);
-        List<EntityType>? res = JsonSerializer.Deserialize<List<EntityType>>(newjson);
+        JsonSerializerOptions jsonOption = new JsonSerializerOptions();
+        jsonOption.Converters.Add(new TaskConverter());
+        List<EntityType>? res = JsonSerializer.Deserialize<List<EntityType>>(newjson,jsonOption);
         return res;
     }
 

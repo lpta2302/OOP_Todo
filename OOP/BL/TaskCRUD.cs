@@ -1,6 +1,5 @@
 ﻿public abstract class TaskCRUD<TaskType>
 {
-    protected EntityManager<Task> entityManager = new EntityManager<Task>();
     public abstract TaskType? Create(object[] args);
     public TaskType? Delete(object i)
     {
@@ -18,8 +17,10 @@
     public TaskType? Read(object i)
     {
         Task? task = Util.FindTask((string)i);
+        
         if (task == null)
             throw new Exception("Không tìm thấy task");
+
         return TypeConverter.Convert<Task, TaskType>(task);
     }
 
@@ -34,6 +35,5 @@
         EntityManager<Task>.Save(GlobalData.CurrentTasks);
 
         return TypeConverter.Convert<Task, TaskType>(task);
-        throw new NotImplementedException();
     }
 }

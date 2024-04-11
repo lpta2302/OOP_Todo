@@ -11,4 +11,15 @@
         }
         return null;
     }
+    public static Plan? FindPlan(string key)
+    {
+        int id = 0;
+        foreach (Plan plan in GlobalData.CurrentPlans)
+        {
+            if (plan.Id.Equals(key))
+                return plan;
+            id++;
+        }
+        return null;
+    }
 }

@@ -9,21 +9,29 @@ public class TaskConverter : JsonConverter<Task>
         using (JsonDocument doc = JsonDocument.ParseValue(ref reader))
         {
             JsonElement obj = doc.RootElement;
-
-            // Determine the actual type of task based on the discriminator property
-            string taskType = obj.GetProperty("TaskType").GetString();
             Task task;
-            switch (taskType)
+
+            if (obj.TryGetProperty("PlanId", out JsonElement value))
             {
-                case "ShortTerm":
-                    task = JsonSerializer.Deserialize<ShortTerm>(obj.GetRawText(), options);
-                    break;
-                case "LongTerm":
-                    task = JsonSerializer.Deserialize<LongTerm>(obj.GetRawText(), options);
-                    break;
-                default:
-                    throw new JsonException("Unknown task type.");
+                task = JsonSerializer.Deserialize<LongTerm>(obj.GetRawText(), options)!;
             }
+            else
+            {
+                task = JsonSerializer.Deserialize<ShortTerm>(obj.GetRawText(), options)!;
+            }
+
+
+            // switch (taskType)
+            // {
+            //     case "ShortTerm":
+            //         task = JsonSerializer.Deserialize<ShortTerm>(obj.GetRawText(), options);
+            //         break;
+            //     case "LongTerm":
+            //         task = JsonSerializer.Deserialize<LongTerm>(obj.GetRawText(), options);
+            //         break;
+            //     default:
+            //         throw new JsonException("Unknown task type.");
+            // }
 
             return task;
         }
