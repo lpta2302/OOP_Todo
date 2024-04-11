@@ -1,6 +1,4 @@
-﻿using System.Runtime.Serialization;
-
-public class ShortTerm : Task
+﻿public class ShortTerm : Task
 {
     public ShortTerm(string title, string content,
         DateTime notiTime, bool isCompleted,
