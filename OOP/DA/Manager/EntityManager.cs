@@ -28,7 +28,7 @@ public class EntityManager<EntityType>
         List<EntityType>? res = JsonSerializer.Deserialize<List<EntityType>>(newjson,jsonOption);
         return res;
     }
-
+    
     public static void Save(IList<EntityType> entities)
     {
         JsonSerializerOptions jsonOption = new JsonSerializerOptions { WriteIndented = true };

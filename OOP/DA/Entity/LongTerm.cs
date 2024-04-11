@@ -1,4 +1,6 @@
-﻿public class LongTerm : Task
+﻿using System.ComponentModel.DataAnnotations;
+
+public class LongTerm : Task
 {
     public string PlanId { get; set; }
     private DateTime from;
@@ -7,20 +9,17 @@
     public DateTime To { get { return to; } set { to = value; } }
     public IList<Detail> Details { get; set; }
 
-    public LongTerm() { }
+    public LongTerm() { 
+        Details = new List<Detail>();
+    }
     public LongTerm(string title, string planId, string content,
         DateTime notiTime, DateTime from, DateTime to, bool isCompleted,
-        bool isImportant, bool isRepeated, IList<Detail> details)
+        bool isImportant, bool isRepeated, IList<Detail> details, DateTime? endTime = null)
+        : base(title, content, notiTime, isCompleted, isImportant, isRepeated, endTime)
     {
-        Title = title;
-        Content = content;
         PlanId = planId;
-        NotiTime = notiTime;
         From = from;
         To = to;
-        IsCompleted = isCompleted;
-        IsImportant = isImportant;
-        IsRepeated = isRepeated;
         Details = details;
     }
     public override string ToString()

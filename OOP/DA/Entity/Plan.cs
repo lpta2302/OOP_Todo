@@ -39,6 +39,10 @@ public class Plan : ISerializable
         List<TaskRef> tasksArray = info.GetValue("tasks", typeof(List<TaskRef>)) as List<TaskRef>;
     }
 
+    public void AddTask(Task task)
+    {
+        Tasks.Add(new TaskRef(task.Id));
+    }
     public void AddTask(string id)
     {
         Tasks.Add(new TaskRef(id));
