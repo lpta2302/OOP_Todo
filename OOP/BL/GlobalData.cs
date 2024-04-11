@@ -3,6 +3,7 @@
 public class GlobalData
 {
     public static IList<Task> CurrentTasks { get; set; }
+
     public static IList<Plan> CurrentPlans { get; set; }
     static GlobalData()
     {
