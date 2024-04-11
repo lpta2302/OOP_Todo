@@ -1,4 +1,6 @@
-﻿namespace Name
+﻿using OOP.BL;
+
+namespace Name
 {
     class Program
     {
