@@ -1,5 +1,16 @@
-﻿public class LongTermCRUD : TaskCRUD<LongTerm>
+﻿public class LongTermCRUD : TaskCRUD
 {
+    public static LongTermCRUD Instance
+    {
+        get
+        {
+            if (instance == null)
+            {
+                return new LongTermCRUD();
+            }
+            return (LongTermCRUD)instance;
+        }
+    }
     public override LongTerm? Create(object[] args)
     {
         LongTerm task = new LongTerm(

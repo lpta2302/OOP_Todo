@@ -36,35 +36,25 @@ public abstract class Task : ISerializable
     public bool IsImportant { get; set; }
     public bool IsRepeated { get; set; }
 
-    public void GetObjectData(SerializationInfo info, StreamingContext context)
+    public virtual void GetObjectData(SerializationInfo info, StreamingContext context)
     {
-        info.AddValue("id", Id);
-        info.AddValue("title", Title);
-        info.AddValue("content", Content);
-        info.AddValue("createdAt", CreatedAt);
-        info.AddValue("notiTime", NotiTime);
-        info.AddValue("endTime", EndTime);
-        info.AddValue("isCompleted", IsCompleted);
-        info.AddValue("isImportant", IsImportant);
-        info.AddValue("isRepeated", IsRepeated);
+        info.AddValue("Id", Id);
+        info.AddValue("Title", Title);
+        info.AddValue("Content", Content);
+        info.AddValue("CreatedAt", CreatedAt);
+        info.AddValue("NotiTime", NotiTime);
+        info.AddValue("EndTime", EndTime);
+        info.AddValue("IsCompleted", IsCompleted);
+        info.AddValue("IsImportant", IsImportant);
+        info.AddValue("IsRepeated", IsRepeated);
     }
-    public Task(SerializationInfo info, StreamingContext context)
-    {
-        Id = info.GetString("id")!;
-        Title = info.GetString("title")!;
-        Content = info.GetString("content")!;
-        CreatedAt = info.GetDateTime("createdAt");
-        NotiTime = info.GetDateTime("notiTime");
-        NotiTime = info.GetDateTime("endTime");
-        IsCompleted = info.GetBoolean("isCompleted");
-        IsImportant = info.GetBoolean("isImportant");
-        IsRepeated = info.GetBoolean("isRepeated");
-    }
+
     protected Task()
     {
         Id = Generator.GenerateId();
         CreatedAt = DateTime.Now;
         Content = "";
+        Title = "";
         IsCompleted = false;
         IsImportant = false;
         IsRepeated = false;

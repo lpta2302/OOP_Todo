@@ -7,4 +7,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="BL/Filter/Search/" />
+    <Folder Include="BL/Shared/" />
+  </ItemGroup>
+
 </Project>

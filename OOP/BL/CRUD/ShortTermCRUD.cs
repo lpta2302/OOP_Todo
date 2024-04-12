@@ -1,5 +1,18 @@
-﻿public class ShortTermCRUD : TaskCRUD<ShortTerm>
+﻿public class ShortTermCRUD : TaskCRUD
 {
+    private ShortTermCRUD() { }
+    public static ShortTermCRUD Instance
+    {
+        get
+        {
+            if (instance == null)
+            {
+                return new ShortTermCRUD();
+            }
+            return (ShortTermCRUD)instance;
+        }
+    }
+
     public override ShortTerm? Create(object[] args)
     {
         ShortTerm task = new ShortTerm(

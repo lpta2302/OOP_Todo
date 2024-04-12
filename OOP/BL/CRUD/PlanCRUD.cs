@@ -1,5 +1,19 @@
-﻿public class PlanCRUD
+﻿public class PlanCRUD : CRUD<Plan>
 {
+    private static readonly PlanCRUD instance;
+
+    public static PlanCRUD Instance
+    {
+        get
+        {
+            if (instance == null)
+                return new PlanCRUD();
+            return instance;
+        }
+    }
+
+    private PlanCRUD() { }
+
     public Plan? Create(object[] args)
     {
         Plan newPlan = new Plan(
@@ -13,6 +27,16 @@
 
         return newPlan;
     }
+
+    public Plan Create(Plan newTask)
+    {
+        GlobalData.CurrentPlans.Add(newTask);
+
+        EntityManager<Plan>.Save(GlobalData.CurrentPlans);
+
+        return newTask;
+    }
+
     public Plan? Delete(object i)
     {
         Plan? deletedPlan = Util.FindPlan((string)i);

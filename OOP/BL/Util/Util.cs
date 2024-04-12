@@ -1,4 +1,7 @@
-﻿public class Util
+﻿using System.Reflection;
+using System.Text;
+
+public class Util
 {
     public static Task? FindTask(string key)
     {
@@ -21,5 +24,18 @@
             id++;
         }
         return null;
+    }
+    public static void CoppyClass<T>(T intiInstance, T coppiedInstance)
+    {
+        Type type = typeof(T);
+
+        PropertyInfo[] props = type.GetProperties();
+        foreach (PropertyInfo prop in props)
+        {
+            if (prop.CanWrite)
+            {
+                prop.SetValue(coppiedInstance, prop.GetValue(intiInstance));
+            }
+        }
     }
 }

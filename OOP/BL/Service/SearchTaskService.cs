@@ -1,8 +1,8 @@
-﻿public class SearchTask
+﻿public class SearchTaskService
 {
     public enum SearchType { ByID, ByTitle, ByNotiDate }
 
-    private delegate void SearchDel(object key, Task task, ref bool accumulate);
+    private delegate bool SearchDel(object key, Task task);
 
     public List<Task>? Search(object key, SearchType searchType, IList<Task>? tasks = null)
     {
@@ -14,10 +14,8 @@
 
         foreach (Task item in tasks)
         {
-            bool checker = true;
-            searchDel(key, item, ref checker);
 
-            if (checker)
+            if (searchDel(key, item))
             {
                 res.Add(item);
             }
@@ -29,39 +27,31 @@
     //Create SearchDelegate by type
     private SearchDel? CreateSearchDel(SearchType searchType)
     {
-        SearchDel? searcher = null;
-
         switch (searchType)
         {
             case SearchType.ByID:
-                searcher += SearchById;
-                break;
+                return new SearchDel(SearchById);
             case SearchType.ByTitle:
-                searcher += SearchByTitle;
-                break;
+                return new SearchDel(SearchByTitle);
             case SearchType.ByNotiDate:
-                searcher += SearchByNotiDate;
-                break;
+                return new SearchDel(SearchByNotiDate);
             default: return null;
         }
-
-        return searcher;
     }
     //Search Term
-    private void SearchById(object key, Task task, ref bool accumulate)
+    private bool SearchById(object key, Task task)
     {
-        accumulate = task.Id.Contains((string)key) ? accumulate && true : false;
+        return task.Id.Contains(key.ToString()!) ? true : false;
     }
-    private void SearchByTitle(object key, Task task, ref bool accumulate)
+    private bool SearchByTitle(object key, Task task)
     {
-        accumulate = task.Title.Contains((string)key) ? accumulate && true : false;
+        return task.Title.ToLower().Contains(((string)key).ToLower()) ? true : false;
     }
-    private void SearchByNotiDate(object key, Task task, ref bool accumulate)
+    private bool SearchByNotiDate(object key, Task task)
     {
-        DateOnly keyDate = TypeConverter.Convert<object, DateOnly>(key);
+        DateTime keyDate = TypeConverter.Convert<object, DateTime>(key);
 
-        accumulate =
-            accumulate &&
+        return
             task.NotiTime.Day == keyDate.Day &&
             task.NotiTime.Month == keyDate.Month &&
             task.NotiTime.Year == keyDate.Year;

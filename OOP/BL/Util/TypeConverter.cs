@@ -4,7 +4,7 @@
     {
         if (x == null) return default;
         
-        if (typeof(ResType).IsAssignableFrom(typeof(ParamType)))
+        if (typeof(ResType).IsAssignableFrom(typeof(ParamType)) || x is ResType)
         {
             return (ResType)(object)x;
         }

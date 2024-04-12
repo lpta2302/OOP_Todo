@@ -1,7 +1,18 @@
-﻿public abstract class TaskCRUD<TaskType>
+﻿public abstract class TaskCRUD : CRUD<Task>
 {
-    public abstract TaskType? Create(object[] args);
-    public TaskType? Delete(object i)
+    protected static TaskCRUD instance;
+
+    public abstract Task? Create(object[] args);
+    public Task Create(Task newTask)
+    {
+        GlobalData.CurrentTasks.Add(newTask);
+
+        EntityManager<Task>.Save(GlobalData.CurrentTasks);
+
+        return newTask;
+    }
+
+    public Task? Delete(object i)
     {
         Task? deletedTask = Util.FindTask((string)i);
         if (deletedTask == null)
@@ -11,29 +22,30 @@
 
         EntityManager<Task>.Save(GlobalData.CurrentTasks);
 
-        return TypeConverter.Convert<Task, TaskType>(deletedTask);
+        return deletedTask;
     }
 
-    public TaskType? Read(object i)
+    public Task Read(object i)
     {
         Task? task = Util.FindTask((string)i);
-        
+
         if (task == null)
             throw new Exception("Không tìm thấy task");
 
-        return TypeConverter.Convert<Task, TaskType>(task);
+        return task;
     }
 
-    public TaskType? Update(Task newTask)
+    public Task? Update(Task newTask)
     {
         Task? task = Util.FindTask(newTask.Id);
 
         if (task == null)
             throw new Exception("Không tìm thấy task");
 
-        task = newTask;
+        Util.CoppyClass(newTask, task);
+
         EntityManager<Task>.Save(GlobalData.CurrentTasks);
 
-        return TypeConverter.Convert<Task, TaskType>(task);
+        return task;
     }
 }

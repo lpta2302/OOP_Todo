@@ -1,4 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Runtime.Serialization;
 
 public class LongTerm : Task
 {
@@ -9,8 +9,18 @@ public class LongTerm : Task
     public DateTime To { get { return to; } set { to = value; } }
     public IList<Detail> Details { get; set; }
 
-    public LongTerm() { 
+    public LongTerm()
+    {
+        PlanId = "";
         Details = new List<Detail>();
+    }
+    public override void GetObjectData(SerializationInfo info, StreamingContext context)
+    {
+        base.GetObjectData(info, context);
+        info.AddValue("PlanId", PlanId);
+        info.AddValue("From", From);
+        info.AddValue("To", To);
+        info.AddValue("Details", Details);
     }
     public LongTerm(string title, string planId, string content,
         DateTime notiTime, DateTime from, DateTime to, bool isCompleted,
