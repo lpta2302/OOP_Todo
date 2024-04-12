@@ -20,6 +20,6 @@ public class ShortTerm : Task
     public ShortTerm() { }
     public override string ToString()
     {
-        return $"{Id},{Title}, ShortTerm";
+        return $"{Id},{Title},{(IsImportant ? "Important" : "")} ShortTerm";
     }
 }

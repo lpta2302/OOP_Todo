@@ -10,9 +10,16 @@ namespace Name
             SearchTaskService searchTask = new SearchTaskService();
             IList<Task>? tasks = searchTask.Search("Đi học", SearchTaskService.SearchType.ByTitle);
 
-            foreach (Task task in tasks)
+            if (tasks != null)
             {
-                Console.WriteLine(task);
+                foreach (Task task in tasks)
+                {
+                    Console.WriteLine(task);
+                }
+            }
+            else
+            {
+                Console.WriteLine("No tasks found.");
             }
         }
     }

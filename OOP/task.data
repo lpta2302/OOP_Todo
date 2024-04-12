@@ -74,6 +74,17 @@
     "EndTime": null,
     "IsCompleted": false,
     "IsImportant": false,
+    "IsRepeated": true
+  },
+  {
+    "Id": "33",
+    "Title": "Th\u1EE9c d\u1EADy",
+    "Content": "Bu\u1ED5i s\u00E1ng ph\u1EA3i th\u1EE9c d\u1EADy th\u00F4i n\u00E0o",
+    "CreatedAt": "2024-04-12T16:40:33.488996+07:00",
+    "NotiTime": "2024-07-27T16:40:33.488996+07:00",
+    "EndTime": null,
+    "IsCompleted": true,
+    "IsImportant": false,
     "IsRepeated": false
   },
   {
