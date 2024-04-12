@@ -7,12 +7,19 @@ namespace Name
         public static void Main()
         {
             MyFakeData.Init();
-            SearchTask searchTask = new SearchTask();
-            IList<Task>? tasks = searchTask.Search(Generator.GenerateId(), SearchTask.SearchType.ByID);
+            TaskFilter taskFilter = new TaskFilter();
+            IList<Task> tasks = taskFilter.FilterBy(TaskFilter.TaskType.IsImportance);
 
-            foreach (Task task in tasks)
+            if (tasks != null)
             {
-                Console.WriteLine(task);
+                foreach (Task task in tasks)
+                {
+                    Console.WriteLine(task);
+                }
+            }
+            else
+            {
+                Console.WriteLine("No tasks found.");
             }
         }
     }
