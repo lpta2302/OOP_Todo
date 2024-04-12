@@ -16,7 +16,7 @@ public class MyFakeData
                 habits[r.Next(0, 4)],
                 contents[r.Next(0, 4)],
                 DateTime.Now.AddDays(r.Next(0, 120)),
-                false,
+                r.Next(0, 20) == 0 ? false : true,
                 r.Next(0, 2) == 0 ? false : true,
                 r.Next(0, 5) == 0 ? true : false
             );
@@ -41,7 +41,7 @@ public class MyFakeData
             new DateTime(),
             DateTime.Now,
             DateTime.Now.AddDays(7),
-            false,false,false,
+            false,true,false,
             new List<Detail>(){
                 new Detail("Phân tích tính khả thôi"),
                 new Detail("Thu thập yêu cầu khách hàng"),

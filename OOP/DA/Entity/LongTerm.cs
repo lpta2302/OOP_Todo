@@ -9,9 +9,11 @@ public class LongTerm : Task
     public DateTime To { get { return to; } set { to = value; } }
     public IList<Detail> Details { get; set; }
 
-    public LongTerm() { 
+    public LongTerm()
+    {
         Details = new List<Detail>();
     }
+
     public LongTerm(string title, string planId, string content,
         DateTime notiTime, DateTime from, DateTime to, bool isCompleted,
         bool isImportant, bool isRepeated, IList<Detail> details, DateTime? endTime = null)

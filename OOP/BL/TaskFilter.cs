@@ -14,84 +14,91 @@ namespace OOP.BL
             ShortTerm,
             LongTerm,
             IsImportance,
-            IsComplete
+            IsComplete,
+            IsRepeated
         }
-        public delegate void ArrangeDelegate();
-        public List<Task> listTask;
-        public List<Task> FilterBy(TaskType taskType)
+        private delegate void ArrangeDelegate(Task task, ref bool accumulator);
+        public List<Task> DoFilter(TaskType taskType, IList<Task>? tasks = null)
         {
-            ArrangeDelegate arrangeDelegate = CreateFilterBy(taskType);
-            if (arrangeDelegate != null)
+            return FilterInternally(new[] { taskType }, tasks);
+        }
+        public List<Task> DoFilter(TaskType[] taskTypes, IList<Task>? tasks = null)
+        {
+            return FilterInternally(taskTypes, tasks);
+        }
+        private List<Task> FilterInternally(TaskType[] taskTypes, IList<Task>? tasks = null)
+        {
+            if (tasks == null)
+                tasks = GlobalData.CurrentTasks;
+
+            List<Task> res = new List<Task>();
+
+            ArrangeDelegate? arrangeDelegate = CreateFilterDel(taskTypes);
+
+            if (arrangeDelegate == null)
+                return new List<Task>();
+
+            foreach (Task task in tasks)
             {
-                arrangeDelegate();
+                bool checker = true;
+
+                arrangeDelegate(task, ref checker);
+
+                if (checker)
+                    res.Add(task);
             }
-            return listTask;
+
+            return res;
         }
 
-        public ArrangeDelegate CreateFilterBy(TaskType taskType)
+        private ArrangeDelegate? CreateFilterDel(TaskType[] taskTypes)
         {
             ArrangeDelegate? arrangeDelegate = null;
-            switch (taskType)
+
+            foreach (TaskType taskType in taskTypes)
             {
-                case TaskType.ShortTerm:
-                    arrangeDelegate += ArrangeByShortTerm;
-                    break;
-                case TaskType.LongTerm:
-                    arrangeDelegate += ArrangeByLongTerm;
-                    break;
-                case TaskType.IsImportance:
-                    arrangeDelegate += ArrangeByImportance;
-                    break;
-                case TaskType.IsComplete:
-                    arrangeDelegate += ArrangeByCompletion;
-                    break;
-                default: return null;
+                switch (taskType)
+                {
+                    case TaskType.ShortTerm:
+                        arrangeDelegate += ArrangeByShortTerm;
+                        break;
+                    case TaskType.LongTerm:
+                        arrangeDelegate += ArrangeByLongTerm;
+                        break;
+                    case TaskType.IsImportance:
+                        arrangeDelegate += ArrangeByImportance;
+                        break;
+                    case TaskType.IsComplete:
+                        arrangeDelegate += ArrangeByCompletion;
+                        break;
+                    case TaskType.IsRepeated:
+                        arrangeDelegate += ArrangeByRepeated;
+                        break;
+                    default:
+                        return arrangeDelegate;
+                }
             }
             return arrangeDelegate;
         }
-        public void ArrangeByShortTerm()
+        private void ArrangeByShortTerm(Task task, ref bool accumulator)
         {
-            listTask = new List<Task>();    
-            foreach ( Task task in GlobalData.CurrentTasks)
-            {
-                if ( task is ShortTerm)
-                {
-                    listTask.Add(task);
-                }
-            }
+            accumulator = accumulator && task is ShortTerm;
         }
-        public void ArrangeByLongTerm()
+        private void ArrangeByLongTerm(Task task, ref bool accumulator)
         {
-            listTask = new List<Task>();
-            foreach (Task task in GlobalData.CurrentTasks)
-            {
-                if (task is LongTerm)
-                {
-                    listTask.Add(task);
-                }
-            }
+            accumulator = accumulator && task is LongTerm;
         }
-        public void ArrangeByImportance()
+        private void ArrangeByImportance(Task task, ref bool accumulator)
         {
-            listTask = new List<Task>();
-            foreach (Task task in GlobalData.CurrentTasks)
-            {
-                if (task.IsImportant)
-                {
-                    listTask.Add(task);
-                }
-            }
+            accumulator = accumulator && task.IsImportant;
         }
-        public void ArrangeByCompletion()
+        private void ArrangeByCompletion(Task task, ref bool accumulator)
         {
-            listTask = new List<Task>();
-            foreach (Task task in GlobalData.CurrentTasks)
-            {
-                if (task.IsCompleted)
-                {
-                    listTask.Add(task);
-                }
-            }
+            accumulator = accumulator && task.IsCompleted;
+        }
+        private void ArrangeByRepeated(Task task, ref bool accumulator)
+        {
+            accumulator = accumulator && task.IsRepeated;
         }
     }
 }

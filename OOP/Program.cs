@@ -8,7 +8,7 @@ namespace Name
         {
             MyFakeData.Init();
             TaskFilter taskFilter = new TaskFilter();
-            IList<Task> tasks = taskFilter.FilterBy(TaskFilter.TaskType.IsImportance);
+            IList<Task> tasks = taskFilter.DoFilter(TaskFilter.TaskType.IsImportance);
 
             if (tasks != null)
             {
