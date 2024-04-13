@@ -1,8 +1,8 @@
 namespace TODO
 {
-    public partial class Form1 : Form
+    public partial class frmMyDay : Form
     {
-        public Form1()
+        public frmMyDay()
         {
             InitializeComponent();
         }

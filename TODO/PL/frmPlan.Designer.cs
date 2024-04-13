@@ -44,22 +44,21 @@
             button13 = new Button();
             panel1 = new Panel();
             panel4 = new Panel();
+            label3 = new Label();
             pnlDayBox = new Panel();
+            btnNext = new Button();
+            btnPrevious = new Button();
             pnlWeek = new Panel();
-            button19 = new Button();
-            button18 = new Button();
-            button17 = new Button();
-            button16 = new Button();
-            button15 = new Button();
-            button14 = new Button();
-            button10 = new Button();
-            dateTimePicker1 = new DateTimePicker();
+            Sar = new Button();
+            Sun = new Button();
+            Tue = new Button();
+            Wed = new Button();
+            Thu = new Button();
+            Fri = new Button();
+            Mon = new Button();
+            dtpkDate = new DateTimePicker();
             pictureBox2 = new PictureBox();
             label2 = new Label();
-            button9 = new Button();
-            button8 = new Button();
-            button7 = new Button();
-            button6 = new Button();
             panel3 = new Panel();
             panel8 = new Panel();
             panel10 = new Panel();
@@ -72,6 +71,7 @@
             panel9.SuspendLayout();
             panel1.SuspendLayout();
             panel4.SuspendLayout();
+            pnlDayBox.SuspendLayout();
             pnlWeek.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             panel3.SuspendLayout();
@@ -211,7 +211,7 @@
             // 
             // button1
             // 
-            button1.BackColor = Color.DeepSkyBlue;
+            button1.BackColor = Color.Gainsboro;
             button1.FlatAppearance.BorderSize = 0;
             button1.FlatStyle = FlatStyle.Flat;
             button1.Image = Properties.Resources.magnifying_glass;
@@ -279,124 +279,167 @@
             panel4.BackColor = Color.Transparent;
             panel4.BackgroundImage = Properties.Resources.background;
             panel4.BackgroundImageLayout = ImageLayout.Stretch;
+            panel4.Controls.Add(label3);
             panel4.Controls.Add(pnlDayBox);
             panel4.Controls.Add(pnlWeek);
-            panel4.Controls.Add(dateTimePicker1);
+            panel4.Controls.Add(dtpkDate);
             panel4.Controls.Add(pictureBox2);
             panel4.Controls.Add(label2);
-            panel4.Controls.Add(button9);
-            panel4.Controls.Add(button8);
-            panel4.Controls.Add(button7);
-            panel4.Controls.Add(button6);
             panel4.Location = new Point(300, 0);
             panel4.Margin = new Padding(0);
             panel4.Name = "panel4";
             panel4.Size = new Size(885, 778);
             panel4.TabIndex = 2;
             // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.BackColor = Color.Transparent;
+            label3.Font = new Font("Segoe UI", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point);
+            label3.ForeColor = Color.White;
+            label3.ImageAlign = ContentAlignment.MiddleLeft;
+            label3.Location = new Point(11, 194);
+            label3.Name = "label3";
+            label3.Size = new Size(197, 46);
+            label3.TabIndex = 9;
+            label3.Text = "April, 2024";
+            label3.TextAlign = ContentAlignment.MiddleRight;
+            // 
             // pnlDayBox
             // 
             pnlDayBox.BackColor = Color.Transparent;
-            pnlDayBox.Location = new Point(0, 328);
+            pnlDayBox.Controls.Add(btnNext);
+            pnlDayBox.Controls.Add(btnPrevious);
+            pnlDayBox.Location = new Point(11, 328);
             pnlDayBox.Margin = new Padding(0);
             pnlDayBox.Name = "pnlDayBox";
-            pnlDayBox.Size = new Size(885, 450);
+            pnlDayBox.Size = new Size(874, 450);
             pnlDayBox.TabIndex = 8;
+            // 
+            // btnNext
+            // 
+            btnNext.FlatAppearance.BorderColor = Color.Black;
+            btnNext.FlatAppearance.BorderSize = 2;
+            btnNext.FlatStyle = FlatStyle.Flat;
+            btnNext.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
+            btnNext.Location = new Point(812, 321);
+            btnNext.Name = "btnNext";
+            btnNext.Size = new Size(50, 50);
+            btnNext.TabIndex = 2;
+            btnNext.Text = ">";
+            btnNext.TextAlign = ContentAlignment.MiddleRight;
+            btnNext.UseVisualStyleBackColor = true;
+            btnNext.Click += btnNext_Click;
+            // 
+            // btnPrevious
+            // 
+            btnPrevious.FlatAppearance.BorderColor = Color.Black;
+            btnPrevious.FlatAppearance.BorderSize = 2;
+            btnPrevious.FlatStyle = FlatStyle.Flat;
+            btnPrevious.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
+            btnPrevious.Location = new Point(0, 321);
+            btnPrevious.Name = "btnPrevious";
+            btnPrevious.Size = new Size(50, 50);
+            btnPrevious.TabIndex = 1;
+            btnPrevious.Text = "<";
+            btnPrevious.TextAlign = ContentAlignment.MiddleLeft;
+            btnPrevious.UseVisualStyleBackColor = true;
+            btnPrevious.Click += btnPrevious_Click;
             // 
             // pnlWeek
             // 
             pnlWeek.BackColor = Color.Transparent;
-            pnlWeek.Controls.Add(button19);
-            pnlWeek.Controls.Add(button18);
-            pnlWeek.Controls.Add(button17);
-            pnlWeek.Controls.Add(button16);
-            pnlWeek.Controls.Add(button15);
-            pnlWeek.Controls.Add(button14);
-            pnlWeek.Controls.Add(button10);
+            pnlWeek.Controls.Add(Sar);
+            pnlWeek.Controls.Add(Sun);
+            pnlWeek.Controls.Add(Tue);
+            pnlWeek.Controls.Add(Wed);
+            pnlWeek.Controls.Add(Thu);
+            pnlWeek.Controls.Add(Fri);
+            pnlWeek.Controls.Add(Mon);
             pnlWeek.Location = new Point(0, 260);
             pnlWeek.Margin = new Padding(0);
             pnlWeek.Name = "pnlWeek";
             pnlWeek.Size = new Size(885, 68);
             pnlWeek.TabIndex = 7;
             // 
-            // button19
+            // Sar
             // 
-            button19.Location = new Point(631, 3);
-            button19.Name = "button19";
-            button19.Size = new Size(118, 64);
-            button19.TabIndex = 6;
-            button19.Text = "Sar";
-            button19.UseVisualStyleBackColor = true;
+            Sar.Location = new Point(631, 3);
+            Sar.Name = "Sar";
+            Sar.Size = new Size(118, 64);
+            Sar.TabIndex = 6;
+            Sar.Text = "Sar";
+            Sar.UseVisualStyleBackColor = true;
             // 
-            // button18
+            // Sun
             // 
-            button18.Location = new Point(755, 3);
-            button18.Name = "button18";
-            button18.Size = new Size(118, 64);
-            button18.TabIndex = 5;
-            button18.Text = "Sun";
-            button18.UseVisualStyleBackColor = true;
+            Sun.Location = new Point(755, 3);
+            Sun.Name = "Sun";
+            Sun.Size = new Size(118, 64);
+            Sun.TabIndex = 5;
+            Sun.Text = "Sun";
+            Sun.UseVisualStyleBackColor = true;
             // 
-            // button17
+            // Tue
             // 
-            button17.Location = new Point(135, 3);
-            button17.Name = "button17";
-            button17.Size = new Size(118, 64);
-            button17.TabIndex = 4;
-            button17.Text = "Tue";
-            button17.UseVisualStyleBackColor = true;
+            Tue.Location = new Point(135, 3);
+            Tue.Name = "Tue";
+            Tue.Size = new Size(118, 64);
+            Tue.TabIndex = 4;
+            Tue.Text = "Tue";
+            Tue.UseVisualStyleBackColor = true;
             // 
-            // button16
+            // Wed
             // 
-            button16.Location = new Point(259, 3);
-            button16.Name = "button16";
-            button16.Size = new Size(118, 64);
-            button16.TabIndex = 3;
-            button16.Text = "Wed";
-            button16.UseVisualStyleBackColor = true;
+            Wed.Location = new Point(259, 3);
+            Wed.Name = "Wed";
+            Wed.Size = new Size(118, 64);
+            Wed.TabIndex = 3;
+            Wed.Text = "Wed";
+            Wed.UseVisualStyleBackColor = true;
             // 
-            // button15
+            // Thu
             // 
-            button15.BackColor = Color.Transparent;
-            button15.Location = new Point(383, 3);
-            button15.Name = "button15";
-            button15.Size = new Size(118, 64);
-            button15.TabIndex = 2;
-            button15.Text = "Thu";
-            button15.UseVisualStyleBackColor = false;
+            Thu.BackColor = Color.Transparent;
+            Thu.Location = new Point(383, 3);
+            Thu.Name = "Thu";
+            Thu.Size = new Size(118, 64);
+            Thu.TabIndex = 2;
+            Thu.Text = "Thu";
+            Thu.UseVisualStyleBackColor = false;
             // 
-            // button14
+            // Fri
             // 
-            button14.Location = new Point(507, 3);
-            button14.Name = "button14";
-            button14.Size = new Size(118, 64);
-            button14.TabIndex = 1;
-            button14.Text = "Fri";
-            button14.UseVisualStyleBackColor = true;
+            Fri.Location = new Point(507, 3);
+            Fri.Name = "Fri";
+            Fri.Size = new Size(118, 64);
+            Fri.TabIndex = 1;
+            Fri.Text = "Fri";
+            Fri.UseVisualStyleBackColor = true;
             // 
-            // button10
+            // Mon
             // 
-            button10.BackgroundImageLayout = ImageLayout.Stretch;
-            button10.FlatAppearance.BorderSize = 0;
-            button10.Location = new Point(11, 3);
-            button10.Name = "button10";
-            button10.Size = new Size(118, 64);
-            button10.TabIndex = 0;
-            button10.Text = "Mon";
-            button10.UseVisualStyleBackColor = true;
+            Mon.BackgroundImageLayout = ImageLayout.Stretch;
+            Mon.FlatAppearance.BorderSize = 0;
+            Mon.Location = new Point(11, 3);
+            Mon.Name = "Mon";
+            Mon.Size = new Size(118, 64);
+            Mon.TabIndex = 0;
+            Mon.Text = "Mon";
+            Mon.UseVisualStyleBackColor = true;
             // 
-            // dateTimePicker1
+            // dtpkDate
             // 
-            dateTimePicker1.Location = new Point(56, 100);
-            dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(229, 27);
-            dateTimePicker1.TabIndex = 6;
+            dtpkDate.Location = new Point(56, 80);
+            dtpkDate.Name = "dtpkDate";
+            dtpkDate.Size = new Size(229, 27);
+            dtpkDate.TabIndex = 6;
             // 
             // pictureBox2
             // 
             pictureBox2.BackColor = Color.Transparent;
             pictureBox2.Image = Properties.Resources.calendar_dots_white;
-            pictureBox2.Location = new Point(13, 31);
+            pictureBox2.Location = new Point(11, 26);
             pictureBox2.Name = "pictureBox2";
             pictureBox2.Size = new Size(40, 40);
             pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -407,72 +450,15 @@
             // 
             label2.AutoSize = true;
             label2.BackColor = Color.Transparent;
-            label2.Font = new Font("Segoe UI", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point);
+            label2.Font = new Font("Segoe UI", 28.2F, FontStyle.Bold, GraphicsUnit.Point);
             label2.ForeColor = Color.White;
             label2.ImageAlign = ContentAlignment.MiddleLeft;
-            label2.Location = new Point(56, 25);
+            label2.Location = new Point(56, 15);
             label2.Name = "label2";
-            label2.Size = new Size(150, 46);
+            label2.Size = new Size(204, 62);
             label2.TabIndex = 4;
             label2.Text = "Planned";
             label2.TextAlign = ContentAlignment.MiddleRight;
-            // 
-            // button9
-            // 
-            button9.BackColor = Color.SteelBlue;
-            button9.FlatAppearance.BorderSize = 0;
-            button9.FlatStyle = FlatStyle.Popup;
-            button9.Font = new Font("Segoe UI Black", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
-            button9.ForeColor = Color.White;
-            button9.Location = new Point(828, 100);
-            button9.Name = "button9";
-            button9.Size = new Size(45, 45);
-            button9.TabIndex = 3;
-            button9.Text = "+";
-            button9.TextAlign = ContentAlignment.TopCenter;
-            button9.UseVisualStyleBackColor = false;
-            // 
-            // button8
-            // 
-            button8.BackColor = Color.SteelBlue;
-            button8.FlatAppearance.BorderSize = 0;
-            button8.FlatStyle = FlatStyle.Popup;
-            button8.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            button8.ForeColor = Color.White;
-            button8.Location = new Point(719, 161);
-            button8.Name = "button8";
-            button8.Size = new Size(154, 41);
-            button8.TabIndex = 2;
-            button8.Text = "Uncompleted";
-            button8.UseVisualStyleBackColor = false;
-            // 
-            // button7
-            // 
-            button7.BackColor = Color.SteelBlue;
-            button7.FlatAppearance.BorderSize = 0;
-            button7.FlatStyle = FlatStyle.Popup;
-            button7.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            button7.ForeColor = Color.White;
-            button7.Location = new Point(559, 161);
-            button7.Name = "button7";
-            button7.Size = new Size(154, 41);
-            button7.TabIndex = 1;
-            button7.Text = "Completed";
-            button7.UseVisualStyleBackColor = false;
-            // 
-            // button6
-            // 
-            button6.BackColor = Color.SteelBlue;
-            button6.FlatAppearance.BorderSize = 0;
-            button6.FlatStyle = FlatStyle.Popup;
-            button6.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            button6.ForeColor = Color.White;
-            button6.Location = new Point(399, 161);
-            button6.Name = "button6";
-            button6.Size = new Size(154, 41);
-            button6.TabIndex = 0;
-            button6.Text = "All";
-            button6.UseVisualStyleBackColor = false;
             // 
             // panel3
             // 
@@ -535,7 +521,6 @@
             // panel11
             // 
             panel11.BackColor = Color.White;
-            panel11.BorderStyle = BorderStyle.FixedSingle;
             panel11.Controls.Add(button13);
             panel11.Controls.Add(label6);
             panel11.Location = new Point(15, 280);
@@ -573,6 +558,7 @@
             panel1.ResumeLayout(false);
             panel4.ResumeLayout(false);
             panel4.PerformLayout();
+            pnlDayBox.ResumeLayout(false);
             pnlWeek.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             panel3.ResumeLayout(false);
@@ -601,13 +587,9 @@
         private Button button13;
         private Panel panel1;
         private Panel panel4;
-        private DateTimePicker dateTimePicker1;
+        private DateTimePicker dtpkDate;
         private PictureBox pictureBox2;
         private Label label2;
-        private Button button9;
-        private Button button8;
-        private Button button7;
-        private Button button6;
         private Panel panel3;
         private Panel panel8;
         private Panel panel10;
@@ -616,14 +598,17 @@
         private Panel panel11;
         private Label label6;
         private Panel pnlWeek;
-        private Button button17;
-        private Button button16;
-        private Button button15;
-        private Button button14;
-        private Button button10;
+        private Button Tue;
+        private Button Wed;
+        private Button Thu;
+        private Button Fri;
+        private Button Mon;
         private Panel pnlDayBox;
-        private Button button19;
-        private Button button18;
+        private Button Sar;
+        private Button Sun;
         private Button button20;
+        private Label label3;
+        private Button btnNext;
+        private Button btnPrevious;
     }
 }

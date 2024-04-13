@@ -203,6 +203,16 @@ namespace TODO.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap sun_white {
+            get {
+                object obj = ResourceManager.GetObject("sun-white", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap sun1 {
             get {
                 object obj = ResourceManager.GetObject("sun1", resourceCulture);

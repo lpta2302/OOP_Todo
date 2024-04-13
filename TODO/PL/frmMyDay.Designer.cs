@@ -1,6 +1,6 @@
 ﻿namespace TODO
 {
-    partial class Form1
+    partial class frmMyDay
     {
         /// <summary>
         ///  Required designer variable.
@@ -28,19 +28,23 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMyDay));
             panel1 = new Panel();
             panel4 = new Panel();
+            button17 = new Button();
+            button16 = new Button();
             panel6 = new Panel();
+            pictureBox4 = new PictureBox();
             button14 = new Button();
             label7 = new Label();
             panel7 = new Panel();
+            pictureBox5 = new PictureBox();
             button15 = new Button();
             label8 = new Label();
             panel5 = new Panel();
+            pictureBox3 = new PictureBox();
             button10 = new Button();
             label3 = new Label();
-            dateTimePicker1 = new DateTimePicker();
             pictureBox2 = new PictureBox();
             label2 = new Label();
             button9 = new Button();
@@ -68,11 +72,15 @@
             button1 = new Button();
             textBox1 = new TextBox();
             pictureBox1 = new PictureBox();
+            label9 = new Label();
             panel1.SuspendLayout();
             panel4.SuspendLayout();
             panel6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             panel7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
             panel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             panel3.SuspendLayout();
             panel8.SuspendLayout();
@@ -98,10 +106,12 @@
             panel4.BackColor = Color.White;
             panel4.BackgroundImage = Properties.Resources.background;
             panel4.BackgroundImageLayout = ImageLayout.Stretch;
+            panel4.Controls.Add(label9);
+            panel4.Controls.Add(button17);
+            panel4.Controls.Add(button16);
             panel4.Controls.Add(panel6);
             panel4.Controls.Add(panel7);
             panel4.Controls.Add(panel5);
-            panel4.Controls.Add(dateTimePicker1);
             panel4.Controls.Add(pictureBox2);
             panel4.Controls.Add(label2);
             panel4.Controls.Add(button9);
@@ -114,11 +124,40 @@
             panel4.Size = new Size(885, 778);
             panel4.TabIndex = 3;
             // 
+            // button17
+            // 
+            button17.BackColor = Color.FromArgb(34, 34, 34);
+            button17.FlatAppearance.BorderSize = 0;
+            button17.FlatStyle = FlatStyle.Popup;
+            button17.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            button17.ForeColor = Color.White;
+            button17.Location = new Point(239, 161);
+            button17.Name = "button17";
+            button17.Size = new Size(154, 41);
+            button17.TabIndex = 10;
+            button17.Text = "Mini Task";
+            button17.UseVisualStyleBackColor = false;
+            // 
+            // button16
+            // 
+            button16.BackColor = Color.FromArgb(34, 34, 34);
+            button16.FlatAppearance.BorderSize = 0;
+            button16.FlatStyle = FlatStyle.Popup;
+            button16.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            button16.ForeColor = Color.White;
+            button16.Location = new Point(79, 161);
+            button16.Name = "button16";
+            button16.Size = new Size(154, 41);
+            button16.TabIndex = 9;
+            button16.Text = "Alert";
+            button16.UseVisualStyleBackColor = false;
+            // 
             // panel6
             // 
             panel6.BackColor = Color.Transparent;
             panel6.BackgroundImage = Properties.Resources.task;
             panel6.BackgroundImageLayout = ImageLayout.Stretch;
+            panel6.Controls.Add(pictureBox4);
             panel6.Controls.Add(button14);
             panel6.Controls.Add(label7);
             panel6.Location = new Point(13, 443);
@@ -126,6 +165,16 @@
             panel6.Name = "panel6";
             panel6.Size = new Size(860, 99);
             panel6.TabIndex = 8;
+            // 
+            // pictureBox4
+            // 
+            pictureBox4.Image = Properties.Resources.star;
+            pictureBox4.Location = new Point(799, 29);
+            pictureBox4.Name = "pictureBox4";
+            pictureBox4.Size = new Size(40, 40);
+            pictureBox4.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox4.TabIndex = 3;
+            pictureBox4.TabStop = false;
             // 
             // button14
             // 
@@ -157,6 +206,7 @@
             panel7.BackColor = Color.Transparent;
             panel7.BackgroundImage = Properties.Resources.task;
             panel7.BackgroundImageLayout = ImageLayout.Stretch;
+            panel7.Controls.Add(pictureBox5);
             panel7.Controls.Add(button15);
             panel7.Controls.Add(label8);
             panel7.Location = new Point(13, 567);
@@ -164,6 +214,16 @@
             panel7.Name = "panel7";
             panel7.Size = new Size(860, 99);
             panel7.TabIndex = 8;
+            // 
+            // pictureBox5
+            // 
+            pictureBox5.Image = Properties.Resources.star_fill;
+            pictureBox5.Location = new Point(799, 33);
+            pictureBox5.Name = "pictureBox5";
+            pictureBox5.Size = new Size(40, 40);
+            pictureBox5.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox5.TabIndex = 4;
+            pictureBox5.TabStop = false;
             // 
             // button15
             // 
@@ -195,6 +255,7 @@
             panel5.BackColor = Color.Transparent;
             panel5.BackgroundImage = Properties.Resources.task;
             panel5.BackgroundImageLayout = ImageLayout.Stretch;
+            panel5.Controls.Add(pictureBox3);
             panel5.Controls.Add(button10);
             panel5.Controls.Add(label3);
             panel5.Location = new Point(13, 319);
@@ -202,6 +263,16 @@
             panel5.Name = "panel5";
             panel5.Size = new Size(860, 99);
             panel5.TabIndex = 7;
+            // 
+            // pictureBox3
+            // 
+            pictureBox3.Image = Properties.Resources.star;
+            pictureBox3.Location = new Point(799, 33);
+            pictureBox3.Name = "pictureBox3";
+            pictureBox3.Size = new Size(40, 40);
+            pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox3.TabIndex = 2;
+            pictureBox3.TabStop = false;
             // 
             // button10
             // 
@@ -228,18 +299,11 @@
             label3.Text = "To do list";
             label3.TextAlign = ContentAlignment.MiddleLeft;
             // 
-            // dateTimePicker1
-            // 
-            dateTimePicker1.Location = new Point(56, 100);
-            dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(229, 27);
-            dateTimePicker1.TabIndex = 6;
-            // 
             // pictureBox2
             // 
             pictureBox2.BackColor = Color.Transparent;
-            pictureBox2.Image = Properties.Resources.sun;
-            pictureBox2.Location = new Point(13, 31);
+            pictureBox2.Image = Properties.Resources.sun_white;
+            pictureBox2.Location = new Point(13, 28);
             pictureBox2.Name = "pictureBox2";
             pictureBox2.Size = new Size(40, 40);
             pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -250,19 +314,19 @@
             // 
             label2.AutoSize = true;
             label2.BackColor = Color.Transparent;
-            label2.Font = new Font("Segoe UI", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point);
+            label2.Font = new Font("Segoe UI", 28.2F, FontStyle.Bold, GraphicsUnit.Point);
             label2.ForeColor = Color.White;
             label2.ImageAlign = ContentAlignment.MiddleLeft;
-            label2.Location = new Point(56, 25);
+            label2.Location = new Point(56, 17);
             label2.Name = "label2";
-            label2.Size = new Size(141, 46);
+            label2.Size = new Size(195, 62);
             label2.TabIndex = 4;
             label2.Text = "My Day";
             label2.TextAlign = ContentAlignment.MiddleRight;
             // 
             // button9
             // 
-            button9.BackColor = Color.SteelBlue;
+            button9.BackColor = Color.FromArgb(34, 34, 34);
             button9.FlatAppearance.BorderSize = 0;
             button9.FlatStyle = FlatStyle.Popup;
             button9.Font = new Font("Segoe UI Black", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
@@ -277,7 +341,7 @@
             // 
             // button8
             // 
-            button8.BackColor = Color.SteelBlue;
+            button8.BackColor = Color.FromArgb(34, 34, 34);
             button8.FlatAppearance.BorderSize = 0;
             button8.FlatStyle = FlatStyle.Popup;
             button8.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
@@ -291,7 +355,7 @@
             // 
             // button7
             // 
-            button7.BackColor = Color.SteelBlue;
+            button7.BackColor = Color.FromArgb(34, 34, 34);
             button7.FlatAppearance.BorderSize = 0;
             button7.FlatStyle = FlatStyle.Popup;
             button7.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
@@ -305,7 +369,7 @@
             // 
             // button6
             // 
-            button6.BackColor = Color.SteelBlue;
+            button6.BackColor = Color.FromArgb(34, 34, 34);
             button6.FlatAppearance.BorderSize = 0;
             button6.FlatStyle = FlatStyle.Popup;
             button6.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
@@ -320,6 +384,7 @@
             // panel3
             // 
             panel3.BackColor = Color.LightSkyBlue;
+            panel3.BackgroundImageLayout = ImageLayout.Stretch;
             panel3.Controls.Add(panel8);
             panel3.Controls.Add(label1);
             panel3.Location = new Point(1185, 0);
@@ -378,7 +443,6 @@
             // panel11
             // 
             panel11.BackColor = Color.White;
-            panel11.BorderStyle = BorderStyle.FixedSingle;
             panel11.Controls.Add(button13);
             panel11.Controls.Add(label6);
             panel11.Location = new Point(15, 280);
@@ -439,6 +503,7 @@
             // label4
             // 
             label4.AutoSize = true;
+            label4.BackColor = Color.White;
             label4.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
             label4.Location = new Point(43, 24);
             label4.Margin = new Padding(0);
@@ -462,6 +527,7 @@
             // 
             // panel2
             // 
+            panel2.BackColor = Color.White;
             panel2.Controls.Add(button20);
             panel2.Controls.Add(button5);
             panel2.Controls.Add(button4);
@@ -553,7 +619,7 @@
             // 
             // button1
             // 
-            button1.BackColor = Color.DeepSkyBlue;
+            button1.BackColor = Color.Gainsboro;
             button1.FlatAppearance.BorderSize = 0;
             button1.FlatStyle = FlatStyle.Flat;
             button1.Image = Properties.Resources.magnifying_glass;
@@ -582,14 +648,28 @@
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
             // 
-            // Form1
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.BackColor = Color.Transparent;
+            label9.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            label9.ForeColor = Color.White;
+            label9.ImageAlign = ContentAlignment.MiddleLeft;
+            label9.Location = new Point(65, 79);
+            label9.Name = "label9";
+            label9.Size = new Size(186, 28);
+            label9.TabIndex = 11;
+            label9.Text = "Wednesday, April 3";
+            label9.TextAlign = ContentAlignment.MiddleRight;
+            // 
+            // frmMyDay
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1491, 783);
             Controls.Add(panel1);
             Icon = (Icon)resources.GetObject("$this.Icon");
-            Name = "Form1";
+            Name = "frmMyDay";
             Text = "Form1";
             Load += Form1_Load;
             panel1.ResumeLayout(false);
@@ -597,10 +677,13 @@
             panel4.PerformLayout();
             panel6.ResumeLayout(false);
             panel6.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
             panel7.ResumeLayout(false);
             panel7.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
             panel5.ResumeLayout(false);
             panel5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
@@ -650,7 +733,6 @@
         private Panel panel5;
         private Button button10;
         private Label label3;
-        private DateTimePicker dateTimePicker1;
         private PictureBox pictureBox2;
         private Label label2;
         private Button button9;
@@ -658,5 +740,11 @@
         private Button button7;
         private Button button6;
         private Button button20;
+        private Button button17;
+        private Button button16;
+        private PictureBox pictureBox3;
+        private PictureBox pictureBox4;
+        private PictureBox pictureBox5;
+        private Label label9;
     }
 }
