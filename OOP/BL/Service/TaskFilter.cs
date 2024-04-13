@@ -3,12 +3,21 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using static SearchTask;
 
 namespace OOP.BL
 {
-    public class TaskFilter
+    public class FilterTaskService
     {
+        private static FilterTaskService instance;
+        public static FilterTaskService Instance
+        {
+            get
+            {
+                if (instance == null)
+                    instance = new FilterTaskService();
+                return instance;
+            }
+        }
         public enum TaskType
         {
             ShortTerm,

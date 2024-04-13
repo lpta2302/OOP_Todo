@@ -1,5 +1,6 @@
 ﻿public class LongTermCRUD : TaskCRUD
 {
+    private LongTermCRUD() { }
     public static LongTermCRUD Instance
     {
         get

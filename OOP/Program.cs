@@ -4,12 +4,8 @@ namespace Name
 {
     class Program
     {
-        public static void Main()
+        public static void PrintTasks(IList<Task> tasks)
         {
-            MyFakeData.Init();
-            SearchTaskService searchTask = new SearchTaskService();
-            IList<Task>? tasks = searchTask.Search("Đi học", SearchTaskService.SearchType.ByTitle);
-
             if (tasks != null)
             {
                 foreach (Task task in tasks)
@@ -21,6 +17,17 @@ namespace Name
             {
                 Console.WriteLine("No tasks found.");
             }
+            Console.WriteLine("".PadRight(40, '-'));
+        }
+        public static void Main()
+        {
+            MyFakeData.Init();
+
+            IList<Task>? tasks = FilterTaskService.Instance.DoFilter(FilterTaskService.TaskType.LongTerm);
+
+            PrintTasks(tasks);
+            SortTaskService.Instance.Sort(tasks, SortTaskService.SortType.ByStartDate);
+            PrintTasks(tasks);
         }
     }
 }

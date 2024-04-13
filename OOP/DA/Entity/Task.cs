@@ -17,6 +17,7 @@ public abstract class Task : ISerializable
         {
             if (value >= DateTime.Now && value <= DateTime.MaxValue)
                 notiTime = value;
+            else notiTime = DateTime.MinValue;
         }
     }
     private DateTime? endTime;
@@ -71,5 +72,11 @@ public abstract class Task : ISerializable
         IsCompleted = isCompleted;
         IsImportant = isImportant;
         IsRepeated = isRepeated;
+    }
+
+    public override string ToString()
+    {
+        return
+            $"{Id}, {Title}, {NotiTime}, comp:{IsCompleted}, imp:{IsImportant}, rep:{IsRepeated}, {GetType()}";
     }
 }

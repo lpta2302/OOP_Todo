@@ -18,8 +18,4 @@ public class ShortTerm : Task
         base.GetObjectData(info, context);
     }
     public ShortTerm() { }
-    public override string ToString()
-    {
-        return $"{Id},{Title},{(IsImportant ? "Important" : "")} ShortTerm";
-    }
 }

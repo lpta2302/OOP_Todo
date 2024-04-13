@@ -1,21 +1,16 @@
 ﻿public class ShortTermService : TaskService
 {
-    public static List<ShortTerm> GetShortTerms()
+    private ShortTermService() { }
+    public ShortTermService _ShortTermService
     {
-        return new List<ShortTerm>();
-    }
-
-    public int CountShortTerm()
-    {
-        int count = 0;
-        foreach (ShortTerm shortTerm in GlobalData.CurrentTasks)
+        get
         {
-            if (shortTerm is ShortTerm)
+            if (_taskService == null)
             {
-                count++;
+                _taskService = new ShortTermService();
             }
+            return (ShortTermService)_taskService;
         }
-        return count;
     }
 
 }

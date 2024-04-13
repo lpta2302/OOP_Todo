@@ -1,5 +1,15 @@
 ﻿public class SearchTaskService
 {
+    private static SearchTaskService instance;
+    public static SearchTaskService Instance
+    {
+        get
+        {
+            if (instance == null)
+                instance = new SearchTaskService();
+            return instance;
+        }
+    }
     public enum SearchType { ByID, ByTitle, ByNotiDate }
 
     private delegate bool SearchDel(object key, Task task);

@@ -1,4 +1,4 @@
-﻿public interface CRUD<T>
+﻿public interface ICRUD<T>
 {
     public T Create(T newTask);
 

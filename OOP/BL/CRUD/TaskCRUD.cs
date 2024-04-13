@@ -1,4 +1,4 @@
-﻿public abstract class TaskCRUD : CRUD<Task>
+﻿public abstract class TaskCRUD : ICRUD<Task>
 {
     protected static TaskCRUD instance;
 

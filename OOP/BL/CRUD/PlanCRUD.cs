@@ -1,4 +1,4 @@
-﻿public class PlanCRUD : CRUD<Plan>
+﻿public class PlanCRUD : ICRUD<Plan>
 {
     private static readonly PlanCRUD instance;
 

@@ -32,8 +32,4 @@ public class LongTerm : Task
         To = to;
         Details = details;
     }
-    public override string ToString()
-    {
-        return $"{Id},{PlanId},{Title} LongTerm";
-    }
 }
