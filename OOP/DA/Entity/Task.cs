@@ -15,9 +15,8 @@ public abstract class Task : ISerializable
         }
         set
         {
-            if (value >= DateTime.Now && value <= DateTime.MaxValue)
+            if (value >= DateTime.Now.AddSeconds(-60))
                 notiTime = value;
-            else notiTime = DateTime.MinValue;
         }
     }
     private DateTime? endTime;
@@ -36,7 +35,8 @@ public abstract class Task : ISerializable
     public bool IsCompleted { get; set; }
     public bool IsImportant { get; set; }
     public bool IsRepeated { get; set; }
-
+    protected ITaskService service;
+    protected TaskCRUD crud;
     public virtual void GetObjectData(SerializationInfo info, StreamingContext context)
     {
         info.AddValue("Id", Id);
@@ -49,7 +49,6 @@ public abstract class Task : ISerializable
         info.AddValue("IsImportant", IsImportant);
         info.AddValue("IsRepeated", IsRepeated);
     }
-
     protected Task()
     {
         Id = Generator.GenerateId();
@@ -59,6 +58,10 @@ public abstract class Task : ISerializable
         IsCompleted = false;
         IsImportant = false;
         IsRepeated = false;
+        service =
+            GetType().IsAssignableTo(typeof(ShortTerm)) ?
+            ShortTermService.Instance :
+            LongTermService.Instance;
     }
 
     protected Task(string title, string content, DateTime notiTime, bool isCompleted, bool isImportant, bool isRepeated, DateTime? endTime = null)
@@ -72,8 +75,43 @@ public abstract class Task : ISerializable
         IsCompleted = isCompleted;
         IsImportant = isImportant;
         IsRepeated = isRepeated;
+        service =
+            GetType().IsAssignableTo(typeof(ShortTerm)) ?
+            ShortTermService.Instance :
+            LongTermService.Instance;
     }
 
+    public Task Create()
+    {
+        return crud.Create(this);
+    }
+    public Task Delete()
+    {
+        return crud.Delete(Id)!;
+    }
+
+    public Task Update()
+    {
+        return crud.Update(this)!;
+    }
+
+    public void ToggleImportant()
+    {
+        service.ToggleBoolProp(this, ITaskService.BoolProp.IsImportant);
+    }
+    public void ToggleRepeated()
+    {
+        service.ToggleBoolProp(this, ITaskService.BoolProp.IsRepeated);
+    }
+    public bool CheckTime()
+    {
+        return service.IsTime(this);
+    }
+
+    public void CompleteTask()
+    {
+        service.CompleteTask(this);
+    }
     public override string ToString()
     {
         return

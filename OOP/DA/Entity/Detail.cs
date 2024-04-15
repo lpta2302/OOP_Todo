@@ -1,4 +1,4 @@
-﻿public class Detail
+﻿public sealed class Detail
 {
     public string Id { get; }
     public string Content { get; set; }
@@ -7,17 +7,21 @@
         get { return Rating; }
         set
         {
-            if (Constant.Ratings.Contains(value))
+            if (IsCompleted && Constant.Ratings.Contains(value))
                 Rating = value;
         }
     }
     public bool IsCompleted { get; set; }
-    public DateTime Time { get; set; }
+    public DateTime? Time { get; set; }
     public Detail(string content = "", string rating = "", bool isCompleted = false)
     {
         Id = Generator.GenerateId();
         Content = content;
         Rating = rating;
         IsCompleted = isCompleted;
+    }
+    public void ToggleCompletion()
+    {
+        IsCompleted = !IsCompleted;
     }
 }

@@ -1,6 +1,6 @@
 ﻿using System.Runtime.Serialization;
 
-public class Plan : ISerializable
+public class Plan : ISerializable, IProgressService
 {
     public string Id { get; set; }
 
@@ -49,7 +49,21 @@ public class Plan : ISerializable
     }
     public override string ToString()
     {
-        return 
+        return
         $"{Name}, {CreatedAt}, {Tasks[0].Id}";
+    }
+
+    public float CalculateCurrentProgress()
+    {
+        int count = 0;
+
+        foreach (TaskRef taskRef in Tasks)
+        {
+            Task task = Util.FindTask(taskRef.Id)!;
+            if (task.IsCompleted)
+                count++;
+        }
+
+        return (float)Math.Round(1.0 * count / Tasks.Count, 2);
     }
 }

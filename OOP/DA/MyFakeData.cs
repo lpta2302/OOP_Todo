@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 
-public class MyFakeData
+public sealed class MyFakeData
 {
     private static string[] habits = { "Đánh răng thôi", "Rửa mặt", "Đi học", "Thức dậy" };
     private static string[] contents = { "Buổi sáng phải thức dậy thôi nào", "Hello World", "Đến giờ đi học rồi", "IDK" };

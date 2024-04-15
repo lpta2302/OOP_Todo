@@ -1,7 +1,5 @@
 ﻿public abstract class TaskCRUD : ICRUD<Task>
 {
-    protected static TaskCRUD instance;
-
     public abstract Task? Create(object[] args);
     public Task Create(Task newTask)
     {
@@ -14,15 +12,15 @@
 
     public Task? Delete(object i)
     {
-        Task? deletedTask = Util.FindTask((string)i);
-        if (deletedTask == null)
-            throw new Exception("Không tìm thấy task");
+        Task? task = Util.FindTask((string)i);
+        if (task == null)
+            throw new Exception("Task not found");
 
-        GlobalData.CurrentTasks.Remove(deletedTask);
+        GlobalData.CurrentTasks.Remove(task);
 
-        EntityManager<Task>.Save(GlobalData.CurrentTasks);
+        EntityManager<Task>.Delete(task);
 
-        return deletedTask;
+        return task;
     }
 
     public Task Read(object i)

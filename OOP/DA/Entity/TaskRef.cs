@@ -1,4 +1,4 @@
-﻿public class TaskRef
+﻿public sealed class TaskRef
 {
     public string Id { get; set; }
     public TaskRef(string id = ""){

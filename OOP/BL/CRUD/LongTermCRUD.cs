@@ -1,18 +1,9 @@
 ﻿public class LongTermCRUD : TaskCRUD
 {
+    private static readonly LongTermCRUD instance = new LongTermCRUD();
     private LongTermCRUD() { }
-    public static LongTermCRUD Instance
-    {
-        get
-        {
-            if (instance == null)
-            {
-                return new LongTermCRUD();
-            }
-            return (LongTermCRUD)instance;
-        }
-    }
-    public override LongTerm? Create(object[] args)
+    public static LongTermCRUD Instance { get { return instance; } }
+    public override Task? Create(object[] args)
     {
         LongTerm task = new LongTerm(
             (string)args[0],
