@@ -25,10 +25,10 @@ public class EntityManager<EntityType>
         string newjson = File.ReadAllText(path);
         JsonSerializerOptions jsonOption = new JsonSerializerOptions();
         jsonOption.Converters.Add(new TaskConverter());
-        List<EntityType>? res = JsonSerializer.Deserialize<List<EntityType>>(newjson,jsonOption);
+        List<EntityType>? res = JsonSerializer.Deserialize<List<EntityType>>(newjson, jsonOption);
         return res;
     }
-    
+
     public static void Save(IList<EntityType> entities)
     {
         JsonSerializerOptions jsonOption = new JsonSerializerOptions { WriteIndented = true };
@@ -37,7 +37,4 @@ public class EntityManager<EntityType>
 
         File.WriteAllText(path, json);
     }
-
-    public static EntityType? Get(object id) { return default; }
-    public static void Delete(object id) { }
 }

@@ -1,6 +1,4 @@
-﻿using OOP.BL;
-
-namespace Name
+﻿namespace Name
 {
     class Program
     {
@@ -21,13 +19,8 @@ namespace Name
         }
         public static void Main()
         {
-            MyFakeData.Init();
-
-            IList<Task>? tasks = FilterTaskService.Instance.DoFilter(FilterTaskService.TaskType.LongTerm);
-
-            PrintTasks(tasks);
-            SortTaskService.Instance.Sort(tasks, SortTaskService.SortType.ByStartDate);
-            PrintTasks(tasks);
+            IList<Task> tasks = GlobalData.CurrentTasks;
+            
         }
     }
 }

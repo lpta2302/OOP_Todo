@@ -14,6 +14,7 @@ public class LongTerm : Task, IProgressService
         PlanId = "";
         Details = new List<Detail>();
     }
+    
     public override void GetObjectData(SerializationInfo info, StreamingContext context)
     {
         base.GetObjectData(info, context);
@@ -47,8 +48,10 @@ public class LongTerm : Task, IProgressService
         Details = details;
     }
 
-    public override bool CheckShow()
+    public override bool CheckShow(bool isInPlan = false)
     {
+        if (isInPlan)
+            return true;
         return DateTime.Now >= from && DateTime.Now <= to;
     }
 }
