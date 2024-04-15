@@ -3,8 +3,8 @@
     private GlobalData() { }
     public static IList<Task> CurrentTasks { get; set; }
     public static IList<Plan> CurrentPlans { get; set; }
-    public static TaskService ShortTermService { get; set; }
-    public static TaskService LongTermService { get; set; }
+    public static ITaskService ShortTermService { get; set; }
+    public static ITaskService LongTermService { get; set; }
     static GlobalData()
     {
         // CurrentTasks = EntityManager<Task>.GetAll()!;

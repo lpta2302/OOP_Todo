@@ -1,5 +1,6 @@
 ﻿public class SearchTaskService
 {
+    private SearchTaskService() { }
     private static SearchTaskService instance;
     public static SearchTaskService Instance
     {

@@ -1,16 +1,15 @@
-﻿public class ShortTermService : TaskService
+﻿public class ShortTermService : ITaskService
 {
+    private static ShortTermService instance = new ShortTermService();
     private ShortTermService() { }
-    public ShortTermService _ShortTermService
+    public static ShortTermService Instance { get { return instance; } }
+    public void CompleteTask(Task task)
     {
-        get
-        {
-            if (_taskService == null)
-            {
-                _taskService = new ShortTermService();
-            }
-            return (ShortTermService)_taskService;
-        }
+        task.IsCompleted = true;
+        task.Update();
     }
-
+    public void AlertAgain(Task task)
+    {
+        task.NotiTime.AddMinutes(15);
+    }
 }

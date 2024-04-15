@@ -1,6 +1,6 @@
 ﻿using System.Runtime.Serialization;
 
-public class LongTerm : Task
+public class LongTerm : Task, IProgressService
 {
     public string PlanId { get; set; }
     private DateTime from;
@@ -8,7 +8,7 @@ public class LongTerm : Task
     private DateTime to;
     public DateTime To { get { return to; } set { to = value; } }
     public IList<Detail> Details { get; set; }
-
+    
     public LongTerm()
     {
         PlanId = "";
@@ -22,6 +22,18 @@ public class LongTerm : Task
         info.AddValue("To", To);
         info.AddValue("Details", Details);
     }
+
+    public float CalculateCurrentProgress()
+    {
+        int count = 0;
+        foreach (Detail detail in Details)
+        {
+            if (detail.IsCompleted)
+                count++;
+        }
+        return (float)Math.Round(1.0 * count / Details.Count, 2);
+    }
+
     public LongTerm(string title, string planId, string content,
         DateTime notiTime, DateTime from, DateTime to, bool isCompleted,
         bool isImportant, bool isRepeated, IList<Detail> details, DateTime? endTime = null)

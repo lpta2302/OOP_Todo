@@ -1,5 +1,6 @@
 ﻿public class SortTaskService
 {
+    private SortTaskService() { }
     private static SortTaskService instance;
     public static SortTaskService Instance
     {

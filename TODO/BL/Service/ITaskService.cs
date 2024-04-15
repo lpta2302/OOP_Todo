@@ -4,7 +4,6 @@ public interface ITaskService
 {
     public enum BoolProp
     {
-        IsCompleted,
         IsImportant,
         IsRepeated
     }
@@ -13,6 +12,26 @@ public interface ITaskService
     {
         PropertyInfo prop = typeof(Task).GetProperty(Enum.GetName(propType) ?? "")!;
 
-        prop.SetValue(task,!(bool)prop.GetValue(task));
+        prop.SetValue(task, !(bool)prop.GetValue(task));
+
+        task.Update();
     }
+
+    public bool IsTime(Task task)
+    {
+        return task.NotiTime == DateTime.Now;
+    }
+
+    public List<Task> IsTime(IList<Task> tasks)
+    {
+        List<Task> res = new List<Task>();
+        foreach (Task task in tasks)
+        {
+            if (IsTime(task))
+                res.Add(task);
+        }
+        return res;
+    }
+
+    public void CompleteTask(Task task);
 }

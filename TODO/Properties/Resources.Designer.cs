@@ -123,6 +123,16 @@ namespace TODO.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap notificationPanel {
+            get {
+                object obj = ResourceManager.GetObject("notificationPanel", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap plus_black {
             get {
                 object obj = ResourceManager.GetObject("plus black", resourceCulture);
@@ -236,6 +246,26 @@ namespace TODO.Properties {
         internal static System.Drawing.Bitmap ttttttttttttt {
             get {
                 object obj = ResourceManager.GetObject("ttttttttttttt", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap z5350147942988_9e64e864aa8691e525fbcfdfadeaf2c4 {
+            get {
+                object obj = ResourceManager.GetObject("z5350147942988_9e64e864aa8691e525fbcfdfadeaf2c4", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap z5350158698551_3651c1da3e737fd908ca4b9b8cf5abf2 {
+            get {
+                object obj = ResourceManager.GetObject("z5350158698551_3651c1da3e737fd908ca4b9b8cf5abf2", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

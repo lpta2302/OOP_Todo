@@ -1,16 +1,8 @@
 ﻿public class PlanCRUD : ICRUD<Plan>
 {
-    private static readonly PlanCRUD instance;
+    private static readonly PlanCRUD instance = new PlanCRUD();
 
-    public static PlanCRUD Instance
-    {
-        get
-        {
-            if (instance == null)
-                return new PlanCRUD();
-            return instance;
-        }
-    }
+    public static PlanCRUD Instance { get { return instance; } }
 
     private PlanCRUD() { }
 
@@ -42,6 +34,11 @@
         Plan? deletedPlan = Util.FindPlan((string)i);
         if (deletedPlan == null)
             throw new Exception("Không tìm thấy plan nào");
+
+        foreach (TaskRef taskRef in deletedPlan.Tasks)
+        {   
+            Util.FindTask(taskRef.Id);
+        }
 
         GlobalData.CurrentPlans.Remove(deletedPlan);
 

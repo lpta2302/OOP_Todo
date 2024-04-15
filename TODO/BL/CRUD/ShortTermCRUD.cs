@@ -1,17 +1,8 @@
 ﻿public class ShortTermCRUD : TaskCRUD
 {
+    private static readonly ShortTermCRUD instance = new ShortTermCRUD();
     private ShortTermCRUD() { }
-    public static ShortTermCRUD Instance
-    {
-        get
-        {
-            if (instance == null)
-            {
-                return new ShortTermCRUD();
-            }
-            return (ShortTermCRUD)instance;
-        }
-    }
+    public static ShortTermCRUD Instance { get { return instance; } }
 
     public override ShortTerm? Create(object[] args)
     {

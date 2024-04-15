@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 
-public class MyFakeData
+public sealed class MyFakeData
 {
     private static string[] habits = { "Đánh răng thôi", "Rửa mặt", "Đi học", "Thức dậy" };
     private static string[] contents = { "Buổi sáng phải thức dậy thôi nào", "Hello World", "Đến giờ đi học rồi", "IDK" };
@@ -8,7 +8,18 @@ public class MyFakeData
     {
         Task shortTerm;
         Random r = new Random();
-
+        for (int i = 0; i < 10; i++)
+        {
+            ShortTermCRUD.Instance.Create(
+                new object[]{
+                    habits[r.Next(0, 4)],
+                    contents[r.Next(0, 4)],
+                    DateTime.Now,
+                    false,
+                    r.Next(0, 2) == 0 ? false : true,
+                    r.Next(0, 5) == 0 ? true : false}
+            );
+        }
         for (int i = 0; i < 10; i++)
         {
             ShortTermCRUD.Instance.Create(

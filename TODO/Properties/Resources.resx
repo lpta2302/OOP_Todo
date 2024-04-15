@@ -121,6 +121,15 @@
   <data name="sun" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\sun.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="z5350158698551_3651c1da3e737fd908ca4b9b8cf5abf2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\z5350158698551_3651c1da3e737fd908ca4b9b8cf5abf2.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="plus-square-bold" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\plus-square-bold.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="sun-white" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\sun-white.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="repeat" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\repeat.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -166,10 +175,10 @@
   <data name="check-square" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\check-square.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="plus-square-bold" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\plus-square-bold.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="z5350147942988_9e64e864aa8691e525fbcfdfadeaf2c4" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\z5350147942988_9e64e864aa8691e525fbcfdfadeaf2c4.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="sun-white" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\sun-white.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="notificationPanel" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\notificationPanel.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
