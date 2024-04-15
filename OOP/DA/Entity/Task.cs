@@ -62,6 +62,10 @@ public abstract class Task : ISerializable
             GetType().IsAssignableTo(typeof(ShortTerm)) ?
             ShortTermService.Instance :
             LongTermService.Instance;
+        crud =
+            GetType().IsAssignableTo(typeof(ShortTerm)) ?
+            ShortTermCRUD.Instance :
+            LongTermCRUD.Instance;
     }
 
     protected Task(string title, string content, DateTime notiTime, bool isCompleted, bool isImportant, bool isRepeated, DateTime? endTime = null)
@@ -79,6 +83,10 @@ public abstract class Task : ISerializable
             GetType().IsAssignableTo(typeof(ShortTerm)) ?
             ShortTermService.Instance :
             LongTermService.Instance;
+        crud =
+            GetType().IsAssignableTo(typeof(ShortTerm)) ?
+            ShortTermCRUD.Instance :
+            LongTermCRUD.Instance;
     }
 
     public Task Create()
@@ -107,6 +115,7 @@ public abstract class Task : ISerializable
     {
         return service.IsTime(this);
     }
+    public virtual bool CheckShow() { return true; }
 
     public void CompleteTask()
     {

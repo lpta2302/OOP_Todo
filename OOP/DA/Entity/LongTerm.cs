@@ -8,7 +8,7 @@ public class LongTerm : Task, IProgressService
     private DateTime to;
     public DateTime To { get { return to; } set { to = value; } }
     public IList<Detail> Details { get; set; }
-    
+
     public LongTerm()
     {
         PlanId = "";
@@ -26,11 +26,13 @@ public class LongTerm : Task, IProgressService
     public float CalculateCurrentProgress()
     {
         int count = 0;
+
         foreach (Detail detail in Details)
         {
             if (detail.IsCompleted)
                 count++;
         }
+
         return (float)Math.Round(1.0 * count / Details.Count, 2);
     }
 
@@ -43,5 +45,10 @@ public class LongTerm : Task, IProgressService
         From = from;
         To = to;
         Details = details;
+    }
+
+    public override bool CheckShow()
+    {
+        return DateTime.Now >= from && DateTime.Now <= to;
     }
 }

@@ -15,6 +15,18 @@ public sealed class MyFakeData
                 new object[]{
                     habits[r.Next(0, 4)],
                     contents[r.Next(0, 4)],
+                    DateTime.Now,
+                    false,
+                    r.Next(0, 2) == 0 ? false : true,
+                    r.Next(0, 5) == 0 ? true : false}
+            );
+        }
+        for (int i = 0; i < 10; i++)
+        {
+            ShortTermCRUD.Instance.Create(
+                new object[]{
+                    habits[r.Next(0, 4)],
+                    contents[r.Next(0, 4)],
                     DateTime.Now.AddDays(r.Next(0, 120)),
                     false,
                     r.Next(0, 2) == 0 ? false : true,
