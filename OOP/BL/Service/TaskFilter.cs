@@ -8,6 +8,7 @@ namespace OOP.BL
 {
     public class FilterTaskService
     {
+        private FilterTaskService() { }
         private static FilterTaskService instance;
         public static FilterTaskService Instance
         {
