@@ -28,8 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            button11 = new Button();
-            label4 = new Label();
             label1 = new Label();
             panel2 = new Panel();
             button20 = new Button();
@@ -40,8 +38,6 @@
             button1 = new Button();
             textBox1 = new TextBox();
             pictureBox1 = new PictureBox();
-            panel9 = new Panel();
-            button13 = new Button();
             panel1 = new Panel();
             panel4 = new Panel();
             label3 = new Label();
@@ -65,10 +61,13 @@
             button12 = new Button();
             label5 = new Label();
             panel11 = new Panel();
+            button13 = new Button();
             label6 = new Label();
+            panel9 = new Panel();
+            button11 = new Button();
+            label4 = new Label();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            panel9.SuspendLayout();
             panel1.SuspendLayout();
             panel4.SuspendLayout();
             pnlDayBox.SuspendLayout();
@@ -78,32 +77,8 @@
             panel8.SuspendLayout();
             panel10.SuspendLayout();
             panel11.SuspendLayout();
+            panel9.SuspendLayout();
             SuspendLayout();
-            // 
-            // button11
-            // 
-            button11.Image = Properties.Resources.repeat;
-            button11.ImageAlign = ContentAlignment.MiddleRight;
-            button11.Location = new Point(43, 52);
-            button11.Margin = new Padding(0);
-            button11.Name = "button11";
-            button11.Size = new Size(88, 33);
-            button11.TabIndex = 1;
-            button11.Text = "Today";
-            button11.TextAlign = ContentAlignment.MiddleLeft;
-            button11.UseVisualStyleBackColor = true;
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
-            label4.Location = new Point(43, 24);
-            label4.Margin = new Padding(0);
-            label4.Name = "label4";
-            label4.Size = new Size(88, 25);
-            label4.TabIndex = 0;
-            label4.Text = "To do list";
-            label4.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // label1
             // 
@@ -239,30 +214,6 @@
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
-            // 
-            // panel9
-            // 
-            panel9.BackColor = Color.White;
-            panel9.Controls.Add(button11);
-            panel9.Controls.Add(label4);
-            panel9.Location = new Point(15, 40);
-            panel9.Margin = new Padding(0);
-            panel9.Name = "panel9";
-            panel9.Size = new Size(270, 101);
-            panel9.TabIndex = 8;
-            // 
-            // button13
-            // 
-            button13.Image = Properties.Resources.repeat;
-            button13.ImageAlign = ContentAlignment.MiddleRight;
-            button13.Location = new Point(43, 52);
-            button13.Margin = new Padding(0);
-            button13.Name = "button13";
-            button13.Size = new Size(88, 33);
-            button13.TabIndex = 1;
-            button13.Text = "Today";
-            button13.TextAlign = ContentAlignment.MiddleLeft;
-            button13.UseVisualStyleBackColor = true;
             // 
             // panel1
             // 
@@ -476,15 +427,17 @@
             panel8.Controls.Add(panel10);
             panel8.Controls.Add(panel11);
             panel8.Controls.Add(panel9);
-            panel8.Location = new Point(0, 203);
+            panel8.Location = new Point(0, 194);
             panel8.Margin = new Padding(0);
             panel8.Name = "panel8";
             panel8.Size = new Size(300, 403);
-            panel8.TabIndex = 1;
+            panel8.TabIndex = 2;
             // 
             // panel10
             // 
             panel10.BackColor = Color.White;
+            //panel10.BackgroundImage = Properties.Resources.bo_goc;
+            panel10.BackgroundImageLayout = ImageLayout.Stretch;
             panel10.Controls.Add(button12);
             panel10.Controls.Add(label5);
             panel10.Location = new Point(15, 159);
@@ -521,6 +474,8 @@
             // panel11
             // 
             panel11.BackColor = Color.White;
+            //panel11.BackgroundImage = Properties.Resources.bo_goc;
+            panel11.BackgroundImageLayout = ImageLayout.Stretch;
             panel11.Controls.Add(button13);
             panel11.Controls.Add(label6);
             panel11.Location = new Point(15, 280);
@@ -528,6 +483,19 @@
             panel11.Name = "panel11";
             panel11.Size = new Size(270, 101);
             panel11.TabIndex = 9;
+            // 
+            // button13
+            // 
+            button13.Image = Properties.Resources.repeat;
+            button13.ImageAlign = ContentAlignment.MiddleRight;
+            button13.Location = new Point(43, 52);
+            button13.Margin = new Padding(0);
+            button13.Name = "button13";
+            button13.Size = new Size(88, 33);
+            button13.TabIndex = 1;
+            button13.Text = "Today";
+            button13.TextAlign = ContentAlignment.MiddleLeft;
+            button13.UseVisualStyleBackColor = true;
             // 
             // label6
             // 
@@ -541,6 +509,45 @@
             label6.Text = "To do list";
             label6.TextAlign = ContentAlignment.MiddleLeft;
             // 
+            // panel9
+            // 
+            panel9.BackColor = Color.White;
+            //panel9.BackgroundImage = Properties.Resources.bo_goc;
+            panel9.BackgroundImageLayout = ImageLayout.Stretch;
+            panel9.Controls.Add(button11);
+            panel9.Controls.Add(label4);
+            panel9.Location = new Point(15, 40);
+            panel9.Margin = new Padding(0);
+            panel9.Name = "panel9";
+            panel9.Size = new Size(270, 101);
+            panel9.TabIndex = 8;
+            // 
+            // button11
+            // 
+            button11.Image = Properties.Resources.repeat;
+            button11.ImageAlign = ContentAlignment.MiddleRight;
+            button11.Location = new Point(43, 52);
+            button11.Margin = new Padding(0);
+            button11.Name = "button11";
+            button11.Size = new Size(88, 33);
+            button11.TabIndex = 1;
+            button11.Text = "Today";
+            button11.TextAlign = ContentAlignment.MiddleLeft;
+            button11.UseVisualStyleBackColor = true;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.BackColor = Color.White;
+            label4.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
+            label4.Location = new Point(43, 24);
+            label4.Margin = new Padding(0);
+            label4.Name = "label4";
+            label4.Size = new Size(88, 25);
+            label4.TabIndex = 0;
+            label4.Text = "To do list";
+            label4.TextAlign = ContentAlignment.MiddleLeft;
+            // 
             // frmPlan
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -553,8 +560,6 @@
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            panel9.ResumeLayout(false);
-            panel9.PerformLayout();
             panel1.ResumeLayout(false);
             panel4.ResumeLayout(false);
             panel4.PerformLayout();
@@ -568,12 +573,12 @@
             panel10.PerformLayout();
             panel11.ResumeLayout(false);
             panel11.PerformLayout();
+            panel9.ResumeLayout(false);
+            panel9.PerformLayout();
             ResumeLayout(false);
         }
 
         #endregion
-        private Button button11;
-        private Label label4;
         private Label label1;
         private Panel panel2;
         private Button button5;
@@ -583,20 +588,12 @@
         private Button button1;
         private TextBox textBox1;
         private PictureBox pictureBox1;
-        private Panel panel9;
-        private Button button13;
         private Panel panel1;
         private Panel panel4;
         private DateTimePicker dtpkDate;
         private PictureBox pictureBox2;
         private Label label2;
         private Panel panel3;
-        private Panel panel8;
-        private Panel panel10;
-        private Button button12;
-        private Label label5;
-        private Panel panel11;
-        private Label label6;
         private Panel pnlWeek;
         private Button Tue;
         private Button Wed;
@@ -610,5 +607,15 @@
         private Label label3;
         private Button btnNext;
         private Button btnPrevious;
+        private Panel panel8;
+        private Panel panel10;
+        private Button button12;
+        private Label label5;
+        private Panel panel11;
+        private Button button13;
+        private Label label6;
+        private Panel panel9;
+        private Button button11;
+        private Label label4;
     }
 }
