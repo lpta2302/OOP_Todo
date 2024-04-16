@@ -12,12 +12,12 @@ namespace TODO
         public frmMyDay()
         {
             InitializeComponent();
-            tasks = search.Search(DateTime.Now, SearchTaskService.SearchType.ByNotiDate)!;
-            Renderer.RenderListTask(tasks, flowLayoutPanel1);
+            GetMyDay();
         }
         private void Form1_Load(object sender, EventArgs e)
         {
             PerformDay();
+            //GetMyDay();
         }
         public void PerformDay()
         {
@@ -34,14 +34,20 @@ namespace TODO
         }
         private void button2_Click(object sender, EventArgs e)
         {
-
+            flowLayoutPanel1.Controls.Clear();
+            GetMyDay();
         }
-
+        public void GetMyDay()
+        {
+            tasks = search.Search(DateTime.Now, SearchTaskService.SearchType.ByNotiDate)!;
+            Renderer.RenderListTask(tasks, flowLayoutPanel1);
+        }
         private void button3_Click(object sender, EventArgs e)
         {
-            filter.DoFilter(FilterTaskService.TaskType.IsImportance);
+            flowLayoutPanel1.Controls.Clear();
+            tasks = filter.DoFilter(FilterTaskService.TaskType.IsImportance);
+            Renderer.RenderListTask(tasks, flowLayoutPanel1);
         }
-
         private void pictureBox3_Click(object sender, EventArgs e)
         {
 
