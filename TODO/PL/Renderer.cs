@@ -78,7 +78,7 @@ namespace TODO.PL
             {
                 Task task = tasks[i];
                 Label title = new Label();
-                Button date = new Button();
+                Label date = new Label();
                 Panel panel = new Panel();
                 // 
                 // label4
@@ -99,11 +99,18 @@ namespace TODO.PL
                 date.ForeColor = SystemColors.WindowFrame;
                 date.Location = new Point(54, 65);
                 date.Margin = new Padding(0);
-                date.Size = new Size(110, 41);
+                date.Size = new Size(243, 41);
                 date.TabIndex = 3;
-                date.Text = "Today"; //task.NotiTime.ToString("dd/MM/yyyy");
+                date.Text = $"{task.NotiTime:g}"; //task.NotiTime.ToString("dd/MM/yyyy");
                 date.TextAlign = ContentAlignment.MiddleLeft;
                 date.Tag = i.ToString();
+                date.FlatStyle = FlatStyle.Flat;
+                //date.FlatAppearance.BorderSize = 0;
+                if (task.IsRepeated)
+                {
+                    date.Image = Properties.Resources.repeat;
+                    date.ImageAlign = ContentAlignment.MiddleRight;
+                }
                 // 
                 // panel9
                 // 

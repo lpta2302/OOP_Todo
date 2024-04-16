@@ -333,7 +333,7 @@
             panel8.Location = new Point(0, 254);
             panel8.Margin = new Padding(0);
             panel8.Name = "panel8";
-            panel8.Size = new Size(375, 504);
+            panel8.Size = new Size(375, 603);
             panel8.TabIndex = 1;
             // 
             // flowLayoutPanel2
@@ -366,7 +366,7 @@
             button11.Location = new Point(54, 65);
             button11.Margin = new Padding(0);
             button11.Name = "button11";
-            button11.Size = new Size(110, 41);
+            button11.Size = new Size(103, 41);
             button11.TabIndex = 1;
             button11.Text = "Today";
             button11.TextAlign = ContentAlignment.MiddleLeft;
