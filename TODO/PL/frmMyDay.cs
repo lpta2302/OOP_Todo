@@ -8,16 +8,18 @@ namespace TODO
     {
         private FilterTaskService filter = FilterTaskService.Instance;
         private SearchTaskService search = SearchTaskService.Instance;
+        private SortTaskService sort = SortTaskService.Instance;
         private IList<Task> tasks;
         public frmMyDay()
         {
             InitializeComponent();
             GetMyDay();
+            GetTaskNotification();
         }
         private void Form1_Load(object sender, EventArgs e)
         {
             PerformDay();
-            //GetMyDay();
+
         }
         public void PerformDay()
         {
@@ -45,8 +47,17 @@ namespace TODO
         private void button3_Click(object sender, EventArgs e)
         {
             flowLayoutPanel1.Controls.Clear();
+            GetImportance();
+        }
+        private void GetImportance()
+        {
             tasks = filter.DoFilter(FilterTaskService.TaskType.IsImportance);
             Renderer.RenderListTask(tasks, flowLayoutPanel1);
+        }
+        private void GetTaskNotification()
+        {
+            tasks = sort.Sort(tasks, SortTaskService.SortType.ByNotiTime);
+            Renderer.RenderListTaskNotification(tasks, flowLayoutPanel2);
         }
         private void pictureBox3_Click(object sender, EventArgs e)
         {

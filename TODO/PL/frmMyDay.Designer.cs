@@ -48,10 +48,10 @@
             panel3 = new Panel();
             label1 = new Label();
             panel8 = new Panel();
+            flowLayoutPanel2 = new FlowLayoutPanel();
             panel9 = new Panel();
             button11 = new Button();
             label4 = new Label();
-            flowLayoutPanel2 = new FlowLayoutPanel();
             flowLayoutPanel3 = new FlowLayoutPanel();
             panel2 = new Panel();
             button20 = new Button();
@@ -70,8 +70,8 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             panel3.SuspendLayout();
             panel8.SuspendLayout();
-            panel9.SuspendLayout();
             flowLayoutPanel2.SuspendLayout();
+            panel9.SuspendLayout();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
@@ -248,7 +248,7 @@
             flowLayoutPanel1.Controls.Add(panel5);
             flowLayoutPanel1.Location = new Point(16, 373);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(1106, 480);
+            flowLayoutPanel1.Size = new Size(1075, 480);
             flowLayoutPanel1.TabIndex = 12;
             // 
             // panel5
@@ -262,7 +262,7 @@
             panel5.Location = new Point(0, 0);
             panel5.Margin = new Padding(0);
             panel5.Name = "panel5";
-            panel5.Size = new Size(1075, 124);
+            panel5.Size = new Size(1040, 124);
             panel5.TabIndex = 7;
             // 
             // label7
@@ -281,7 +281,7 @@
             // pictureBox3
             // 
             pictureBox3.Image = Properties.Resources.star;
-            pictureBox3.Location = new Point(999, 41);
+            pictureBox3.Location = new Point(969, 35);
             pictureBox3.Margin = new Padding(4);
             pictureBox3.Name = "pictureBox3";
             pictureBox3.Size = new Size(50, 50);
@@ -329,12 +329,22 @@
             // 
             // panel8
             // 
-            panel8.Controls.Add(panel9);
+            panel8.Controls.Add(flowLayoutPanel2);
             panel8.Location = new Point(0, 254);
             panel8.Margin = new Padding(0);
             panel8.Name = "panel8";
             panel8.Size = new Size(375, 504);
             panel8.TabIndex = 1;
+            // 
+            // flowLayoutPanel2
+            // 
+            flowLayoutPanel2.AutoScroll = true;
+            flowLayoutPanel2.Controls.Add(panel9);
+            flowLayoutPanel2.Controls.Add(flowLayoutPanel3);
+            flowLayoutPanel2.Location = new Point(6, 119);
+            flowLayoutPanel2.Name = "flowLayoutPanel2";
+            flowLayoutPanel2.Size = new Size(366, 480);
+            flowLayoutPanel2.TabIndex = 9;
             // 
             // panel9
             // 
@@ -343,11 +353,10 @@
             panel9.BackgroundImageLayout = ImageLayout.Stretch;
             panel9.Controls.Add(button11);
             panel9.Controls.Add(label4);
-            panel9.Controls.Add(flowLayoutPanel2);
-            panel9.Location = new Point(15, 119);
+            panel9.Location = new Point(0, 0);
             panel9.Margin = new Padding(0);
             panel9.Name = "panel9";
-            panel9.Size = new Size(357, 164);
+            panel9.Size = new Size(326, 124);
             panel9.TabIndex = 8;
             // 
             // button11
@@ -376,17 +385,9 @@
             label4.Text = "To do list";
             label4.TextAlign = ContentAlignment.MiddleLeft;
             // 
-            // flowLayoutPanel2
-            // 
-            flowLayoutPanel2.Controls.Add(flowLayoutPanel3);
-            flowLayoutPanel2.Location = new Point(-12, -77);
-            flowLayoutPanel2.Name = "flowLayoutPanel2";
-            flowLayoutPanel2.Size = new Size(360, 500);
-            flowLayoutPanel2.TabIndex = 9;
-            // 
             // flowLayoutPanel3
             // 
-            flowLayoutPanel3.Location = new Point(3, 3);
+            flowLayoutPanel3.Location = new Point(329, 3);
             flowLayoutPanel3.Name = "flowLayoutPanel3";
             flowLayoutPanel3.Size = new Size(16, 8);
             flowLayoutPanel3.TabIndex = 0;
@@ -540,9 +541,9 @@
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
             panel8.ResumeLayout(false);
+            flowLayoutPanel2.ResumeLayout(false);
             panel9.ResumeLayout(false);
             panel9.PerformLayout();
-            flowLayoutPanel2.ResumeLayout(false);
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();

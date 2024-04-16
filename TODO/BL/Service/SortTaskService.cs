@@ -20,26 +20,26 @@
         if (tasks == null)
             tasks = GlobalData.CurrentTasks;
 
-        List<Task> res = new List<Task>();
+        List<Task> res = new List<Task>(tasks);
         SortDel sortDel = CreateSortDel(sortType)!;
 
-        for (int i = 0; i < tasks.Count - 1; i++)
+        for (int i = 0; i < res.Count - 1; i++)
         {
-            Task minTask = tasks[i];
+            Task minTask = res[i];
             int ilast = i;
-            for (int j = i + 1; j < tasks.Count; j++)
+            for (int j = i + 1; j < res.Count; j++)
             {
-                if (sortDel(minTask, tasks[j]))
+                if (sortDel(minTask, res[j]))
                 {
-                    minTask = tasks[j];
+                    minTask = res[j];
                     ilast = j;
                 }
             }
             if (ilast == i)
                 continue;
-            Task tmp = tasks[i];
-            tasks[i] = minTask;
-            tasks[ilast] = tmp;
+            Task tmp = res[i];
+            res[i] = minTask;
+            res[ilast] = tmp;
         }
 
         return res;
