@@ -115,7 +115,7 @@ namespace TODO.PL
                 // panel9
                 // 
                 panel.BackColor = Color.Transparent;
-                panel.BackgroundImage = Properties.Resources.task;
+                panel.BackgroundImage = Properties.Resources.notificationPanel;
                 panel.BackgroundImageLayout = ImageLayout.Stretch;
                 panel.Controls.Add(date);
                 panel.Controls.Add(title);

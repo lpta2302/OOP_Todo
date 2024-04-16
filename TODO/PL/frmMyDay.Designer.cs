@@ -137,6 +137,7 @@
             button17.TabIndex = 10;
             button17.Text = "Mini Task";
             button17.UseVisualStyleBackColor = false;
+            button17.Click += button17_Click;
             // 
             // button16
             // 
@@ -152,6 +153,7 @@
             button16.TabIndex = 9;
             button16.Text = "Alert";
             button16.UseVisualStyleBackColor = false;
+            button16.Click += button16_Click;
             // 
             // pictureBox2
             // 
@@ -210,6 +212,7 @@
             button8.TabIndex = 2;
             button8.Text = "Uncompleted";
             button8.UseVisualStyleBackColor = false;
+            button8.Click += button8_Click;
             // 
             // button7
             // 
@@ -225,6 +228,7 @@
             button7.TabIndex = 1;
             button7.Text = "Completed";
             button7.UseVisualStyleBackColor = false;
+            button7.Click += button7_Click;
             // 
             // button6
             // 
@@ -240,6 +244,7 @@
             button6.TabIndex = 0;
             button6.Text = "All";
             button6.UseVisualStyleBackColor = false;
+            button6.Click += button6_Click;
             // 
             // flowLayoutPanel1
             // 
@@ -498,6 +503,7 @@
             button1.Size = new Size(65, 59);
             button1.TabIndex = 2;
             button1.UseVisualStyleBackColor = false;
+            button1.Click += button1_Click;
             // 
             // textBox1
             // 
