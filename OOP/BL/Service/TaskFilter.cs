@@ -24,6 +24,7 @@ namespace OOP.BL
             ShortTerm,
             LongTerm,
             IsImportance,
+            IsUnComplete,
             IsComplete,
             IsRepeated
         }
@@ -78,6 +79,9 @@ namespace OOP.BL
                     case TaskType.IsImportance:
                         arrangeDelegate += ArrangeByImportance;
                         break;
+                    case TaskType.IsUnComplete:
+                        arrangeDelegate += ArrangeByUnCompletion;
+                        break;
                     case TaskType.IsComplete:
                         arrangeDelegate += ArrangeByCompletion;
                         break;
@@ -101,6 +105,10 @@ namespace OOP.BL
         private void ArrangeByImportance(Task task, ref bool accumulator)
         {
             accumulator = accumulator && task.IsImportant;
+        }
+        private void ArrangeByUnCompletion(Task task, ref bool accumulator)
+        {
+            accumulator = accumulator && !task.IsCompleted;
         }
         private void ArrangeByCompletion(Task task, ref bool accumulator)
         {
