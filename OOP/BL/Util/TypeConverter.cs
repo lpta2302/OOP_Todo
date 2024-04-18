@@ -25,6 +25,10 @@ public class TypeConverter
     {
         return dateTime.ToString("dddd, MMMM d", dateTimeFormat);
     }
+    public static string ExchangeToDMYHMS(DateTime dateTime)
+    {
+        return dateTime.ToString("dd/MM/yyyy hh:mm");
+    }
     public static string ExchangeToDMY(DateTime dateTime)
     {
         return dateTime.ToString("dd/MM/yyyy");

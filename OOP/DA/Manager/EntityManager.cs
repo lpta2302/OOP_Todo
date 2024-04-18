@@ -19,7 +19,12 @@ public class EntityManager<EntityType>
                 path = "bin.data";
                 break;
         }
+
+        if (!File.Exists(path))
+            File.WriteAllText(path, "[]");
+
     }
+
     public static List<EntityType>? GetAll()
     {
         string newjson = File.ReadAllText(path);
@@ -34,7 +39,7 @@ public class EntityManager<EntityType>
         JsonSerializerOptions jsonOption = new JsonSerializerOptions { WriteIndented = true };
         jsonOption.Converters.Add(new TaskConverter());
         string json = JsonSerializer.Serialize(entities, jsonOption);
-
         File.WriteAllText(path, json);
+
     }
 }

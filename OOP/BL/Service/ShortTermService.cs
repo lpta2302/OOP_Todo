@@ -8,6 +8,12 @@
         task.IsCompleted = true;
         task.Update();
     }
+    public void ToggleRepeated(ShortTerm task)
+    {
+        task.IsRepeated = !task.IsRepeated;
+
+        task.Update();
+    }
     public void AlertAgain(Task task)
     {
         task.NotiTime.AddMinutes(15);

@@ -19,8 +19,12 @@
         }
         public static void Main()
         {
-            IList<Task> tasks = GlobalData.CurrentTasks;
-            
+            MyFakeData.Init();
+            List<Plan>? plans = SearchPlanService.Search("Các",GlobalData.CurrentPlans);
+            foreach (Plan plan in plans)
+            {
+                Console.WriteLine(plan);
+            }
         }
     }
 }

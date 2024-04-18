@@ -3,10 +3,24 @@
 public class LongTerm : Task, IProgressService
 {
     public string PlanId { get; set; }
-    private DateTime from;
-    public DateTime From { get { return from; } set { from = value; } }
-    private DateTime to;
-    public DateTime To { get { return to; } set { to = value; } }
+    public override DateTime NotiTime
+    {
+        get
+        {
+            if (DateOnly.FromDateTime(notiTime) == DateOnly.FromDateTime(DateTime.MinValue))
+            {
+                if (fromDate <= DateOnly.FromDateTime(DateTime.Now) && toDate >= DateOnly.FromDateTime(DateTime.Now))
+                {
+                    return DateTime.Now;
+                }
+            }
+            return notiTime;
+        }
+    }
+    private DateOnly fromDate;
+    public DateOnly FromDate { get { return fromDate; } set { fromDate = value; } }
+    private DateOnly toDate;
+    public DateOnly ToDate { get { return toDate; } set { toDate = value; } }
     public IList<Detail> Details { get; set; }
 
     public LongTerm()
@@ -14,13 +28,22 @@ public class LongTerm : Task, IProgressService
         PlanId = "";
         Details = new List<Detail>();
     }
-    
+
+    public LongTerm(SerializationInfo info, StreamingContext context)
+    : base(info, context)
+    {
+        PlanId = info.GetString("PlanId")!;
+        FromDate = (DateOnly)info.GetValue("FromDate", typeof(DateOnly))!;
+        ToDate = (DateOnly)info.GetValue("ToDate", typeof(DateOnly))!;
+        Details = (List<Detail>)info.GetValue("Details", typeof(List<Detail>))!;
+    }
+
     public override void GetObjectData(SerializationInfo info, StreamingContext context)
     {
         base.GetObjectData(info, context);
         info.AddValue("PlanId", PlanId);
-        info.AddValue("From", From);
-        info.AddValue("To", To);
+        info.AddValue("FromDate", FromDate);
+        info.AddValue("ToDate", ToDate);
         info.AddValue("Details", Details);
     }
 
@@ -38,20 +61,19 @@ public class LongTerm : Task, IProgressService
     }
 
     public LongTerm(string title, string planId, string content,
-        DateTime notiTime, DateTime from, DateTime to, bool isCompleted,
-        bool isImportant, bool isRepeated, IList<Detail> details, DateTime? endTime = null)
-        : base(title, content, notiTime, isCompleted, isImportant, isRepeated, endTime)
+        DateTime notiTime, DateOnly from, DateOnly to, bool isCompleted,
+        bool isImportant, IList<Detail> details, DateTime endTime = new DateTime())
+        : base(title, content, notiTime, isCompleted, isImportant, endTime)
     {
         PlanId = planId;
-        From = from;
-        To = to;
+        FromDate = from;
+        ToDate = to;
         Details = details;
     }
 
-    public override bool CheckShow(bool isInPlan = false)
+    public override string ToString()
     {
-        if (isInPlan)
-            return true;
-        return DateTime.Now >= from && DateTime.Now <= to;
+        return
+            $"{Id}, {Title}, {NotiTime}, from: {FromDate}, to: {ToDate}, comp:{IsCompleted}, imp:{IsImportant}, {GetType()}";
     }
 }

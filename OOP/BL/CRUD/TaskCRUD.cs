@@ -18,7 +18,7 @@
 
         GlobalData.CurrentTasks.Remove(task);
 
-        EntityManager<Task>.Delete(task);
+        EntityManager<Task>.Save(GlobalData.CurrentTasks);
 
         return task;
     }

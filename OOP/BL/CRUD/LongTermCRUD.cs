@@ -10,11 +10,10 @@
             (string)args[1],
             (string)args[2],
             (DateTime)args[3],
-            (DateTime)args[4],
-            (DateTime)args[5],
+            (DateOnly)args[4],
+            (DateOnly)args[5],
             (bool)args[6],
             (bool)args[7],
-            (bool)args[8],
             new List<Detail>()
         );
 

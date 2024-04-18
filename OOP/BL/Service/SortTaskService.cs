@@ -1,27 +1,23 @@
 ﻿public class SortTaskService
 {
     private SortTaskService() { }
-    private static SortTaskService instance;
+    private static SortTaskService instance = new SortTaskService();
     public static SortTaskService Instance
     {
-        get
-        {
-            if (instance == null)
-                instance = new SortTaskService();
-            return instance;
-        }
+        get { return instance; }
     }
-    public enum SortType { ByNotiTime, ByStartDate }
-
-    private delegate bool SortDel(Task task1, Task task2);
-
-    public List<Task>? Sort(IList<Task> tasks, SortType sortType)
+    public enum SortType
+    {
+        ASCENDING, DESCENDING
+    }
+    private delegate bool SortDelegate(Task task1, Task task2);
+    public List<Task>? Sort(IList<Task> tasks, SortType sortType = SortType.ASCENDING)
     {
         if (tasks == null)
             tasks = GlobalData.CurrentTasks;
 
         List<Task> res = new List<Task>(tasks);
-        SortDel sortDel = CreateSortDel(sortType)!;
+        SortDelegate SortDelegate = CreateSortDel(sortType);
 
         for (int i = 0; i < res.Count - 1; i++)
         {
@@ -29,7 +25,7 @@
             int ilast = i;
             for (int j = i + 1; j < res.Count; j++)
             {
-                if (sortDel(minTask, res[j]))
+                if (SortDelegate(minTask, res[j]))
                 {
                     minTask = res[j];
                     ilast = j;
@@ -44,32 +40,25 @@
 
         return res;
     }
+    private SortDelegate CreateSortDel(SortType sortType)
+    {
 
-    //Create SortDelegate by type
-    private SortDel? CreateSortDel(SortType searchType)
-    {
-        switch (searchType)
+        switch (sortType)
         {
-            case SortType.ByNotiTime:
-                return new SortDel(SortByNotiTime);
-            case SortType.ByStartDate:
-                return new SortDel(SortByStartDate);
-            default: return null;
+            case SortType.ASCENDING:
+                return SortAscending;
+            case SortType.DESCENDING:
+                return SortDescending;
         }
+        return SortAscending;
+
     }
-    //Sort Term
-    private bool SortByNotiTime(Task task1, Task task2)
+    private bool SortAscending(Task task1, Task task2)
     {
-        return task1.NotiTime >= task2.NotiTime;
+        return task1 > task2;
     }
-    private bool SortByStartDate(Task _task1, Task _task2)
+    private bool SortDescending(Task task1, Task task2)
     {
-        if (_task1 is LongTerm && _task2 is LongTerm)
-        {
-            LongTerm task1 = TypeConverter.Convert<Task, LongTerm>(_task1)!;
-            LongTerm task2 = TypeConverter.Convert<Task, LongTerm>(_task2)!;
-            return task1.From >= task2.From;
-        }
-        else return false;
+        return task1 < task2;
     }
 }

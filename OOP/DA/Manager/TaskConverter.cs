@@ -20,19 +20,6 @@ public class TaskConverter : JsonConverter<Task>
                 task = JsonSerializer.Deserialize<ShortTerm>(obj.GetRawText(), options)!;
             }
 
-
-            // switch (taskType)
-            // {
-            //     case "ShortTerm":
-            //         task = JsonSerializer.Deserialize<ShortTerm>(obj.GetRawText(), options);
-            //         break;
-            //     case "LongTerm":
-            //         task = JsonSerializer.Deserialize<LongTerm>(obj.GetRawText(), options);
-            //         break;
-            //     default:
-            //         throw new JsonException("Unknown task type.");
-            // }
-
             return task;
         }
     }
