@@ -428,6 +428,7 @@
             button20.TabIndex = 8;
             button20.Text = "Create";
             button20.UseVisualStyleBackColor = true;
+            button20.Click += button20_Click;
             // 
             // button5
             // 
@@ -443,6 +444,7 @@
             button5.TabIndex = 6;
             button5.Text = "Tasks";
             button5.UseVisualStyleBackColor = true;
+            button5.Click += button5_Click;
             // 
             // button4
             // 
@@ -458,6 +460,7 @@
             button4.TabIndex = 5;
             button4.Text = "Planned";
             button4.UseVisualStyleBackColor = true;
+            button4.Click += button4_Click;
             // 
             // button3
             // 

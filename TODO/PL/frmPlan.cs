@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Common;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -21,13 +22,14 @@ namespace TODO.PL
             get { return daybox; }
             set { daybox = value; }
         }
-        private List<string> dateOfWeek = new List<string>() { "Mon", "Tue", "Wed", "Thu", "Fri", "Sar", "Sun" };
+        private List<string> dateOfWeek = new List<string>() { "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" };
         #endregion
 
         public frmPlan()
         {
             InitializeComponent();
             LoadDayBox();
+            AddNumberIntoDayBox(dtpkDate.Value);
         }
 
         public class Conss
@@ -138,17 +140,26 @@ namespace TODO.PL
         }
         private void frmPlan_Load(object sender, EventArgs e)
         {
-            LoadDayBox();
+
         }
 
         private void btnPrevious_Click(object sender, EventArgs e)
         {
+            AddNumberIntoDayBox(dtpkDate.Value);
             dtpkDate.Value = dtpkDate.Value.AddMonths(-1);
         }
 
         private void btnNext_Click(object sender, EventArgs e)
         {
+            AddNumberIntoDayBox(dtpkDate.Value);
             dtpkDate.Value = dtpkDate.Value.AddMonths(1);
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Hide();
+            new frmMyDay(frmMyDay.MyDayType.Myday).ShowDialog();
+            Close();
         }
     }
 }

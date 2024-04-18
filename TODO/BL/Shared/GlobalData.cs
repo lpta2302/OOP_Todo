@@ -7,8 +7,8 @@
     public static ITaskService LongTermService { get; set; }
     static GlobalData()
     {
-        // CurrentTasks = EntityManager<Task>.GetAll()!;
-        // CurrentPlans = EntityManager<Plan>.GetAll()!;
+        CurrentTasks = EntityManager<Task>.GetAll()!;
+        CurrentPlans = EntityManager<Plan>.GetAll()!;
 
         if (CurrentTasks == null)
             CurrentTasks = new List<Task>();

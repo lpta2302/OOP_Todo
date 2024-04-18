@@ -4,7 +4,7 @@ namespace TODO.PL
 {
     internal class Renderer
     {
-        public static void RenderListTask(IList<Task> tasks, FlowLayoutPanel container)
+        public static void RenderListTask(IList<Task> tasks, FlowLayoutPanel container, string type)
         {
             for (int i=0;i<tasks.Count;i++)
             {            
@@ -52,7 +52,14 @@ namespace TODO.PL
                 date.Margin = new Padding(0);
                 date.Size = new Size(95, 28);
                 date.TabIndex = 3;
-                date.Text = task.NotiTime.ToString("dd/MM/yyyy");
+                if (type == "importance")
+                {
+                    date.Text = TypeConverter.ExchangeToDMYHMS(task.NotiTime);
+                }
+                else if ( type == "myday")
+                {
+                    date.Text = TypeConverter.GetHourTime( task.NotiTime);
+                }
                 date.TextAlign = ContentAlignment.MiddleLeft;
                 date.Tag = i.ToString();
                 // 
@@ -101,7 +108,7 @@ namespace TODO.PL
                 date.Margin = new Padding(0);
                 date.Size = new Size(243, 41);
                 date.TabIndex = 3;
-                date.Text = $"{task.NotiTime:g}"; //task.NotiTime.ToString("dd/MM/yyyy");
+                date.Text = TypeConverter.ExchangeToDMYHMS(task.NotiTime);
                 date.TextAlign = ContentAlignment.MiddleLeft;
                 date.Tag = i.ToString();
                 date.FlatStyle = FlatStyle.Flat;

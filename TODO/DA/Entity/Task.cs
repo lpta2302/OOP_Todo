@@ -15,7 +15,7 @@ public abstract class Task : ISerializable
         }
         set
         {
-            if (value >= DateTime.Now.AddSeconds(-60))
+            // if (value >= DateTime.Now.AddSeconds(-60))
                 notiTime = value;
         }
     }
@@ -115,6 +115,7 @@ public abstract class Task : ISerializable
     {
         return service.IsTime(this);
     }
+    public virtual bool CheckShow(bool isInPlan = false) { return true; }
 
     public void CompleteTask()
     {

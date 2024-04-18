@@ -4,6 +4,9 @@
     <Compile Update="PL\frmCreate.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="PL\frmCreateLobby.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="PL\frmCreatePlan.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -5,14 +5,8 @@ public sealed class ShortTerm : Task
     public ShortTerm(string title, string content,
         DateTime notiTime, bool isCompleted,
         bool isImportant, bool isRepeated)
-    {
-        Title = title;
-        Content = content;
-        NotiTime = notiTime;
-        IsCompleted = isCompleted;
-        IsImportant = isImportant;
-        IsRepeated = isRepeated;
-    }
+        : base(title, content, notiTime, isCompleted, isImportant, isRepeated)
+    { }
     public override void GetObjectData(SerializationInfo info, StreamingContext context)
     {
         base.GetObjectData(info, context);

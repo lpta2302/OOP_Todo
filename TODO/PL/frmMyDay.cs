@@ -10,11 +10,35 @@ namespace TODO
         private SearchTaskService search = SearchTaskService.Instance;
         private SortTaskService sort = SortTaskService.Instance;
         private IList<Task> tasks;
-        public frmMyDay()
+        public enum MyDayType
+        {
+            Myday,
+            Importance,
+            AllTasks
+        }
+        public frmMyDay(MyDayType myDayType)
         {
             InitializeComponent();
-            GetMyDay();
-            GetTaskNotification();
+            switch (myDayType)
+            {
+                case MyDayType.Myday:
+                    GetMyDay();
+                    GetTaskNotification();
+                    break;  
+                case MyDayType.Importance:
+                    GetTaskNotification();
+                    GetImportance();
+                    break;
+                case MyDayType.AllTasks:
+                    GetTaskNotification();
+                    GetAllTasksInHistory();
+                    break;
+            }
+        }
+        private void GetAllTasksInHistory()
+        {
+            tasks = GlobalData.CurrentTasks;
+            Renderer.RenderListTask(tasks, flowLayoutPanel1, "importance");
         }
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -36,23 +60,25 @@ namespace TODO
         }
         private void button2_Click(object sender, EventArgs e)
         {
-            flowLayoutPanel1.Controls.Clear();
             GetMyDay();
         }
         public void GetMyDay()
         {
+            label2.Text = "My Day";
+            flowLayoutPanel1.Controls.Clear();
             tasks = search.Search(DateTime.Now, SearchTaskService.SearchType.ByNotiDate)!;
-            Renderer.RenderListTask(tasks, flowLayoutPanel1);
+            Renderer.RenderListTask(tasks, flowLayoutPanel1, "myday");
         }
         private void button3_Click(object sender, EventArgs e)
         {
-            flowLayoutPanel1.Controls.Clear();
             GetImportance();
         }
         private void GetImportance()
         {
+            label2.Text = "Importance";
+            flowLayoutPanel1.Controls.Clear();
             tasks = filter.DoFilter(FilterTaskService.TaskType.IsImportance);
-            Renderer.RenderListTask(tasks, flowLayoutPanel1);
+            Renderer.RenderListTask(tasks, flowLayoutPanel1, "importance");
         }
         private void GetTaskNotification()
         {
@@ -63,7 +89,6 @@ namespace TODO
         {
 
         }
-
         private void button1_Click(object sender, EventArgs e)
         {
             flowLayoutPanel1.Controls.Clear();
@@ -77,12 +102,12 @@ namespace TODO
                 if (double.TryParse(textSearch, out double value))
                 {
                     tasks = search.Search(textSearch, SearchTaskService.SearchType.ByID);
-                    Renderer.RenderListTask(tasks, flowLayoutPanel1);
+                    Renderer.RenderListTask(tasks, flowLayoutPanel1, "importance");
                 }
                 else if (textSearch is string)
                 {
                     tasks = search.Search(textSearch, SearchTaskService.SearchType.ByTitle);
-                    Renderer.RenderListTask(tasks, flowLayoutPanel1);
+                    Renderer.RenderListTask(tasks, flowLayoutPanel1, "importance");
                 }
             }
             catch
@@ -99,7 +124,7 @@ namespace TODO
         private void GetAlert()
         {
             tasks = filter.DoFilter(FilterTaskService.TaskType.ShortTerm);
-            Renderer.RenderListTask(tasks, flowLayoutPanel1);
+            Renderer.RenderListTask(tasks, flowLayoutPanel1, "myday");
         }
 
         private void button17_Click(object sender, EventArgs e)
@@ -109,8 +134,9 @@ namespace TODO
         }
         private void GetMiniTask()
         {
+            flowLayoutPanel1.Controls.Clear();
             tasks = filter.DoFilter(FilterTaskService.TaskType.LongTerm);
-            Renderer.RenderListTask(tasks, flowLayoutPanel1);
+            Renderer.RenderListTask(tasks, flowLayoutPanel1, "importance");
         }
 
         private void button6_Click(object sender, EventArgs e)
@@ -132,7 +158,7 @@ namespace TODO
         private void GetCompleteTask()
         {
             tasks = filter.DoFilter(FilterTaskService.TaskType.IsComplete);
-            Renderer.RenderListTask(tasks, flowLayoutPanel1);
+            Renderer.RenderListTask(tasks, flowLayoutPanel1, "importance");
         }
 
         private void button8_Click(object sender, EventArgs e)
@@ -143,7 +169,25 @@ namespace TODO
         private void GetUnCompleteTask()
         {
             tasks = filter.DoFilter(FilterTaskService.TaskType.IsUnComplete);
-            Renderer.RenderListTask(tasks, flowLayoutPanel1);
+            Renderer.RenderListTask(tasks, flowLayoutPanel1, "importance");
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Hide();
+            new frmPlan().ShowDialog();
+            Close();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            GetMiniTask();
+        }
+        private void button20_Click(object sender, EventArgs e)
+        {
+            Hide();
+            new frmCreateLobby().ShowDialog();
+            Close();
         }
     }
 }

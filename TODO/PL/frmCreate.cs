@@ -12,9 +12,39 @@ namespace TODO.PL
 {
     public partial class frmCreate : Form
     {
-        public frmCreate()
+        public enum CreateType
+        {
+            ShortTerm,
+            LongTerm
+        }
+        public frmCreate(CreateType createType)
         {
             InitializeComponent();
+            switch(createType)
+            {
+                case CreateType.ShortTerm:
+                    panel5.Visible = false;
+                    listView1.Visible = false;
+                    break;
+                case CreateType.LongTerm:
+
+                    break;
+            }
+        }
+
+        private void label10_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button11_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label11_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

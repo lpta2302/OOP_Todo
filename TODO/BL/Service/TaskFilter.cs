@@ -24,9 +24,9 @@ namespace OOP.BL
             ShortTerm,
             LongTerm,
             IsImportance,
+            IsUnComplete,
             IsComplete,
-            IsRepeated,
-            IsUnComplete
+            IsRepeated
         }
         private delegate void ArrangeDelegate(Task task, ref bool accumulator);
         public List<Task> DoFilter(TaskType taskType, IList<Task>? tasks = null)
@@ -79,14 +79,14 @@ namespace OOP.BL
                     case TaskType.IsImportance:
                         arrangeDelegate += ArrangeByImportance;
                         break;
+                    case TaskType.IsUnComplete:
+                        arrangeDelegate += ArrangeByUnCompletion;
+                        break;
                     case TaskType.IsComplete:
                         arrangeDelegate += ArrangeByCompletion;
                         break;
                     case TaskType.IsRepeated:
                         arrangeDelegate += ArrangeByRepeated;
-                        break;
-                    case TaskType.IsUnComplete:
-                        arrangeDelegate += ArrangeByUnCompletion;
                         break;
                     default:
                         return arrangeDelegate;
@@ -106,6 +106,10 @@ namespace OOP.BL
         {
             accumulator = accumulator && task.IsImportant;
         }
+        private void ArrangeByUnCompletion(Task task, ref bool accumulator)
+        {
+            accumulator = accumulator && !task.IsCompleted;
+        }
         private void ArrangeByCompletion(Task task, ref bool accumulator)
         {
             accumulator = accumulator && task.IsCompleted;
@@ -113,10 +117,6 @@ namespace OOP.BL
         private void ArrangeByRepeated(Task task, ref bool accumulator)
         {
             accumulator = accumulator && task.IsRepeated;
-        }
-        private void ArrangeByUnCompletion(Task task, ref bool accumulator)
-        {
-            accumulator = accumulator && !task.IsCompleted;
         }
     }
 }

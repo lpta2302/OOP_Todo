@@ -8,6 +8,7 @@ public sealed class MyFakeData
     {
         Task shortTerm;
         Random r = new Random();
+
         for (int i = 0; i < 10; i++)
         {
             ShortTermCRUD.Instance.Create(
