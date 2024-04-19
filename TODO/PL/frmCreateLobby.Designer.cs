@@ -53,7 +53,7 @@
             // pictureBox2
             // 
             pictureBox2.BackColor = Color.Transparent;
-            pictureBox2.Image = Properties.Resources.sun_white;
+            pictureBox2.Image = Properties.Resources.sun;
             pictureBox2.Location = new Point(16, 35);
             pictureBox2.Margin = new Padding(4);
             pictureBox2.Name = "pictureBox2";
@@ -72,9 +72,9 @@
             label2.Location = new Point(70, 21);
             label2.Margin = new Padding(4, 0, 4, 0);
             label2.Name = "label2";
-            label2.Size = new Size(206, 76);
+            label2.Size = new Size(387, 76);
             label2.TabIndex = 4;
-            label2.Text = "Create";
+            label2.Text = "Create Lobby";
             label2.TextAlign = ContentAlignment.MiddleRight;
             // 
             // panel2
@@ -195,6 +195,7 @@
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(294, 58);
             textBox1.TabIndex = 1;
+            textBox1.TextChanged += textBox1_TextChanged;
             // 
             // pictureBox1
             // 

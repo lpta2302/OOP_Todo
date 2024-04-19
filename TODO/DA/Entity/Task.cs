@@ -1,3 +1,4 @@
+using System.Numerics;
 using System.Runtime.Serialization;
 
 public abstract class Task : ISerializable
@@ -6,8 +7,8 @@ public abstract class Task : ISerializable
     public string Title { get; set; }
     public string Content { get; set; }
     public DateTime CreatedAt { get; }
-    private DateTime notiTime;
-    public DateTime NotiTime
+    protected DateTime notiTime;
+    public virtual DateTime NotiTime
     {
         get
         {
@@ -15,12 +16,12 @@ public abstract class Task : ISerializable
         }
         set
         {
-            // if (value >= DateTime.Now.AddSeconds(-60))
+            if (value >= DateTime.Now.AddSeconds(-60))
                 notiTime = value;
         }
     }
-    private DateTime? endTime;
-    public DateTime? EndTime
+    private DateTime endTime;
+    public DateTime EndTime
     {
         get
         {
@@ -28,13 +29,40 @@ public abstract class Task : ISerializable
         }
         set
         {
-            if (value == null || value >= notiTime)
-                endTime = value;
+            endTime = value;
         }
     }
+    public static bool operator >(Task task1, Task task2)
+    {
+        if (task1.GetType().IsAssignableTo(typeof(LongTask)) &&
+            task2.GetType().IsAssignableTo(typeof(LongTask)) &&
+            task1.NotiTime == task2.NotiTime)
+        {
+            LongTask long1 = (LongTask)task1;
+            LongTask long2 = (LongTask)task2;
+            return long1.FromDate > long2.FromDate;
+        }
+
+
+        return task1.NotiTime > task2.NotiTime;
+    }
+    public static bool operator <(Task task1, Task task2)
+    {
+        if (task1.GetType().IsAssignableTo(typeof(LongTask)) &&
+            task2.GetType().IsAssignableTo(typeof(LongTask)) &&
+            task1.NotiTime == task2.NotiTime)
+        {
+            LongTask long1 = (LongTask)task1;
+            LongTask long2 = (LongTask)task2;
+            return long1.FromDate < long2.FromDate;
+        }
+
+
+        return task1.NotiTime < task2.NotiTime;
+    }
+    public bool IsNotificated { get; set; }
     public bool IsCompleted { get; set; }
     public bool IsImportant { get; set; }
-    public bool IsRepeated { get; set; }
     protected ITaskService service;
     protected TaskCRUD crud;
     public virtual void GetObjectData(SerializationInfo info, StreamingContext context)
@@ -47,7 +75,29 @@ public abstract class Task : ISerializable
         info.AddValue("EndTime", EndTime);
         info.AddValue("IsCompleted", IsCompleted);
         info.AddValue("IsImportant", IsImportant);
-        info.AddValue("IsRepeated", IsRepeated);
+    }
+    private void InjectDependencies()
+    {
+        service =
+            GetType().IsAssignableTo(typeof(ShortTask)) ?
+            ShortTaskService.Instance :
+            LongTaskService.Instance;
+        crud =
+            GetType().IsAssignableTo(typeof(ShortTask)) ?
+            ShortTaskCRUD.Instance :
+            LongTaskCRUD.Instance;
+    }
+    public Task(SerializationInfo info, StreamingContext context)
+    {
+        Id = info.GetString("Id")!;
+        Title = info.GetString("Title")!;
+        Content = info.GetString("Content")!;
+        CreatedAt = info.GetDateTime("CreatedAt");
+        NotiTime = info.GetDateTime("NotiTime");
+        EndTime = info.GetDateTime("EndTime");
+        IsCompleted = info.GetBoolean("IsCompleted");
+        IsImportant = info.GetBoolean("IsImportant");
+        InjectDependencies();
     }
     protected Task()
     {
@@ -57,18 +107,10 @@ public abstract class Task : ISerializable
         Title = "";
         IsCompleted = false;
         IsImportant = false;
-        IsRepeated = false;
-        service =
-            GetType().IsAssignableTo(typeof(ShortTerm)) ?
-            ShortTermService.Instance :
-            LongTermService.Instance;
-        crud =
-            GetType().IsAssignableTo(typeof(ShortTerm)) ?
-            ShortTermCRUD.Instance :
-            LongTermCRUD.Instance;
+        InjectDependencies();
     }
 
-    protected Task(string title, string content, DateTime notiTime, bool isCompleted, bool isImportant, bool isRepeated, DateTime? endTime = null)
+    protected Task(string title, string content, DateTime notiTime, bool isCompleted, bool isImportant, DateTime endTime = new DateTime())
     {
         Id = Generator.GenerateId();
         CreatedAt = DateTime.Now;
@@ -78,21 +120,9 @@ public abstract class Task : ISerializable
         EndTime = endTime;
         IsCompleted = isCompleted;
         IsImportant = isImportant;
-        IsRepeated = isRepeated;
-        service =
-            GetType().IsAssignableTo(typeof(ShortTerm)) ?
-            ShortTermService.Instance :
-            LongTermService.Instance;
-        crud =
-            GetType().IsAssignableTo(typeof(ShortTerm)) ?
-            ShortTermCRUD.Instance :
-            LongTermCRUD.Instance;
+        InjectDependencies();
     }
 
-    public Task Create()
-    {
-        return crud.Create(this);
-    }
     public Task Delete()
     {
         return crud.Delete(Id)!;
@@ -103,27 +133,28 @@ public abstract class Task : ISerializable
         return crud.Update(this)!;
     }
 
+    public void ToggleIsNotificated()
+    {
+        service.ToggleIsNotificated(this);
+    }
     public void ToggleImportant()
     {
-        service.ToggleBoolProp(this, ITaskService.BoolProp.IsImportant);
+        service.ToggleImportant(this);
     }
-    public void ToggleRepeated()
-    {
-        service.ToggleBoolProp(this, ITaskService.BoolProp.IsRepeated);
-    }
+
     public bool CheckTime()
     {
         return service.IsTime(this);
     }
-    public virtual bool CheckShow(bool isInPlan = false) { return true; }
 
     public void CompleteTask()
     {
         service.CompleteTask(this);
     }
+
     public override string ToString()
     {
         return
-            $"{Id}, {Title}, {NotiTime}, comp:{IsCompleted}, imp:{IsImportant}, rep:{IsRepeated}, {GetType()}";
+            $"{Id}, {Title}, {NotiTime}, comp:{IsCompleted}, imp:{IsImportant}, {GetType()}";
     }
 }

@@ -1,12 +1,12 @@
-﻿public class ShortTermCRUD : TaskCRUD
+﻿public class ShortTaskCRUD : TaskCRUD
 {
-    private static readonly ShortTermCRUD instance = new ShortTermCRUD();
-    private ShortTermCRUD() { }
-    public static ShortTermCRUD Instance { get { return instance; } }
+    private static readonly ShortTaskCRUD instance = new ShortTaskCRUD();
+    private ShortTaskCRUD() { }
+    public static ShortTaskCRUD Instance { get { return instance; } }
 
-    public override ShortTerm? Create(object[] args)
+    public override ShortTask? Create(object[] args)
     {
-        ShortTerm task = new ShortTerm(
+        ShortTask task = new ShortTask(
             (string)args[0],
             (string)args[1],
             (DateTime)args[2],

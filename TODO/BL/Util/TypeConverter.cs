@@ -8,7 +8,6 @@ public class TypeConverter
         dateTimeFormat.DayNames = new[] { "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" };
         dateTimeFormat.MonthNames = new[] { "", "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" };
     }
-
     public static ResType? Convert<ParamType, ResType>(ParamType x)
     {
         if (x == null) return default;
@@ -26,13 +25,13 @@ public class TypeConverter
     {
         return dateTime.ToString("dddd, MMMM d", dateTimeFormat);
     }
-    public static string ExchangeToDMY(DateTime dateTime)
-    {
-        return dateTime.ToString("dd/MM/yyyy");
-    }
     public static string ExchangeToDMYHMS(DateTime dateTime)
     {
         return dateTime.ToString("dd/MM/yyyy hh:mm");
+    }
+    public static string ExchangeToDMY(DateTime dateTime)
+    {
+        return dateTime.ToString("dd/MM/yyyy");
     }
     public static string GetHourTime(DateTime dateTime)
     {

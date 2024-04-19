@@ -62,6 +62,8 @@
             button1 = new Button();
             textBox1 = new TextBox();
             pictureBox1 = new PictureBox();
+            pictureBox5 = new PictureBox();
+            pictureBox4 = new PictureBox();
             panel1.SuspendLayout();
             panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
@@ -74,6 +76,8 @@
             panel9.SuspendLayout();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             SuspendLayout();
             // 
             // panel1
@@ -261,6 +265,8 @@
             panel5.BackColor = Color.Transparent;
             panel5.BackgroundImage = Properties.Resources.task;
             panel5.BackgroundImageLayout = ImageLayout.Stretch;
+            panel5.Controls.Add(pictureBox5);
+            panel5.Controls.Add(pictureBox4);
             panel5.Controls.Add(label7);
             panel5.Controls.Add(pictureBox3);
             panel5.Controls.Add(label3);
@@ -286,7 +292,7 @@
             // pictureBox3
             // 
             pictureBox3.Image = Properties.Resources.star;
-            pictureBox3.Location = new Point(969, 35);
+            pictureBox3.Location = new Point(850, 35);
             pictureBox3.Margin = new Padding(4);
             pictureBox3.Name = "pictureBox3";
             pictureBox3.Size = new Size(50, 50);
@@ -528,6 +534,29 @@
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
             // 
+            // pictureBox5
+            // 
+            pictureBox5.Image = Properties.Resources.trash_bin;
+            pictureBox5.Location = new Point(965, 35);
+            pictureBox5.Margin = new Padding(4);
+            pictureBox5.Name = "pictureBox5";
+            pictureBox5.Size = new Size(50, 50);
+            pictureBox5.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox5.TabIndex = 7;
+            pictureBox5.TabStop = false;
+            // 
+            // pictureBox4
+            // 
+            pictureBox4.Image = Properties.Resources.edit;
+            pictureBox4.Location = new Point(908, 35);
+            pictureBox4.Margin = new Padding(4);
+            pictureBox4.Name = "pictureBox4";
+            pictureBox4.Size = new Size(50, 50);
+            pictureBox4.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox4.TabIndex = 6;
+            pictureBox4.TabStop = false;
+            pictureBox4.Click += pictureBox4_Click;
+            // 
             // frmMyDay
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
@@ -556,6 +585,8 @@
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
             ResumeLayout(false);
         }
 
@@ -594,5 +625,7 @@
         private Label label7;
         private FlowLayoutPanel flowLayoutPanel2;
         private FlowLayoutPanel flowLayoutPanel3;
+        private PictureBox pictureBox5;
+        private PictureBox pictureBox4;
     }
 }

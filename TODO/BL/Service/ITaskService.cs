@@ -2,17 +2,15 @@
 
 public interface ITaskService
 {
-    public enum BoolProp
+    public void ToggleIsNotificated(Task task)
     {
-        IsImportant,
-        IsRepeated
-    }
-    //Pass task and Prop type that need Toggle ex: ToggleBoolProp(task, BoolProp.IsImportant)
-    public void ToggleBoolProp(Task task, BoolProp propType)
-    {
-        PropertyInfo prop = typeof(Task).GetProperty(Enum.GetName(propType) ?? "")!;
+        task.IsNotificated = !task.IsNotificated;
 
-        prop.SetValue(task, !(bool)prop.GetValue(task));
+        task.Update();
+    }
+    public void ToggleImportant(Task task)
+    {
+        task.IsImportant = !task.IsImportant;
 
         task.Update();
     }

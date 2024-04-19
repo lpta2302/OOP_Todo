@@ -11,7 +11,7 @@ public sealed class MyFakeData
 
         for (int i = 0; i < 10; i++)
         {
-            ShortTermCRUD.Instance.Create(
+            ShortTaskCRUD.Instance.Create(
                 new object[]{
                     habits[r.Next(0, 4)],
                     contents[r.Next(0, 4)],
@@ -23,7 +23,7 @@ public sealed class MyFakeData
         }
         for (int i = 0; i < 10; i++)
         {
-            ShortTermCRUD.Instance.Create(
+            ShortTaskCRUD.Instance.Create(
                 new object[]{
                     habits[r.Next(0, 4)],
                     contents[r.Next(0, 4)],
@@ -39,18 +39,20 @@ public sealed class MyFakeData
     {
         Plan plan = new Plan()
         {
-            Name = "Learn Toeic"
+            Name = "Các bước thực hiện một dự án theo WaterFall"
         };
 
-        LongTermCRUD.Instance.Create(
+        Task? task = null;
+
+        task = LongTaskCRUD.Instance.Create(
             new object[]{
                 "Thu thập yêu cầu và phân tích",
             plan.Id,
             "Thực hiện bước đầu là thu thập và phân tích dự án nhầm phát triển dự án theo đúng yêu cầu khách hàng",
             new DateTime(),
-            DateTime.Now,
-            DateTime.Now.AddDays(7),
-            false, false, false,
+            DateOnly.FromDateTime(DateTime.Now),
+            DateOnly.FromDateTime(DateTime.Now.AddDays(7)),
+            false, false,
             new List<Detail>(){
                 new Detail("Phân tích tính khả thôi"),
                 new Detail("Thu thập yêu cầu khách hàng"),
@@ -59,15 +61,18 @@ public sealed class MyFakeData
             }
             }
         );
-        LongTermCRUD.Instance.Create(
+
+        plan.AddTask(task);
+
+        task = LongTaskCRUD.Instance.Create(
             new object[]{
                 "Thiết kế",
             plan.Id,
             "Thực hiện bước đầu thiết kế",
             new DateTime(),
-            DateTime.Now.AddDays(8),
-            DateTime.Now.AddDays(15),
-            false, false, false,
+            DateOnly.FromDateTime(DateTime.Now.AddDays(8)),
+            DateOnly.FromDateTime(DateTime.Now.AddDays(15)),
+            false, false,
             new List<Detail>(){
                 new Detail("Thiết kế hệ thống (System Design)"),
                 new Detail("Thiết kế Database"),
@@ -76,15 +81,18 @@ public sealed class MyFakeData
             }
             }
         );
-        LongTermCRUD.Instance.Create(
+
+        plan.AddTask(task);
+
+        task = LongTaskCRUD.Instance.Create(
             new object[]{
                 "Thực hiện code (Implementation)",
             plan.Id,
             "Bắt đầu thực hiện dự án",
             new DateTime(),
-            DateTime.Now.AddDays(16),
-            DateTime.Now.AddDays(39),
-            false, false, false,
+            DateOnly.FromDateTime(DateTime.Now.AddDays(16)),
+            DateOnly.FromDateTime(DateTime.Now.AddDays(39)),
+            false, false,
             new List<Detail>(){
                 new Detail("Chuẩn bị môi trường phát triển"),
                 new Detail("Xác định các nhiệm vụ"),
@@ -93,15 +101,18 @@ public sealed class MyFakeData
             }
             }
         );
-        LongTermCRUD.Instance.Create(
+
+        plan.AddTask(task);
+
+        task = LongTaskCRUD.Instance.Create(
             new object[]{
                 "Testing",
             plan.Id,
             "Thực hiện kiểm thử dự án",
             new DateTime(),
-            DateTime.Now.AddDays(40),
-            DateTime.Now.AddDays(44),
-            false, false, false,
+            DateOnly.FromDateTime(DateTime.Now.AddDays(40)),
+            DateOnly.FromDateTime(DateTime.Now.AddDays(44)),
+            false, false,
             new List<Detail>(){
                 new Detail("Xác định yêu cầu kiểm thử"),
                 new Detail("Unit Test"),
@@ -112,15 +123,18 @@ public sealed class MyFakeData
             }
             }
         );
-        LongTermCRUD.Instance.Create(
+
+        plan.AddTask(task);
+
+        task = LongTaskCRUD.Instance.Create(
             new object[]{
                 "Deployment",
                 plan.Id,
                 "Triển khai dự án cho khách hàng",
                 new DateTime(),
-                DateTime.Now.AddDays(45),
-                DateTime.Now.AddDays(45),
-                false, false, false,
+                DateOnly.FromDateTime(DateTime.Now.AddDays(45)),
+                DateOnly.FromDateTime(DateTime.Now.AddDays(45)),
+                false, false,
                 new List<Detail>(){
                     new Detail("Chuẩn bị môi trường triển khai"),
                     new Detail("Thực hiện láp đặt thiết bị"),
@@ -131,6 +145,10 @@ public sealed class MyFakeData
                 }
             }
         );
+
+        plan.AddTask(task);
+
+        EntityManager<Plan>.Save(new List<Plan>() { plan });
     }
 
     public static void Init()

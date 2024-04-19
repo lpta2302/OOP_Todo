@@ -13,25 +13,12 @@ public class TaskConverter : JsonConverter<Task>
 
             if (obj.TryGetProperty("PlanId", out JsonElement value))
             {
-                task = JsonSerializer.Deserialize<LongTerm>(obj.GetRawText(), options)!;
+                task = JsonSerializer.Deserialize<LongTask>(obj.GetRawText(), options)!;
             }
             else
             {
-                task = JsonSerializer.Deserialize<ShortTerm>(obj.GetRawText(), options)!;
+                task = JsonSerializer.Deserialize<ShortTask>(obj.GetRawText(), options)!;
             }
-
-
-            // switch (taskType)
-            // {
-            //     case "ShortTerm":
-            //         task = JsonSerializer.Deserialize<ShortTerm>(obj.GetRawText(), options);
-            //         break;
-            //     case "LongTerm":
-            //         task = JsonSerializer.Deserialize<LongTerm>(obj.GetRawText(), options);
-            //         break;
-            //     default:
-            //         throw new JsonException("Unknown task type.");
-            // }
 
             return task;
         }

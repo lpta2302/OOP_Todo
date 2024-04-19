@@ -28,10 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            panel10 = new Panel();
-            button12 = new Button();
-            label5 = new Label();
             panel4 = new Panel();
+            btnBack = new Button();
             listBox1 = new ListBox();
             button8 = new Button();
             label3 = new Label();
@@ -47,72 +45,24 @@
             button1 = new Button();
             textBox1 = new TextBox();
             panel1 = new Panel();
-            panel3 = new Panel();
-            panel8 = new Panel();
-            panel11 = new Panel();
-            button13 = new Button();
-            label6 = new Label();
-            panel9 = new Panel();
-            button11 = new Button();
-            label4 = new Label();
-            label1 = new Label();
             panel2 = new Panel();
             pictureBox1 = new PictureBox();
-            btnBack = new Button();
-            panel10.SuspendLayout();
+            button6 = new Button();
+            button9 = new Button();
             panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             panel1.SuspendLayout();
-            panel3.SuspendLayout();
-            panel8.SuspendLayout();
-            panel11.SuspendLayout();
-            panel9.SuspendLayout();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
-            // 
-            // panel10
-            // 
-            panel10.BackColor = Color.White;
-            panel10.BackgroundImageLayout = ImageLayout.Stretch;
-            panel10.Controls.Add(button12);
-            panel10.Controls.Add(label5);
-            panel10.Location = new Point(19, 199);
-            panel10.Margin = new Padding(0);
-            panel10.Name = "panel10";
-            panel10.Size = new Size(338, 126);
-            panel10.TabIndex = 9;
-            // 
-            // button12
-            // 
-            button12.Image = Properties.Resources.repeat;
-            button12.ImageAlign = ContentAlignment.MiddleRight;
-            button12.Location = new Point(54, 65);
-            button12.Margin = new Padding(0);
-            button12.Name = "button12";
-            button12.Size = new Size(110, 41);
-            button12.TabIndex = 1;
-            button12.Text = "Today";
-            button12.TextAlign = ContentAlignment.MiddleLeft;
-            button12.UseVisualStyleBackColor = true;
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
-            label5.Location = new Point(54, 30);
-            label5.Margin = new Padding(0);
-            label5.Name = "label5";
-            label5.Size = new Size(103, 30);
-            label5.TabIndex = 0;
-            label5.Text = "To do list";
-            label5.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // panel4
             // 
             panel4.BackColor = Color.White;
             panel4.BackgroundImage = Properties.Resources.background;
             panel4.BackgroundImageLayout = ImageLayout.Stretch;
+            panel4.Controls.Add(button9);
+            panel4.Controls.Add(button6);
             panel4.Controls.Add(btnBack);
             panel4.Controls.Add(listBox1);
             panel4.Controls.Add(button8);
@@ -127,12 +77,27 @@
             panel4.Size = new Size(1106, 972);
             panel4.TabIndex = 3;
             // 
+            // btnBack
+            // 
+            btnBack.BackColor = Color.FromArgb(34, 34, 34);
+            btnBack.FlatAppearance.BorderSize = 0;
+            btnBack.FlatStyle = FlatStyle.Popup;
+            btnBack.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            btnBack.ForeColor = Color.White;
+            btnBack.Location = new Point(55, 106);
+            btnBack.Margin = new Padding(4);
+            btnBack.Name = "btnBack";
+            btnBack.Size = new Size(110, 62);
+            btnBack.TabIndex = 33;
+            btnBack.Text = "Back";
+            btnBack.UseVisualStyleBackColor = false;
+            // 
             // listBox1
             // 
             listBox1.FormattingEnabled = true;
             listBox1.ItemHeight = 25;
             listBox1.Location = new Point(16, 428);
-            listBox1.Margin = new Padding(4, 4, 4, 4);
+            listBox1.Margin = new Padding(4);
             listBox1.Name = "listBox1";
             listBox1.Size = new Size(1073, 329);
             listBox1.TabIndex = 15;
@@ -144,8 +109,8 @@
             button8.FlatStyle = FlatStyle.Popup;
             button8.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             button8.ForeColor = Color.Black;
-            button8.Location = new Point(698, 795);
-            button8.Margin = new Padding(4, 4, 4, 4);
+            button8.Location = new Point(817, 795);
+            button8.Margin = new Padding(4);
             button8.Name = "button8";
             button8.Size = new Size(271, 62);
             button8.TabIndex = 14;
@@ -168,7 +133,7 @@
             // textBox2
             // 
             textBox2.Location = new Point(16, 341);
-            textBox2.Margin = new Padding(4, 4, 4, 4);
+            textBox2.Margin = new Padding(4);
             textBox2.Multiline = true;
             textBox2.Name = "textBox2";
             textBox2.Size = new Size(1073, 50);
@@ -182,7 +147,7 @@
             button7.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             button7.ForeColor = Color.Black;
             button7.Location = new Point(16, 795);
-            button7.Margin = new Padding(4, 4, 4, 4);
+            button7.Margin = new Padding(4);
             button7.Name = "button7";
             button7.Size = new Size(188, 62);
             button7.TabIndex = 10;
@@ -195,7 +160,7 @@
             pictureBox2.BackColor = Color.Transparent;
             pictureBox2.Image = Properties.Resources.sun_white;
             pictureBox2.Location = new Point(16, 35);
-            pictureBox2.Margin = new Padding(4, 4, 4, 4);
+            pictureBox2.Margin = new Padding(4);
             pictureBox2.Name = "pictureBox2";
             pictureBox2.Size = new Size(50, 50);
             pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -225,7 +190,7 @@
             button20.Image = Properties.Resources.plus_black11;
             button20.ImageAlign = ContentAlignment.MiddleLeft;
             button20.Location = new Point(4, 572);
-            button20.Margin = new Padding(8, 8, 8, 8);
+            button20.Margin = new Padding(8);
             button20.Name = "button20";
             button20.Size = new Size(368, 68);
             button20.TabIndex = 8;
@@ -240,7 +205,7 @@
             button5.Image = Properties.Resources.check_square;
             button5.ImageAlign = ContentAlignment.MiddleLeft;
             button5.Location = new Point(4, 490);
-            button5.Margin = new Padding(8, 8, 8, 8);
+            button5.Margin = new Padding(8);
             button5.Name = "button5";
             button5.Size = new Size(368, 68);
             button5.TabIndex = 6;
@@ -255,7 +220,7 @@
             button4.Image = Properties.Resources.calendar_dots;
             button4.ImageAlign = ContentAlignment.MiddleLeft;
             button4.Location = new Point(4, 408);
-            button4.Margin = new Padding(8, 8, 8, 8);
+            button4.Margin = new Padding(8);
             button4.Name = "button4";
             button4.Size = new Size(368, 68);
             button4.TabIndex = 5;
@@ -270,7 +235,7 @@
             button3.Image = Properties.Resources.star;
             button3.ImageAlign = ContentAlignment.MiddleLeft;
             button3.Location = new Point(4, 325);
-            button3.Margin = new Padding(8, 8, 8, 8);
+            button3.Margin = new Padding(8);
             button3.Name = "button3";
             button3.Size = new Size(368, 68);
             button3.TabIndex = 4;
@@ -285,7 +250,7 @@
             button2.Image = Properties.Resources.sun;
             button2.ImageAlign = ContentAlignment.MiddleLeft;
             button2.Location = new Point(4, 242);
-            button2.Margin = new Padding(8, 8, 8, 8);
+            button2.Margin = new Padding(8);
             button2.Name = "button2";
             button2.Size = new Size(368, 68);
             button2.TabIndex = 3;
@@ -299,7 +264,7 @@
             button1.FlatStyle = FlatStyle.Flat;
             button1.Image = Properties.Resources.magnifying_glass;
             button1.Location = new Point(306, 122);
-            button1.Margin = new Padding(4, 4, 4, 4);
+            button1.Margin = new Padding(4);
             button1.Name = "button1";
             button1.Size = new Size(65, 59);
             button1.TabIndex = 2;
@@ -308,7 +273,7 @@
             // textBox1
             // 
             textBox1.Location = new Point(4, 122);
-            textBox1.Margin = new Padding(4, 4, 4, 4);
+            textBox1.Margin = new Padding(4);
             textBox1.Multiline = true;
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(294, 58);
@@ -317,124 +282,12 @@
             // panel1
             // 
             panel1.Controls.Add(panel4);
-            panel1.Controls.Add(panel3);
             panel1.Controls.Add(panel2);
             panel1.Location = new Point(2, 2);
-            panel1.Margin = new Padding(4, 4, 4, 4);
+            panel1.Margin = new Padding(4);
             panel1.Name = "panel1";
             panel1.Size = new Size(1858, 972);
             panel1.TabIndex = 2;
-            // 
-            // panel3
-            // 
-            panel3.BackColor = Color.LightSkyBlue;
-            panel3.BackgroundImageLayout = ImageLayout.Stretch;
-            panel3.Controls.Add(panel8);
-            panel3.Controls.Add(label1);
-            panel3.Location = new Point(1481, 0);
-            panel3.Margin = new Padding(0);
-            panel3.Name = "panel3";
-            panel3.Size = new Size(375, 972);
-            panel3.TabIndex = 1;
-            // 
-            // panel8
-            // 
-            panel8.Controls.Add(panel10);
-            panel8.Controls.Add(panel11);
-            panel8.Controls.Add(panel9);
-            panel8.Location = new Point(0, 254);
-            panel8.Margin = new Padding(0);
-            panel8.Name = "panel8";
-            panel8.Size = new Size(375, 504);
-            panel8.TabIndex = 1;
-            // 
-            // panel11
-            // 
-            panel11.BackColor = Color.White;
-            panel11.BackgroundImageLayout = ImageLayout.Stretch;
-            panel11.Controls.Add(button13);
-            panel11.Controls.Add(label6);
-            panel11.Location = new Point(19, 350);
-            panel11.Margin = new Padding(0);
-            panel11.Name = "panel11";
-            panel11.Size = new Size(338, 126);
-            panel11.TabIndex = 9;
-            // 
-            // button13
-            // 
-            button13.Image = Properties.Resources.repeat;
-            button13.ImageAlign = ContentAlignment.MiddleRight;
-            button13.Location = new Point(54, 65);
-            button13.Margin = new Padding(0);
-            button13.Name = "button13";
-            button13.Size = new Size(110, 41);
-            button13.TabIndex = 1;
-            button13.Text = "Today";
-            button13.TextAlign = ContentAlignment.MiddleLeft;
-            button13.UseVisualStyleBackColor = true;
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
-            label6.Location = new Point(54, 30);
-            label6.Margin = new Padding(0);
-            label6.Name = "label6";
-            label6.Size = new Size(103, 30);
-            label6.TabIndex = 0;
-            label6.Text = "To do list";
-            label6.TextAlign = ContentAlignment.MiddleLeft;
-            // 
-            // panel9
-            // 
-            panel9.BackColor = Color.White;
-            panel9.BackgroundImageLayout = ImageLayout.Stretch;
-            panel9.Controls.Add(button11);
-            panel9.Controls.Add(label4);
-            panel9.Location = new Point(19, 50);
-            panel9.Margin = new Padding(0);
-            panel9.Name = "panel9";
-            panel9.Size = new Size(338, 126);
-            panel9.TabIndex = 8;
-            // 
-            // button11
-            // 
-            button11.Image = Properties.Resources.repeat;
-            button11.ImageAlign = ContentAlignment.MiddleRight;
-            button11.Location = new Point(54, 65);
-            button11.Margin = new Padding(0);
-            button11.Name = "button11";
-            button11.Size = new Size(110, 41);
-            button11.TabIndex = 1;
-            button11.Text = "Today";
-            button11.TextAlign = ContentAlignment.MiddleLeft;
-            button11.UseVisualStyleBackColor = true;
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.BackColor = Color.White;
-            label4.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
-            label4.Location = new Point(54, 30);
-            label4.Margin = new Padding(0);
-            label4.Name = "label4";
-            label4.Size = new Size(103, 30);
-            label4.TabIndex = 0;
-            label4.Text = "To do list";
-            label4.TextAlign = ContentAlignment.MiddleLeft;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.ForeColor = Color.White;
-            label1.Location = new Point(55, 125);
-            label1.Margin = new Padding(4, 0, 4, 0);
-            label1.Name = "label1";
-            label1.Size = new Size(248, 54);
-            label1.TabIndex = 0;
-            label1.Text = "Notification";
-            label1.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // panel2
             // 
@@ -464,20 +317,35 @@
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
             // 
-            // btnBack
+            // button6
             // 
-            btnBack.BackColor = Color.FromArgb(34, 34, 34);
-            btnBack.FlatAppearance.BorderSize = 0;
-            btnBack.FlatStyle = FlatStyle.Popup;
-            btnBack.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            btnBack.ForeColor = Color.White;
-            btnBack.Location = new Point(55, 106);
-            btnBack.Margin = new Padding(4);
-            btnBack.Name = "btnBack";
-            btnBack.Size = new Size(110, 62);
-            btnBack.TabIndex = 33;
-            btnBack.Text = "Back";
-            btnBack.UseVisualStyleBackColor = false;
+            button6.BackColor = Color.White;
+            button6.FlatAppearance.BorderSize = 0;
+            button6.FlatStyle = FlatStyle.Popup;
+            button6.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            button6.ForeColor = Color.Black;
+            button6.Location = new Point(212, 795);
+            button6.Margin = new Padding(4);
+            button6.Name = "button6";
+            button6.Size = new Size(188, 62);
+            button6.TabIndex = 34;
+            button6.Text = "Add Task";
+            button6.UseVisualStyleBackColor = false;
+            // 
+            // button9
+            // 
+            button9.BackColor = Color.White;
+            button9.FlatAppearance.BorderSize = 0;
+            button9.FlatStyle = FlatStyle.Popup;
+            button9.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            button9.ForeColor = Color.Black;
+            button9.Location = new Point(408, 795);
+            button9.Margin = new Padding(4);
+            button9.Name = "button9";
+            button9.Size = new Size(188, 62);
+            button9.TabIndex = 35;
+            button9.Text = "Add Task";
+            button9.UseVisualStyleBackColor = false;
             // 
             // frmCreatePlan
             // 
@@ -485,22 +353,13 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1862, 979);
             Controls.Add(panel1);
-            Margin = new Padding(4, 4, 4, 4);
+            Margin = new Padding(4);
             Name = "frmCreatePlan";
             Text = "frmCreatePlan";
-            panel10.ResumeLayout(false);
-            panel10.PerformLayout();
             panel4.ResumeLayout(false);
             panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             panel1.ResumeLayout(false);
-            panel3.ResumeLayout(false);
-            panel3.PerformLayout();
-            panel8.ResumeLayout(false);
-            panel11.ResumeLayout(false);
-            panel11.PerformLayout();
-            panel9.ResumeLayout(false);
-            panel9.PerformLayout();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
@@ -508,10 +367,6 @@
         }
 
         #endregion
-
-        private Panel panel10;
-        private Button button12;
-        private Label label5;
         private Panel panel4;
         private Label label3;
         private TextBox textBox2;
@@ -526,19 +381,12 @@
         private Button button1;
         private TextBox textBox1;
         private Panel panel1;
-        private Panel panel3;
-        private Panel panel8;
-        private Panel panel11;
-        private Button button13;
-        private Label label6;
-        private Panel panel9;
-        private Button button11;
-        private Label label4;
-        private Label label1;
         private Panel panel2;
         private PictureBox pictureBox1;
         private ListBox listBox1;
         private Button button8;
         private Button btnBack;
+        private Button button9;
+        private Button button6;
     }
 }

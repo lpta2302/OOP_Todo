@@ -113,7 +113,7 @@ namespace TODO.PL
                 date.Tag = i.ToString();
                 date.FlatStyle = FlatStyle.Flat;
                 //date.FlatAppearance.BorderSize = 0;
-                if (task.IsRepeated)
+                if (task is ShortTask && ((ShortTask)task).IsRepeated)
                 {
                     date.Image = Properties.Resources.repeat;
                     date.ImageAlign = ContentAlignment.MiddleRight;

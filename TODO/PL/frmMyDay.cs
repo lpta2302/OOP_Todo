@@ -24,7 +24,7 @@ namespace TODO
                 case MyDayType.Myday:
                     GetMyDay();
                     GetTaskNotification();
-                    break;  
+                    break;
                 case MyDayType.Importance:
                     GetTaskNotification();
                     GetImportance();
@@ -82,7 +82,7 @@ namespace TODO
         }
         private void GetTaskNotification()
         {
-            tasks = sort.Sort(tasks, SortTaskService.SortType.ByNotiTime);
+            tasks = sort.Sort(tasks);
             Renderer.RenderListTaskNotification(tasks, flowLayoutPanel2);
         }
         private void pictureBox3_Click(object sender, EventArgs e)
@@ -188,6 +188,11 @@ namespace TODO
             Hide();
             new frmCreateLobby().ShowDialog();
             Close();
+        }
+
+        private void pictureBox4_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

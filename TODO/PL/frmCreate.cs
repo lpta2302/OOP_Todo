@@ -20,6 +20,7 @@ namespace TODO.PL
         public frmCreate(CreateType createType)
         {
             InitializeComponent();
+            textBox1.Enabled = true;
             switch(createType)
             {
                 case CreateType.ShortTerm:
