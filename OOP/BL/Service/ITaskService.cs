@@ -2,6 +2,12 @@
 
 public interface ITaskService
 {
+    public void ToggleIsNotificated(Task task)
+    {
+        task.IsNotificated = !task.IsNotificated;
+
+        task.Update();
+    }
     public void ToggleImportant(Task task)
     {
         task.IsImportant = !task.IsImportant;

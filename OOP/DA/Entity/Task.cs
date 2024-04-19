@@ -60,6 +60,7 @@ public abstract class Task : ISerializable
 
         return task1.NotiTime < task2.NotiTime;
     }
+    public bool IsNotificated { get; set; }
     public bool IsCompleted { get; set; }
     public bool IsImportant { get; set; }
     protected ITaskService service;
@@ -75,7 +76,7 @@ public abstract class Task : ISerializable
         info.AddValue("IsCompleted", IsCompleted);
         info.AddValue("IsImportant", IsImportant);
     }
-    private void InjectDependencys()
+    private void InjectDependencies()
     {
         service =
             GetType().IsAssignableTo(typeof(ShortTerm)) ?
@@ -96,7 +97,7 @@ public abstract class Task : ISerializable
         EndTime = info.GetDateTime("EndTime");
         IsCompleted = info.GetBoolean("IsCompleted");
         IsImportant = info.GetBoolean("IsImportant");
-        InjectDependencys();
+        InjectDependencies();
     }
     protected Task()
     {
@@ -106,7 +107,7 @@ public abstract class Task : ISerializable
         Title = "";
         IsCompleted = false;
         IsImportant = false;
-        InjectDependencys();
+        InjectDependencies();
     }
 
     protected Task(string title, string content, DateTime notiTime, bool isCompleted, bool isImportant, DateTime endTime = new DateTime())
@@ -119,12 +120,7 @@ public abstract class Task : ISerializable
         EndTime = endTime;
         IsCompleted = isCompleted;
         IsImportant = isImportant;
-        InjectDependencys();
-    }
-
-    public Task Create()
-    {
-        return crud.Create(this);
+        InjectDependencies();
     }
 
     public Task Delete()
@@ -137,6 +133,10 @@ public abstract class Task : ISerializable
         return crud.Update(this)!;
     }
 
+    public void ToggleIsNotificated()
+    {
+        service.ToggleIsNotificated(this);
+    }
     public void ToggleImportant()
     {
         service.ToggleImportant(this);

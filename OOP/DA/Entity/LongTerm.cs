@@ -21,6 +21,15 @@ public class LongTerm : Task, IProgressService
     public DateOnly FromDate { get { return fromDate; } set { fromDate = value; } }
     private DateOnly toDate;
     public DateOnly ToDate { get { return toDate; } set { toDate = value; } }
+    public string Rating
+    {
+        get { return Rating; }
+        set
+        {
+            if (IsCompleted && Constant.Ratings.Contains(value))
+                Rating = value;
+        }
+    }
     public IList<Detail> Details { get; set; }
 
     public LongTerm()

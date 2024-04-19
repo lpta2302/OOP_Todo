@@ -1,6 +1,6 @@
 ﻿public class PlanCRUD : ICRUD<Plan>
 {
-    private static readonly PlanCRUD instance = new PlanCRUD();
+    private static PlanCRUD instance = new PlanCRUD();
 
     public static PlanCRUD Instance { get { return instance; } }
 
