@@ -1,3 +1,4 @@
+using Microsoft.VisualBasic;
 using OOP.BL;
 using System.Globalization;
 using TODO.PL;
@@ -16,7 +17,7 @@ namespace TODO
             Importance,
             AllTasks
         }
-        public frmMyDay(MyDayType myDayType)
+        public frmMyDay(MyDayType myDayType, DateTime ?specificDay = null)
         {
             InitializeComponent();
             switch (myDayType)
@@ -43,7 +44,6 @@ namespace TODO
         private void Form1_Load(object sender, EventArgs e)
         {
             PerformDay();
-
         }
         private void PerformDay()
         {
@@ -135,6 +135,7 @@ namespace TODO
         private void GetMiniTask()
         {
             flowLayoutPanel1.Controls.Clear();
+            label2.Text = "All Tasks";
             tasks = filter.DoFilter(FilterTaskService.TaskType.LongTerm);
             Renderer.RenderListTask(tasks, flowLayoutPanel1, "importance", this);
         }
@@ -193,6 +194,13 @@ namespace TODO
         private void pictureBox4_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            Hide();
+            new frmPlanS().ShowDialog();
+            Close();
         }
     }
 }

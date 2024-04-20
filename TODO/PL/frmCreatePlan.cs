@@ -56,5 +56,12 @@ namespace TODO.PL
             new frmCreatePlan().ShowDialog();
             Close();
         }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            Hide();
+            new frmPlanS().ShowDialog();
+            Close();
+        }
     }
 }

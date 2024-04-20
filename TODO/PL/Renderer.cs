@@ -120,6 +120,12 @@ namespace TODO.PL
                 panel.TabIndex = 7;
                 container.Controls.Add(panel);
                 panel.Tag = i.ToString();
+                panel.Click += (object sender, EventArgs e) =>
+                {
+                    frmmyday.Hide();
+                    new frmMyDayTasks().ShowDialog();
+                    frmmyday.Close();
+                };
             }
         }
         public static void RenderListTaskNotification(IList<Task> tasks, FlowLayoutPanel container)

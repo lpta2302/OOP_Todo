@@ -16,5 +16,47 @@ namespace TODO.PL
         {
             InitializeComponent();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Hide();
+            new frmMyDay(frmMyDay.MyDayType.Myday).ShowDialog();
+            Close();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Hide();
+            new frmMyDay(frmMyDay.MyDayType.Importance).ShowDialog();
+            Close();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Hide();
+            new frmPlan().ShowDialog();
+            Close();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            Hide();
+            new frmMyDay(frmMyDay.MyDayType.AllTasks).ShowDialog();
+            Close();
+        }
+
+        private void button20_Click(object sender, EventArgs e)
+        {
+            Hide();
+            new frmCreateLobby().ShowDialog();
+            Close();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Hide();
+            new frmPlanS().ShowDialog();
+            Close();
+        }
     }
 }

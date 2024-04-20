@@ -105,6 +105,17 @@ namespace TODO.PL
             {
                 task.Update();
             }
+            else 
+            {
+                
+            }
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            Hide();
+            new frmPlanS().ShowDialog();
+            Close();
         }
     }
 }

@@ -43,6 +43,7 @@
             panel1 = new Panel();
             panel4 = new Panel();
             button6 = new Button();
+            button7 = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -80,6 +81,7 @@
             // panel2
             // 
             panel2.BackColor = Color.White;
+            panel2.Controls.Add(button7);
             panel2.Controls.Add(button20);
             panel2.Controls.Add(button5);
             panel2.Controls.Add(button4);
@@ -265,6 +267,21 @@
             button6.UseVisualStyleBackColor = false;
             button6.Click += button6_Click;
             // 
+            // button7
+            // 
+            button7.FlatAppearance.BorderSize = 0;
+            button7.FlatStyle = FlatStyle.Flat;
+            button7.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
+            button7.Image = Properties.Resources.Plans_white1;
+            button7.ImageAlign = ContentAlignment.MiddleLeft;
+            button7.Location = new Point(4, 656);
+            button7.Margin = new Padding(8);
+            button7.Name = "button7";
+            button7.Size = new Size(368, 68);
+            button7.TabIndex = 10;
+            button7.Text = "Plans";
+            button7.UseVisualStyleBackColor = true;
+            // 
             // frmCreateLobby
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
@@ -300,5 +317,6 @@
         private Panel panel1;
         private Panel panel4;
         private Button button6;
+        private Button button7;
     }
 }

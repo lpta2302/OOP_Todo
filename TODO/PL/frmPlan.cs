@@ -53,6 +53,12 @@ namespace TODO.PL
                     Button btn = new Button() { Width = Conss.DayButtonWidth, Height = Conss.DayButtonHeight };
                     btn.Location = new Point(oldBtn.Location.X + oldBtn.Width + Conss.margin, oldBtn.Location.Y);
                     pnlDayBox.Controls.Add(btn);
+                    //btn.Click += (object sender, EventArgs e) =>
+                    //{
+                    //    Hide();
+                    //    new frmMyDay(frmMyDay.MyDayType.Myday).ShowDialog();
+                    //    Close();
+                    //};
                     daybox[i].Add(btn);
                     oldBtn = btn;
                 }
@@ -187,6 +193,13 @@ namespace TODO.PL
         {
             Hide();
             new frmCreatePlan().ShowDialog();
+            Close();
+        }
+
+        private void button12_Click(object sender, EventArgs e)
+        {
+            Hide();
+            new frmPlanS().ShowDialog();
             Close();
         }
     }

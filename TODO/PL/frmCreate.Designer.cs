@@ -30,6 +30,7 @@
         {
             label2 = new Label();
             panel2 = new Panel();
+            button6 = new Button();
             button20 = new Button();
             button5 = new Button();
             button4 = new Button();
@@ -94,6 +95,7 @@
             // panel2
             // 
             panel2.BackColor = Color.White;
+            panel2.Controls.Add(button6);
             panel2.Controls.Add(button20);
             panel2.Controls.Add(button5);
             panel2.Controls.Add(button4);
@@ -107,6 +109,22 @@
             panel2.Name = "panel2";
             panel2.Size = new Size(375, 972);
             panel2.TabIndex = 0;
+            // 
+            // button6
+            // 
+            button6.FlatAppearance.BorderSize = 0;
+            button6.FlatStyle = FlatStyle.Flat;
+            button6.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
+            button6.Image = Properties.Resources.Plans_white1;
+            button6.ImageAlign = ContentAlignment.MiddleLeft;
+            button6.Location = new Point(4, 665);
+            button6.Margin = new Padding(8);
+            button6.Name = "button6";
+            button6.Size = new Size(368, 68);
+            button6.TabIndex = 10;
+            button6.Text = "Plans";
+            button6.UseVisualStyleBackColor = true;
+            button6.Click += button6_Click;
             // 
             // button20
             // 
@@ -616,5 +634,6 @@
         private Panel panel3;
         private Button btnBack;
         private Panel panel5;
+        private Button button6;
     }
 }

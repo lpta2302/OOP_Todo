@@ -42,6 +42,8 @@
             button6 = new Button();
             flowLayoutPanel1 = new FlowLayoutPanel();
             panel5 = new Panel();
+            pictureBox5 = new PictureBox();
+            pictureBox4 = new PictureBox();
             label7 = new Label();
             pictureBox3 = new PictureBox();
             label3 = new Label();
@@ -54,6 +56,7 @@
             label4 = new Label();
             flowLayoutPanel3 = new FlowLayoutPanel();
             panel2 = new Panel();
+            button10 = new Button();
             button20 = new Button();
             button5 = new Button();
             button4 = new Button();
@@ -62,13 +65,13 @@
             button1 = new Button();
             textBox1 = new TextBox();
             pictureBox1 = new PictureBox();
-            pictureBox5 = new PictureBox();
-            pictureBox4 = new PictureBox();
             panel1.SuspendLayout();
             panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             flowLayoutPanel1.SuspendLayout();
             panel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             panel3.SuspendLayout();
             panel8.SuspendLayout();
@@ -76,8 +79,6 @@
             panel9.SuspendLayout();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             SuspendLayout();
             // 
             // panel1
@@ -178,7 +179,7 @@
             label2.Font = new Font("Segoe UI", 28.2F, FontStyle.Bold, GraphicsUnit.Point);
             label2.ForeColor = Color.White;
             label2.ImageAlign = ContentAlignment.MiddleLeft;
-            label2.Location = new Point(70, 21);
+            label2.Location = new Point(1240, -214);
             label2.Margin = new Padding(4, 0, 4, 0);
             label2.Name = "label2";
             label2.Size = new Size(238, 76);
@@ -275,6 +276,29 @@
             panel5.Name = "panel5";
             panel5.Size = new Size(1040, 124);
             panel5.TabIndex = 7;
+            // 
+            // pictureBox5
+            // 
+            pictureBox5.Image = Properties.Resources.trash_bin;
+            pictureBox5.Location = new Point(965, 35);
+            pictureBox5.Margin = new Padding(4);
+            pictureBox5.Name = "pictureBox5";
+            pictureBox5.Size = new Size(50, 50);
+            pictureBox5.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox5.TabIndex = 7;
+            pictureBox5.TabStop = false;
+            // 
+            // pictureBox4
+            // 
+            pictureBox4.Image = Properties.Resources.edit;
+            pictureBox4.Location = new Point(908, 35);
+            pictureBox4.Margin = new Padding(4);
+            pictureBox4.Name = "pictureBox4";
+            pictureBox4.Size = new Size(50, 50);
+            pictureBox4.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox4.TabIndex = 6;
+            pictureBox4.TabStop = false;
+            pictureBox4.Click += pictureBox4_Click;
             // 
             // label7
             // 
@@ -406,6 +430,7 @@
             // panel2
             // 
             panel2.BackColor = Color.White;
+            panel2.Controls.Add(button10);
             panel2.Controls.Add(button20);
             panel2.Controls.Add(button5);
             panel2.Controls.Add(button4);
@@ -419,6 +444,22 @@
             panel2.Name = "panel2";
             panel2.Size = new Size(375, 972);
             panel2.TabIndex = 0;
+            // 
+            // button10
+            // 
+            button10.FlatAppearance.BorderSize = 0;
+            button10.FlatStyle = FlatStyle.Flat;
+            button10.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
+            button10.Image = Properties.Resources.Plans_white1;
+            button10.ImageAlign = ContentAlignment.MiddleLeft;
+            button10.Location = new Point(4, 656);
+            button10.Margin = new Padding(8);
+            button10.Name = "button10";
+            button10.Size = new Size(368, 68);
+            button10.TabIndex = 10;
+            button10.Text = "Plans";
+            button10.UseVisualStyleBackColor = true;
+            button10.Click += button10_Click;
             // 
             // button20
             // 
@@ -534,29 +575,6 @@
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
             // 
-            // pictureBox5
-            // 
-            pictureBox5.Image = Properties.Resources.trash_bin;
-            pictureBox5.Location = new Point(965, 35);
-            pictureBox5.Margin = new Padding(4);
-            pictureBox5.Name = "pictureBox5";
-            pictureBox5.Size = new Size(50, 50);
-            pictureBox5.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox5.TabIndex = 7;
-            pictureBox5.TabStop = false;
-            // 
-            // pictureBox4
-            // 
-            pictureBox4.Image = Properties.Resources.edit;
-            pictureBox4.Location = new Point(908, 35);
-            pictureBox4.Margin = new Padding(4);
-            pictureBox4.Name = "pictureBox4";
-            pictureBox4.Size = new Size(50, 50);
-            pictureBox4.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox4.TabIndex = 6;
-            pictureBox4.TabStop = false;
-            pictureBox4.Click += pictureBox4_Click;
-            // 
             // frmMyDay
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
@@ -575,6 +593,8 @@
             flowLayoutPanel1.ResumeLayout(false);
             panel5.ResumeLayout(false);
             panel5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
@@ -585,8 +605,6 @@
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
             ResumeLayout(false);
         }
 
@@ -627,5 +645,6 @@
         private FlowLayoutPanel flowLayoutPanel3;
         private PictureBox pictureBox5;
         private PictureBox pictureBox4;
+        private Button button10;
     }
 }

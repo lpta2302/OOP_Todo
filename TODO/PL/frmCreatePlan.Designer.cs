@@ -48,6 +48,7 @@
             textBox1 = new TextBox();
             panel1 = new Panel();
             panel2 = new Panel();
+            button10 = new Button();
             pictureBox1 = new PictureBox();
             panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
@@ -89,7 +90,7 @@
             button9.Name = "button9";
             button9.Size = new Size(188, 62);
             button9.TabIndex = 35;
-            button9.Text = "Add Task";
+            button9.Text = "Delete";
             button9.UseVisualStyleBackColor = false;
             // 
             // button6
@@ -104,7 +105,7 @@
             button6.Name = "button6";
             button6.Size = new Size(188, 62);
             button6.TabIndex = 34;
-            button6.Text = "Add Task";
+            button6.Text = "Update";
             button6.UseVisualStyleBackColor = false;
             // 
             // btnBack
@@ -327,6 +328,7 @@
             // panel2
             // 
             panel2.BackColor = Color.White;
+            panel2.Controls.Add(button10);
             panel2.Controls.Add(button20);
             panel2.Controls.Add(button5);
             panel2.Controls.Add(button4);
@@ -340,6 +342,22 @@
             panel2.Name = "panel2";
             panel2.Size = new Size(375, 972);
             panel2.TabIndex = 0;
+            // 
+            // button10
+            // 
+            button10.FlatAppearance.BorderSize = 0;
+            button10.FlatStyle = FlatStyle.Flat;
+            button10.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
+            button10.Image = Properties.Resources.Plans_white1;
+            button10.ImageAlign = ContentAlignment.MiddleLeft;
+            button10.Location = new Point(4, 656);
+            button10.Margin = new Padding(8);
+            button10.Name = "button10";
+            button10.Size = new Size(368, 68);
+            button10.TabIndex = 10;
+            button10.Text = "Plans";
+            button10.UseVisualStyleBackColor = true;
+            button10.Click += button10_Click;
             // 
             // pictureBox1
             // 
@@ -393,5 +411,6 @@
         private Button btnBack;
         private Button button9;
         private Button button6;
+        private Button button10;
     }
 }
