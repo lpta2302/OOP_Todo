@@ -12,11 +12,26 @@ namespace TODO.PL
 {
     public partial class frmPlansTasks : Form
     {
-        public frmPlansTasks()
+        IList<Task> tasks= new List<Task>();
+        Plan plan;
+        public frmPlansTasks(Plan plan)
         {
             InitializeComponent();
-        }
+            LoadTaskFormPlansTasks();
+            this.plan = plan;
+            foreach (TaskRef task in this.plan.Tasks)
+            {
+                tasks.Add(SearchTaskService.Instance.Search(task.Id, SearchTaskService.SearchType.ByID)[0]);
+            }
+            flowLayoutPanel1.Controls.Clear();
+            Renderer.RenderPlansTask(tasks, flowLayoutPanel1, "", this);
+            label4.Text = plan.Name;
+            }
+        private void LoadTaskFormPlansTasks()
+        {
 
+        }
+        #region transform
         private void button2_Click(object sender, EventArgs e)
         {
             Hide();
@@ -58,5 +73,7 @@ namespace TODO.PL
             new frmPlanS().ShowDialog();
             Close();
         }
+        #endregion
+
     }
 }

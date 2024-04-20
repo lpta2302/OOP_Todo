@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             label1 = new Label();
             panel2 = new Panel();
             button12 = new Button();
@@ -61,6 +62,7 @@
             panel9 = new Panel();
             button11 = new Button();
             label4 = new Label();
+            timer1 = new System.Windows.Forms.Timer(components);
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel1.SuspendLayout();
@@ -550,6 +552,11 @@
             label4.Text = "To do list";
             label4.TextAlign = ContentAlignment.MiddleLeft;
             // 
+            // timer1
+            // 
+            timer1.Enabled = true;
+            timer1.Interval = 1000;
+            // 
             // frmPlan
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
@@ -611,5 +618,6 @@
         private Button button11;
         private Label label4;
         private Button button12;
+        private System.Windows.Forms.Timer timer1;
     }
 }

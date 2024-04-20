@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMyDay));
             panel1 = new Panel();
             panel4 = new Panel();
@@ -42,6 +43,7 @@
             button6 = new Button();
             flowLayoutPanel1 = new FlowLayoutPanel();
             panel5 = new Panel();
+            pictureBox6 = new PictureBox();
             pictureBox5 = new PictureBox();
             pictureBox4 = new PictureBox();
             label7 = new Label();
@@ -65,11 +67,13 @@
             button1 = new Button();
             textBox1 = new TextBox();
             pictureBox1 = new PictureBox();
+            timer1 = new System.Windows.Forms.Timer(components);
             panel1.SuspendLayout();
             panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             flowLayoutPanel1.SuspendLayout();
             panel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
@@ -266,6 +270,7 @@
             panel5.BackColor = Color.Transparent;
             panel5.BackgroundImage = Properties.Resources.task;
             panel5.BackgroundImageLayout = ImageLayout.Stretch;
+            panel5.Controls.Add(pictureBox6);
             panel5.Controls.Add(pictureBox5);
             panel5.Controls.Add(pictureBox4);
             panel5.Controls.Add(label7);
@@ -276,6 +281,17 @@
             panel5.Name = "panel5";
             panel5.Size = new Size(1040, 124);
             panel5.TabIndex = 7;
+            // 
+            // pictureBox6
+            // 
+            pictureBox6.Image = Properties.Resources.star;
+            pictureBox6.Location = new Point(17, 35);
+            pictureBox6.Margin = new Padding(4);
+            pictureBox6.Name = "pictureBox6";
+            pictureBox6.Size = new Size(50, 50);
+            pictureBox6.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox6.TabIndex = 8;
+            pictureBox6.TabStop = false;
             // 
             // pictureBox5
             // 
@@ -305,7 +321,7 @@
             label7.AutoSize = true;
             label7.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold, GraphicsUnit.Point);
             label7.ForeColor = SystemColors.WindowFrame;
-            label7.Location = new Point(52, 71);
+            label7.Location = new Point(73, 71);
             label7.Margin = new Padding(0);
             label7.Name = "label7";
             label7.Size = new Size(95, 28);
@@ -329,7 +345,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label3.Location = new Point(45, 30);
+            label3.Location = new Point(71, 30);
             label3.Margin = new Padding(0);
             label3.Name = "label3";
             label3.Size = new Size(112, 32);
@@ -575,6 +591,11 @@
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
             // 
+            // timer1
+            // 
+            timer1.Enabled = true;
+            timer1.Interval = 1000;
+            // 
             // frmMyDay
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
@@ -593,6 +614,7 @@
             flowLayoutPanel1.ResumeLayout(false);
             panel5.ResumeLayout(false);
             panel5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox6).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
@@ -646,5 +668,7 @@
         private PictureBox pictureBox5;
         private PictureBox pictureBox4;
         private Button button10;
+        private PictureBox pictureBox6;
+        private System.Windows.Forms.Timer timer1;
     }
 }

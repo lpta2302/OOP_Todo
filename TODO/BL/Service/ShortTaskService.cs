@@ -5,7 +5,7 @@
     public static ShortTaskService Instance { get { return instance; } }
     public void CompleteTask(Task task)
     {
-        task.IsCompleted = true;
+        task.IsCompleted = !task.IsCompleted;
         task.Update();
     }
     public void ToggleRepeated(ShortTask task)

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             btnBack = new Button();
             panel1 = new Panel();
             panel2 = new Panel();
@@ -41,8 +42,6 @@
             textBox1 = new TextBox();
             pictureBox1 = new PictureBox();
             panel4 = new Panel();
-            button7 = new Button();
-            button6 = new Button();
             panel3 = new Panel();
             flowLayoutPanel1 = new FlowLayoutPanel();
             panel7 = new Panel();
@@ -73,6 +72,7 @@
             label6 = new Label();
             label5 = new Label();
             label4 = new Label();
+            timer1 = new System.Windows.Forms.Timer(components);
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -277,8 +277,6 @@
             panel4.BackColor = Color.White;
             panel4.BackgroundImage = Properties.Resources.background;
             panel4.BackgroundImageLayout = ImageLayout.Stretch;
-            panel4.Controls.Add(button7);
-            panel4.Controls.Add(button6);
             panel4.Controls.Add(panel3);
             panel4.Controls.Add(btnBack);
             panel4.Location = new Point(375, 0);
@@ -286,36 +284,6 @@
             panel4.Name = "panel4";
             panel4.Size = new Size(1482, 972);
             panel4.TabIndex = 3;
-            // 
-            // button7
-            // 
-            button7.BackColor = Color.FromArgb(34, 34, 34);
-            button7.FlatAppearance.BorderSize = 0;
-            button7.FlatStyle = FlatStyle.Popup;
-            button7.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
-            button7.ForeColor = Color.White;
-            button7.Location = new Point(1331, 850);
-            button7.Margin = new Padding(0);
-            button7.Name = "button7";
-            button7.Size = new Size(51, 51);
-            button7.TabIndex = 9;
-            button7.Text = "+";
-            button7.UseVisualStyleBackColor = false;
-            // 
-            // button6
-            // 
-            button6.BackColor = Color.FromArgb(34, 34, 34);
-            button6.FlatAppearance.BorderSize = 0;
-            button6.FlatStyle = FlatStyle.Popup;
-            button6.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
-            button6.ForeColor = Color.White;
-            button6.Location = new Point(1272, 850);
-            button6.Margin = new Padding(0);
-            button6.Name = "button6";
-            button6.Size = new Size(51, 51);
-            button6.TabIndex = 8;
-            button6.Text = "-";
-            button6.UseVisualStyleBackColor = false;
             // 
             // panel3
             // 
@@ -332,6 +300,7 @@
             // 
             // flowLayoutPanel1
             // 
+            flowLayoutPanel1.AutoScroll = true;
             flowLayoutPanel1.Controls.Add(panel7);
             flowLayoutPanel1.Controls.Add(panel5);
             flowLayoutPanel1.Controls.Add(panel6);
@@ -681,6 +650,11 @@
             label4.TabIndex = 4;
             label4.Text = "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea, sequi.\r\n";
             // 
+            // timer1
+            // 
+            timer1.Enabled = true;
+            timer1.Interval = 1000;
+            // 
             // frmPlansTasks
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
@@ -769,7 +743,6 @@
         private Label label1;
         private PictureBox pictureBox11;
         private Label label2;
-        private Button button6;
-        private Button button7;
+        private System.Windows.Forms.Timer timer1;
     }
 }

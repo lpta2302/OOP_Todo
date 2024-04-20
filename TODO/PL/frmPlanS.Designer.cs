@@ -29,6 +29,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             label1 = new Label();
             button11 = new Button();
             panel9 = new Panel();
@@ -55,6 +56,7 @@
             panel6 = new Panel();
             label5 = new Label();
             label3 = new Label();
+            timer1 = new System.Windows.Forms.Timer(components);
             panel9.SuspendLayout();
             flowLayoutPanel2.SuspendLayout();
             panel3.SuspendLayout();
@@ -412,6 +414,11 @@
             label3.TabIndex = 0;
             label3.Text = "This is a plan name";
             // 
+            // timer1
+            // 
+            timer1.Enabled = true;
+            timer1.Interval = 1000;
+            // 
             // frmPlanS
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
@@ -469,5 +476,6 @@
         private Panel panel6;
         private Label label5;
         private Label label3;
+        private System.Windows.Forms.Timer timer1;
     }
 }

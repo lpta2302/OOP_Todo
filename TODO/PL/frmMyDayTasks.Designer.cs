@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMyDayTasks));
             panel1 = new Panel();
             panel2 = new Panel();
@@ -49,6 +50,9 @@
             pictureBox10 = new PictureBox();
             panel7 = new Panel();
             panel3 = new Panel();
+            label9 = new Label();
+            label2 = new Label();
+            label1 = new Label();
             button8 = new Button();
             btnEdit = new Button();
             label8 = new Label();
@@ -61,9 +65,7 @@
             label4 = new Label();
             panel5 = new Panel();
             btnBack = new Button();
-            label1 = new Label();
-            label2 = new Label();
-            label9 = new Label();
+            timer1 = new System.Windows.Forms.Timer(components);
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -346,6 +348,42 @@
             panel3.Size = new Size(779, 794);
             panel3.TabIndex = 1;
             // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
+            label9.ForeColor = Color.White;
+            label9.Location = new Point(11, 646);
+            label9.Margin = new Padding(4, 0, 4, 0);
+            label9.Name = "label9";
+            label9.Size = new Size(133, 38);
+            label9.TabIndex = 13;
+            label9.Text = "from - to";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
+            label2.ForeColor = Color.White;
+            label2.Location = new Point(300, 554);
+            label2.Margin = new Padding(4, 0, 4, 0);
+            label2.Name = "label2";
+            label2.Size = new Size(127, 38);
+            label2.TabIndex = 12;
+            label2.Text = "EndTime";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.ForeColor = Color.White;
+            label1.Location = new Point(11, 554);
+            label1.Margin = new Padding(4, 0, 4, 0);
+            label1.Name = "label1";
+            label1.Size = new Size(129, 38);
+            label1.TabIndex = 11;
+            label1.Text = "Notitime";
+            // 
             // button8
             // 
             button8.BackColor = Color.Gainsboro;
@@ -485,41 +523,10 @@
             btnBack.Text = "Back";
             btnBack.UseVisualStyleBackColor = false;
             // 
-            // label1
+            // timer1
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.ForeColor = Color.White;
-            label1.Location = new Point(11, 554);
-            label1.Margin = new Padding(4, 0, 4, 0);
-            label1.Name = "label1";
-            label1.Size = new Size(129, 38);
-            label1.TabIndex = 11;
-            label1.Text = "Notitime";
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
-            label2.ForeColor = Color.White;
-            label2.Location = new Point(300, 554);
-            label2.Margin = new Padding(4, 0, 4, 0);
-            label2.Name = "label2";
-            label2.Size = new Size(127, 38);
-            label2.TabIndex = 12;
-            label2.Text = "EndTime";
-            // 
-            // label9
-            // 
-            label9.AutoSize = true;
-            label9.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
-            label9.ForeColor = Color.White;
-            label9.Location = new Point(11, 646);
-            label9.Margin = new Padding(4, 0, 4, 0);
-            label9.Name = "label9";
-            label9.Size = new Size(133, 38);
-            label9.TabIndex = 13;
-            label9.Text = "from - to";
+            timer1.Enabled = true;
+            timer1.Interval = 1000;
             // 
             // frmMyDayTasks
             // 
@@ -588,5 +595,6 @@
         private Button button8;
         private Label label2;
         private Label label1;
+        private System.Windows.Forms.Timer timer1;
     }
 }

@@ -76,7 +76,7 @@ namespace TODO.PL
         private void LoadPlans()
         {
             flowLayoutPanel1.Controls.Clear();
-            Renderer.RenderListPlans(plans, flowLayoutPanel1);
+            Renderer.RenderListPlans(plans, flowLayoutPanel1, this);
         }
         private void panel6_Paint(object sender, PaintEventArgs e)
         {
