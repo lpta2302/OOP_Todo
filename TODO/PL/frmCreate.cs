@@ -34,6 +34,7 @@ namespace TODO.PL
                     break;
                 case CreateType.LongTerm:
                     this.task = new LongTask();
+
                     break;
             }
             if (task != null)
@@ -105,9 +106,16 @@ namespace TODO.PL
             {
                 task.Update();
             }
-            else 
+            else
             {
-                
+                if (task is ShortTask)
+                {
+                    ShortTaskCRUD.Instance.Create(task);
+                }
+                else
+                {
+                    LongTaskCRUD.Instance.Create(task);
+                }
             }
         }
 
@@ -116,6 +124,49 @@ namespace TODO.PL
             Hide();
             new frmPlanS().ShowDialog();
             Close();
+        }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+            PictureBox pic = (PictureBox)sender;
+            task.ToggleImportant();
+            if (task.IsImportant)
+            {
+                pic.Image = Properties.Resources.star_fill;
+            }
+            else
+            {
+                pic.Image = Properties.Resources.star;
+            }
+        }
+
+        private void pictureBox4_Click(object sender, EventArgs e)
+        {
+            ShortTask t = (ShortTask)task;
+            PictureBox pic = (PictureBox)sender;
+            t.ToggleRepeated();
+            if (t.IsRepeated)
+            {
+                pic.BackColor = Color.AliceBlue;
+            }
+            else
+            {
+                pic.BackColor = Color.Transparent;
+            }
+        }
+
+        private void pictureBox5_Click(object sender, EventArgs e)
+        {
+            PictureBox pic = (PictureBox)sender;
+            task.ToggleIsNotificated();
+            if (task.IsNotificated)
+            {
+                pic.Image = Properties.Resources.bell;
+            }
+            else
+            {
+                pic.Image = Properties.Resources.bell_mute;
+            }
         }
     }
 }

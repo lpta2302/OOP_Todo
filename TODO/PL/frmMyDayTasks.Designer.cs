@@ -42,24 +42,10 @@
             pictureBox1 = new PictureBox();
             panel4 = new Panel();
             panel6 = new Panel();
-            textBox2 = new TextBox();
-            button7 = new Button();
-            button6 = new Button();
             flowLayoutPanel1 = new FlowLayoutPanel();
-            panel9 = new Panel();
-            label2 = new Label();
-            pictureBox2 = new PictureBox();
-            pictureBox3 = new PictureBox();
-            pictureBox7 = new PictureBox();
-            panel8 = new Panel();
-            label1 = new Label();
-            pictureBox5 = new PictureBox();
-            pictureBox4 = new PictureBox();
-            pictureBox6 = new PictureBox();
             panel10 = new Panel();
             label3 = new Label();
             pictureBox8 = new PictureBox();
-            pictureBox9 = new PictureBox();
             pictureBox10 = new PictureBox();
             panel7 = new Panel();
             panel3 = new Panel();
@@ -75,23 +61,17 @@
             label4 = new Label();
             panel5 = new Panel();
             btnBack = new Button();
+            label1 = new Label();
+            label2 = new Label();
+            label9 = new Label();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel4.SuspendLayout();
             panel6.SuspendLayout();
             flowLayoutPanel1.SuspendLayout();
-            panel9.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox7).BeginInit();
-            panel8.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
             panel10.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox8).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox9).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox10).BeginInit();
             panel3.SuspendLayout();
             panel11.SuspendLayout();
@@ -272,9 +252,6 @@
             // panel6
             // 
             panel6.BackColor = Color.Transparent;
-            panel6.Controls.Add(textBox2);
-            panel6.Controls.Add(button7);
-            panel6.Controls.Add(button6);
             panel6.Controls.Add(flowLayoutPanel1);
             panel6.Controls.Add(panel7);
             panel6.Location = new Point(828, 179);
@@ -283,173 +260,14 @@
             panel6.Size = new Size(606, 794);
             panel6.TabIndex = 3;
             // 
-            // textBox2
-            // 
-            textBox2.Location = new Point(4, 579);
-            textBox2.Margin = new Padding(4);
-            textBox2.Multiline = true;
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(598, 52);
-            textBox2.TabIndex = 6;
-            // 
-            // button7
-            // 
-            button7.BackColor = Color.FromArgb(34, 34, 34);
-            button7.FlatAppearance.BorderSize = 0;
-            button7.FlatStyle = FlatStyle.Popup;
-            button7.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
-            button7.ForeColor = Color.White;
-            button7.Location = new Point(536, 502);
-            button7.Margin = new Padding(0);
-            button7.Name = "button7";
-            button7.Size = new Size(51, 51);
-            button7.TabIndex = 5;
-            button7.Text = "+";
-            button7.UseVisualStyleBackColor = false;
-            // 
-            // button6
-            // 
-            button6.BackColor = Color.FromArgb(34, 34, 34);
-            button6.FlatAppearance.BorderSize = 0;
-            button6.FlatStyle = FlatStyle.Popup;
-            button6.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
-            button6.ForeColor = Color.White;
-            button6.Location = new Point(479, 502);
-            button6.Margin = new Padding(0);
-            button6.Name = "button6";
-            button6.Size = new Size(51, 51);
-            button6.TabIndex = 4;
-            button6.Text = "-";
-            button6.UseVisualStyleBackColor = false;
-            // 
             // flowLayoutPanel1
             // 
-            flowLayoutPanel1.Controls.Add(panel9);
-            flowLayoutPanel1.Controls.Add(panel8);
             flowLayoutPanel1.Controls.Add(panel10);
             flowLayoutPanel1.Location = new Point(4, 4);
             flowLayoutPanel1.Margin = new Padding(4);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
             flowLayoutPanel1.Size = new Size(599, 479);
             flowLayoutPanel1.TabIndex = 3;
-            // 
-            // panel9
-            // 
-            panel9.BackColor = Color.Transparent;
-            panel9.BackgroundImage = Properties.Resources.task;
-            panel9.BackgroundImageLayout = ImageLayout.Stretch;
-            panel9.Controls.Add(label2);
-            panel9.Controls.Add(pictureBox2);
-            panel9.Controls.Add(pictureBox3);
-            panel9.Controls.Add(pictureBox7);
-            panel9.Location = new Point(0, 21);
-            panel9.Margin = new Padding(0, 21, 0, 21);
-            panel9.Name = "panel9";
-            panel9.Size = new Size(599, 75);
-            panel9.TabIndex = 9;
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
-            label2.Location = new Point(91, 19);
-            label2.Margin = new Padding(22, 25, 22, 25);
-            label2.Name = "label2";
-            label2.Size = new Size(231, 30);
-            label2.TabIndex = 8;
-            label2.Text = "This is a detail content:";
-            // 
-            // pictureBox2
-            // 
-            pictureBox2.Image = Properties.Resources.trash_bin;
-            pictureBox2.Location = new Point(534, 14);
-            pictureBox2.Margin = new Padding(4);
-            pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(50, 50);
-            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox2.TabIndex = 7;
-            pictureBox2.TabStop = false;
-            // 
-            // pictureBox3
-            // 
-            pictureBox3.Image = Properties.Resources.edit;
-            pictureBox3.Location = new Point(476, 14);
-            pictureBox3.Margin = new Padding(4);
-            pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(50, 50);
-            pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox3.TabIndex = 5;
-            pictureBox3.TabStop = false;
-            // 
-            // pictureBox7
-            // 
-            pictureBox7.Image = Properties.Resources.radio_button;
-            pictureBox7.Location = new Point(19, 14);
-            pictureBox7.Margin = new Padding(0);
-            pictureBox7.Name = "pictureBox7";
-            pictureBox7.Size = new Size(50, 50);
-            pictureBox7.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox7.TabIndex = 6;
-            pictureBox7.TabStop = false;
-            // 
-            // panel8
-            // 
-            panel8.BackColor = Color.Transparent;
-            panel8.BackgroundImage = Properties.Resources.task;
-            panel8.BackgroundImageLayout = ImageLayout.Stretch;
-            panel8.Controls.Add(label1);
-            panel8.Controls.Add(pictureBox5);
-            panel8.Controls.Add(pictureBox4);
-            panel8.Controls.Add(pictureBox6);
-            panel8.Location = new Point(0, 117);
-            panel8.Margin = new Padding(0);
-            panel8.Name = "panel8";
-            panel8.Size = new Size(599, 202);
-            panel8.TabIndex = 8;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
-            label1.Location = new Point(91, 21);
-            label1.Margin = new Padding(22, 25, 22, 25);
-            label1.Name = "label1";
-            label1.Size = new Size(346, 150);
-            label1.TabIndex = 8;
-            label1.Text = "This is a detail content: Lorem\r\nipsum, dolor sit amet consectetur \r\nadipisicing elit. Esse tempora \r\nplaceat porro at minima sed modi \r\ncorrupti labore vel illo.";
-            // 
-            // pictureBox5
-            // 
-            pictureBox5.Image = Properties.Resources.trash_bin;
-            pictureBox5.Location = new Point(534, 76);
-            pictureBox5.Margin = new Padding(4);
-            pictureBox5.Name = "pictureBox5";
-            pictureBox5.Size = new Size(50, 50);
-            pictureBox5.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox5.TabIndex = 7;
-            pictureBox5.TabStop = false;
-            // 
-            // pictureBox4
-            // 
-            pictureBox4.Image = Properties.Resources.edit;
-            pictureBox4.Location = new Point(476, 76);
-            pictureBox4.Margin = new Padding(4);
-            pictureBox4.Name = "pictureBox4";
-            pictureBox4.Size = new Size(50, 50);
-            pictureBox4.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox4.TabIndex = 5;
-            pictureBox4.TabStop = false;
-            // 
-            // pictureBox6
-            // 
-            pictureBox6.Image = Properties.Resources.radio_button;
-            pictureBox6.Location = new Point(19, 76);
-            pictureBox6.Margin = new Padding(0);
-            pictureBox6.Name = "pictureBox6";
-            pictureBox6.Size = new Size(50, 50);
-            pictureBox6.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox6.TabIndex = 6;
-            pictureBox6.TabStop = false;
             // 
             // panel10
             // 
@@ -458,9 +276,8 @@
             panel10.BackgroundImageLayout = ImageLayout.Stretch;
             panel10.Controls.Add(label3);
             panel10.Controls.Add(pictureBox8);
-            panel10.Controls.Add(pictureBox9);
             panel10.Controls.Add(pictureBox10);
-            panel10.Location = new Point(0, 340);
+            panel10.Location = new Point(0, 21);
             panel10.Margin = new Padding(0, 21, 0, 21);
             panel10.Name = "panel10";
             panel10.Size = new Size(599, 112);
@@ -488,17 +305,6 @@
             pictureBox8.TabIndex = 7;
             pictureBox8.TabStop = false;
             // 
-            // pictureBox9
-            // 
-            pictureBox9.Image = Properties.Resources.edit;
-            pictureBox9.Location = new Point(476, 32);
-            pictureBox9.Margin = new Padding(4);
-            pictureBox9.Name = "pictureBox9";
-            pictureBox9.Size = new Size(50, 50);
-            pictureBox9.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox9.TabIndex = 5;
-            pictureBox9.TabStop = false;
-            // 
             // pictureBox10
             // 
             pictureBox10.Image = Properties.Resources.radio_button;
@@ -522,6 +328,9 @@
             // panel3
             // 
             panel3.BackColor = Color.Transparent;
+            panel3.Controls.Add(label9);
+            panel3.Controls.Add(label2);
+            panel3.Controls.Add(label1);
             panel3.Controls.Add(button8);
             panel3.Controls.Add(btnEdit);
             panel3.Controls.Add(label8);
@@ -676,6 +485,42 @@
             btnBack.Text = "Back";
             btnBack.UseVisualStyleBackColor = false;
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
+            label1.ForeColor = Color.White;
+            label1.Location = new Point(11, 554);
+            label1.Margin = new Padding(4, 0, 4, 0);
+            label1.Name = "label1";
+            label1.Size = new Size(129, 38);
+            label1.TabIndex = 11;
+            label1.Text = "Notitime";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
+            label2.ForeColor = Color.White;
+            label2.Location = new Point(300, 554);
+            label2.Margin = new Padding(4, 0, 4, 0);
+            label2.Name = "label2";
+            label2.Size = new Size(127, 38);
+            label2.TabIndex = 12;
+            label2.Text = "EndTime";
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
+            label9.ForeColor = Color.White;
+            label9.Location = new Point(11, 646);
+            label9.Margin = new Padding(4, 0, 4, 0);
+            label9.Name = "label9";
+            label9.Size = new Size(133, 38);
+            label9.TabIndex = 13;
+            label9.Text = "from - to";
+            // 
             // frmMyDayTasks
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
@@ -691,22 +536,10 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panel4.ResumeLayout(false);
             panel6.ResumeLayout(false);
-            panel6.PerformLayout();
             flowLayoutPanel1.ResumeLayout(false);
-            panel9.ResumeLayout(false);
-            panel9.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox7).EndInit();
-            panel8.ResumeLayout(false);
-            panel8.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox6).EndInit();
             panel10.ResumeLayout(false);
             panel10.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox8).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox9).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox10).EndInit();
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
@@ -739,24 +572,10 @@
         private Panel panel6;
         private Panel panel7;
         private FlowLayoutPanel flowLayoutPanel1;
-        private Panel panel8;
-        private PictureBox pictureBox6;
-        private PictureBox pictureBox4;
-        private PictureBox pictureBox5;
-        private Label label1;
-        private Panel panel9;
-        private Label label2;
-        private PictureBox pictureBox2;
-        private PictureBox pictureBox3;
-        private PictureBox pictureBox7;
         private Panel panel10;
         private Label label3;
         private PictureBox pictureBox8;
-        private PictureBox pictureBox9;
         private PictureBox pictureBox10;
-        private Button button6;
-        private Button button7;
-        private TextBox textBox2;
         private Label label4;
         private Label label5;
         private PictureBox pictureBox11;
@@ -767,5 +586,7 @@
         private Label label8;
         private Button btnEdit;
         private Button button8;
+        private Label label2;
+        private Label label1;
     }
 }

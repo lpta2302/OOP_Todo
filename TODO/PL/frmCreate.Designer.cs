@@ -46,6 +46,7 @@
             tpkStartTaskTime = new DateTimePicker();
             dtpkEndTaskTime = new DateTimePicker();
             dtpkStartTaskTime = new DateTimePicker();
+            pictureBox5 = new PictureBox();
             pictureBox4 = new PictureBox();
             pictureBox3 = new PictureBox();
             label9 = new Label();
@@ -66,10 +67,14 @@
             btnDelete = new Button();
             btnAdd = new Button();
             listView1 = new ListView();
+            textBox2 = new TextBox();
+            columnHeader1 = new ColumnHeader();
+            columnHeader2 = new ColumnHeader();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel1.SuspendLayout();
             panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
@@ -259,6 +264,7 @@
             panel4.Controls.Add(tpkStartTaskTime);
             panel4.Controls.Add(dtpkEndTaskTime);
             panel4.Controls.Add(dtpkStartTaskTime);
+            panel4.Controls.Add(pictureBox5);
             panel4.Controls.Add(pictureBox4);
             panel4.Controls.Add(pictureBox3);
             panel4.Controls.Add(label9);
@@ -331,6 +337,19 @@
             dtpkStartTaskTime.Size = new Size(300, 31);
             dtpkStartTaskTime.TabIndex = 21;
             // 
+            // pictureBox5
+            // 
+            pictureBox5.BackColor = Color.Transparent;
+            pictureBox5.Image = Properties.Resources.bell;
+            pictureBox5.Location = new Point(174, 882);
+            pictureBox5.Margin = new Padding(4);
+            pictureBox5.Name = "pictureBox5";
+            pictureBox5.Size = new Size(56, 56);
+            pictureBox5.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox5.TabIndex = 19;
+            pictureBox5.TabStop = false;
+            pictureBox5.Click += pictureBox5_Click;
+            // 
             // pictureBox4
             // 
             pictureBox4.BackColor = Color.Transparent;
@@ -342,6 +361,7 @@
             pictureBox4.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox4.TabIndex = 19;
             pictureBox4.TabStop = false;
+            pictureBox4.Click += pictureBox4_Click;
             // 
             // pictureBox3
             // 
@@ -354,6 +374,7 @@
             pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox3.TabIndex = 18;
             pictureBox3.TabStop = false;
+            pictureBox3.Click += pictureBox3_Click;
             // 
             // label9
             // 
@@ -508,6 +529,7 @@
             // 
             // panel5
             // 
+            panel5.Controls.Add(textBox2);
             panel5.Controls.Add(btnUpdate);
             panel5.Controls.Add(btnDelete);
             panel5.Controls.Add(btnAdd);
@@ -565,12 +587,32 @@
             // 
             // listView1
             // 
-            listView1.Location = new Point(52, 131);
+            listView1.Columns.AddRange(new ColumnHeader[] { columnHeader1, columnHeader2 });
+            listView1.Font = new Font("Segoe UI", 10F, FontStyle.Regular, GraphicsUnit.Point);
+            listView1.Location = new Point(52, 4);
             listView1.Margin = new Padding(4);
             listView1.Name = "listView1";
             listView1.Size = new Size(426, 454);
             listView1.TabIndex = 27;
             listView1.UseCompatibleStateImageBehavior = false;
+            listView1.View = View.Details;
+            // 
+            // textBox2
+            // 
+            textBox2.Location = new Point(52, 527);
+            textBox2.Multiline = true;
+            textBox2.Name = "textBox2";
+            textBox2.Size = new Size(426, 46);
+            textBox2.TabIndex = 31;
+            // 
+            // columnHeader1
+            // 
+            columnHeader1.Text = "STT";
+            // 
+            // columnHeader2
+            // 
+            columnHeader2.Text = "Content";
+            columnHeader2.Width = 350;
             // 
             // frmCreate
             // 
@@ -587,12 +629,14 @@
             panel1.ResumeLayout(false);
             panel4.ResumeLayout(false);
             panel4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
             panel5.ResumeLayout(false);
+            panel5.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -635,5 +679,9 @@
         private Button btnBack;
         private Panel panel5;
         private Button button6;
+        private PictureBox pictureBox5;
+        private TextBox textBox2;
+        private ColumnHeader columnHeader1;
+        private ColumnHeader columnHeader2;
     }
 }
