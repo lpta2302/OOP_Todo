@@ -431,7 +431,6 @@
             txtNote.Name = "txtNote";
             txtNote.Size = new Size(560, 95);
             txtNote.TabIndex = 12;
-            txtNote.TextChanged += txtNote_TextChanged;
             // 
             // txtTitle
             // 
@@ -441,7 +440,6 @@
             txtTitle.Name = "txtTitle";
             txtTitle.Size = new Size(563, 32);
             txtTitle.TabIndex = 11;
-            txtTitle.TextChanged += txtTitle_TextChanged;
             // 
             // button7
             // 

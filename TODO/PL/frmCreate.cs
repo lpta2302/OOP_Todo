@@ -54,6 +54,11 @@ namespace TODO.PL
         {
             InitializeComponent();
 
+            if(task is ShortTask)
+            {
+                IsShortTask = true;
+            }
+
             if (task != null)
             {
                 IsUpdate = true;
@@ -67,13 +72,13 @@ namespace TODO.PL
             txtTitle.Text = task.Title;
             txtNote.Text = task.Content;
 
-            if (isEmptyDate(task.NotiTime))
+            if (!isEmptyDate(task.NotiTime))
             {
                 dtpkStartTaskTime.Value = task.NotiTime;
                 tpkStartTaskTime.Value = task.NotiTime;
             }
 
-            if (isEmptyDate(task.EndTime))
+            if (!isEmptyDate(task.EndTime))
             {
                 dtpkEndTaskTime.Value = task.EndTime;
                 tpkEndTaskTime.Value = task.EndTime;
@@ -88,7 +93,7 @@ namespace TODO.PL
                 int i = 1;
                 foreach (Detail detail in temp.Details)
                 {
-                    ListViewItem item = new ListViewItem("" + 1);
+                    ListViewItem item = new ListViewItem("" + i++);
                     item.SubItems.Add(detail.Content);
                 }
             }
@@ -135,8 +140,10 @@ namespace TODO.PL
             DateTime dtpkNotiTimeValue = dtpkStartTaskTime.Value;
             DateTime dtpkEndTimeValue = dtpkEndTaskTime.Value;
 
-                task.NotiTime = new DateTime(dtpkNotiTimeValue.Hour, dtpkNotiTimeValue.Minute, dtpkNotiTimeValue.Second, tpkStartTaskTime.Value.Hour, tpkStartTaskTime.Value.Minute, 0);
-                task.NotiTime = new DateTime(dtpkEndTimeValue.Hour, dtpkEndTimeValue.Minute, dtpkEndTimeValue.Second, tpkEndTaskTime.Value.Hour, tpkEndTaskTime.Value.Minute, 0);
+            task.NotiTime = new DateTime(dtpkNotiTimeValue.Hour, dtpkNotiTimeValue.Minute, dtpkNotiTimeValue.Second, tpkStartTaskTime.Value.Hour, tpkStartTaskTime.Value.Minute, 0);
+            task.NotiTime = new DateTime(dtpkEndTimeValue.Hour, dtpkEndTimeValue.Minute, dtpkEndTimeValue.Second, tpkEndTaskTime.Value.Hour, tpkEndTaskTime.Value.Minute, 0);
+            task.Title = txtTitle.Text;
+            task.Content = txtNote.Text;
             if(!IsShortTask)
             {
                 LongTask longTask = (LongTask)task;
@@ -146,20 +153,17 @@ namespace TODO.PL
 
             if (IsUpdate)
             {
-                if(IsShortTask)
-                    shortTask.Update();
-                else 
-                    longTask.Update();
+                task.Update();
             }
             else
             {
                 if (IsShortTask)
                 {
-                    ShortTaskCRUD.Instance.Create(shortTask);
+                    ShortTaskCRUD.Instance.Create(task);
                 }
                 else
                 {
-                    LongTaskCRUD.Instance.Create(longTask);
+                    LongTaskCRUD.Instance.Create(task);
                 }
             }
         }
@@ -224,16 +228,8 @@ namespace TODO.PL
             {
                 Content = textBox2.Text,
             };
-        }
 
-        private void txtTitle_TextChanged(object sender, EventArgs e)
-        {
-            task.Title = txtTitle.Text;
-        }
-
-        private void txtNote_TextChanged(object sender, EventArgs e)
-        {
-            task.Content = txtNote.Text;
+            ((LongTask)task).Details.Add(detail);
         }
     }
 }
