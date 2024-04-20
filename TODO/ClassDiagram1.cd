@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="LongTaskService" BaseTypeListCollapsed="true">
+    <Position X="2.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAgAAAAAAAAAAABAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>BL\Service\LongTaskService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="SearchPlanService">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAA=</HashCode>
+      <FileName>BL\Service\SearchPlanService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SearchTaskService">
+    <Position X="5.75" Y="0.5" Width="1.5" />
+    <NestedTypes>
+      <Enum Name="SearchTaskService.SearchType" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>BL\Service\SearchTaskService.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+      <Delegate Name="SearchTaskService.SearchDel" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>BL\Service\SearchTaskService.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Delegate>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAARAAAAAAACAAAAAAAEBAAAAAQAAAAAAgAAA=</HashCode>
+      <FileName>BL\Service\SearchTaskService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ShortTaskService" BaseTypeListCollapsed="true">
+    <Position X="7.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAAAAAAAAgAAAAAAAAAAABAAAAAQAAAAAAAIAA=</HashCode>
+      <FileName>BL\Service\ShortTaskService.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="SortTaskService">
+    <Position X="9.25" Y="0.5" Width="1.5" />
+    <NestedTypes>
+      <Enum Name="SortTaskService.SortType" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>BL\Service\SortTaskService.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+      <Delegate Name="SortTaskService.SortDelegate" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>BL\Service\SortTaskService.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Delegate>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAAAAAAAAAQAAAAgABAAAAAQAAAAAAAAAg=</HashCode>
+      <FileName>BL\Service\SortTaskService.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="OOP.BL.FilterTaskService">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <NestedTypes>
+      <Enum Name="OOP.BL.FilterTaskService.TaskType" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>BL\Service\TaskFilter.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+      <Delegate Name="OOP.BL.FilterTaskService.ArrangeDelegate" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>BL\Service\TaskFilter.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Delegate>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAgCAAAAAACAAAAAAACRAABAAQQAAAAQAAAA=</HashCode>
+      <FileName>BL\Service\TaskFilter.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="IProgressService">
+    <Position X="0.5" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>BL\Service\IProgressService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="ITaskService">
+    <Position X="2.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAiAAAAAAAAAAAAAAAAAAAAAABAAEAA=</HashCode>
+      <FileName>BL\Service\ITaskService.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

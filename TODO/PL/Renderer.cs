@@ -13,6 +13,8 @@ namespace TODO.PL
                 Label date = new Label();
                 Panel panel = new Panel();
                 PictureBox star = new PictureBox();
+                PictureBox pen = new PictureBox();
+                PictureBox trash = new PictureBox();
                 // 
                 // label3
                 // 
@@ -29,7 +31,7 @@ namespace TODO.PL
                 // pictureBox3
                 // 
                 star.Image = task.IsImportant ? Properties.Resources.star_fill : Properties.Resources.star;
-                star.Location = new Point(969, 35);
+                star.Location = new Point(850, 35);
                 star.Margin = new Padding(4);
                 star.Size = new Size(50, 50);
                 star.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -37,12 +39,39 @@ namespace TODO.PL
                 star.TabStop = false;
                 star.Tag = i.ToString();
                 star.Click += (object sender, EventArgs e) =>
-        {
-            int index = int.Parse(((Control)sender).Tag.ToString())!;
-            tasks[index].ToggleImportant();
-            ((PictureBox)sender).Image = tasks[index].IsImportant ? Properties.Resources.star_fill : Properties.Resources.star;
-        };
+                {
+                    int index = int.Parse(((Control)sender).Tag.ToString())!;
+                    tasks[index].ToggleImportant();
+                    ((PictureBox)sender).Image = tasks[index].IsImportant ? Properties.Resources.star_fill : Properties.Resources.star;
+                };
+                //
+                // pictureBoxPen
                 // 
+                pen.Image = Properties.Resources.edit;
+                pen.Location = new Point(908, 35);
+                pen.Margin = new Padding(4);
+                pen.Size = new Size(50, 50);
+                pen.SizeMode = PictureBoxSizeMode.StretchImage;
+                pen.TabIndex = 2;
+                pen.TabStop = false;
+                pen.Tag = i.ToString();
+                //
+                // pictureBox trash
+                //
+                trash.Image = Properties.Resources.trash_bin;
+                trash.Location = new Point(965, 35);
+                trash.Margin = new Padding(4);
+                trash.Size = new Size(50, 50);
+                trash.SizeMode = PictureBoxSizeMode.StretchImage;
+                trash.TabIndex = 2;
+                trash.TabStop = false;
+                trash.Tag = i.ToString();
+                trash.Click += (object sender, EventArgs e) =>
+                {
+                    int index = int.Parse(((Control)sender).Tag.ToString())!;
+                    tasks[index].Delete();                
+                };
+                //
                 // label7
                 // 
                 date.AutoSize = true;
@@ -71,6 +100,8 @@ namespace TODO.PL
                 panel.Controls.Add(date);
                 panel.Controls.Add(star);
                 panel.Controls.Add(title);
+                panel.Controls.Add(pen);
+                panel.Controls.Add(trash);
                 panel.Location = new Point(0, i*(124+20));
                 panel.Margin = new Padding(0);
                 panel.Size = new Size(1040, 124);

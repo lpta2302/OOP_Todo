@@ -15,7 +15,7 @@ namespace TODO
             MyFakeData.Init();
             ApplicationConfiguration.Initialize();
             Application.Run(new frmMyDay(frmMyDay.MyDayType.Myday));
-            //Application.Run(new frmCreateLobby());
+            //Application.Run(new frmCreate(frmCreate.CreateType.LongTerm));
         }
     }
 }
