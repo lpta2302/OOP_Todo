@@ -274,7 +274,6 @@
             btnBack.TabIndex = 32;
             btnBack.Text = "Back";
             btnBack.UseVisualStyleBackColor = false;
-            btnBack.Click += button11_Click;
             // 
             // tpkEndTaskTime
             // 
@@ -422,6 +421,7 @@
             button7.TabIndex = 10;
             button7.Text = "Create";
             button7.UseVisualStyleBackColor = false;
+            button7.Click += button7_Click;
             // 
             // pictureBox2
             // 
@@ -474,7 +474,6 @@
             label10.Size = new Size(141, 37);
             label10.TabIndex = 17;
             label10.Text = "From Day";
-            label10.Click += label10_Click;
             // 
             // label11
             // 
@@ -488,7 +487,6 @@
             label11.Size = new Size(105, 37);
             label11.TabIndex = 20;
             label11.Text = "To Day";
-            label11.Click += label11_Click;
             // 
             // panel5
             // 

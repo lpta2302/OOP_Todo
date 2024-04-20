@@ -14,8 +14,8 @@ namespace TODO
             // see https://aka.ms/applicationconfiguration.
             MyFakeData.Init();
             ApplicationConfiguration.Initialize();
-            //Application.Run(new frmMyDay(frmMyDay.MyDayType.Myday));
-            Application.Run(new frmPlan());
+            Application.Run(new frmMyDay(frmMyDay.MyDayType.Myday));
+            //Application.Run(new frmPlan());
         }
     }
 }

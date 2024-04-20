@@ -4,7 +4,7 @@ namespace TODO.PL
 {
     internal class Renderer
     {
-        public static void RenderListTask(IList<Task> tasks, FlowLayoutPanel container, string type)
+        public static void RenderListTask(IList<Task> tasks, FlowLayoutPanel container, string type, Form frmmyday)
         {
             for (int i=0;i<tasks.Count;i++)
             {            
@@ -55,6 +55,17 @@ namespace TODO.PL
                 pen.TabIndex = 2;
                 pen.TabStop = false;
                 pen.Tag = i.ToString();
+                pen.Click += (object sender, EventArgs e) =>
+                { 
+                    
+                    frmmyday.Hide();
+                    if(task is ShortTask) 
+                    new frmCreate(frmCreate.CreateType.ShortTerm, task).ShowDialog();
+
+                    else
+                    new frmCreate(frmCreate.CreateType.LongTerm, task).ShowDialog();
+                    frmmyday.Close();
+                };
                 //
                 // pictureBox trash
                 //
@@ -69,7 +80,8 @@ namespace TODO.PL
                 trash.Click += (object sender, EventArgs e) =>
                 {
                     int index = int.Parse(((Control)sender).Tag.ToString())!;
-                    tasks[index].Delete();                
+                    tasks[index].Delete();
+                    container.Controls.RemoveAt(index);
                 };
                 //
                 // label7
