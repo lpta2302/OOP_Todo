@@ -56,10 +56,10 @@ namespace TODO.PL
                     btn.Click += (object sender, EventArgs e) =>
                     {
                         DateTime datetime = dtpkDate.Value;
-                        datetime.AddDays(int.Parse(btn.Text) - datetime.Day);
+                        DateTime dt = new DateTime(datetime.Year, datetime.Month, int.Parse(btn.Text), 0, 0, 0);
 
                         Hide();
-                        new frmMyDay(frmMyDay.MyDayType.TaskByDay, datetime).ShowDialog();
+                        new frmMyDay(frmMyDay.MyDayType.TaskByDay, dt).ShowDialog();
                         Close();
                     };
                     daybox[i].Add(btn);

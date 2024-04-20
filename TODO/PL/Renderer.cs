@@ -3,14 +3,16 @@
 namespace TODO.PL
 {
     using System.Windows.Forms;
+    using TODO.DA;
     using static Util;
     internal class Renderer
     {
         public static void RenderListTask(IList<Task> tasks, FlowLayoutPanel container, string type, Form frmmyday)
         {
-            for (int i=0;i<tasks.Count;i++)
-            {            
+            for (int i = 0; i < tasks.Count; i++)
+            {
                 Task task = tasks[i];
+
                 Label title = new Label();
                 Label date = new Label();
                 Panel panel = new Panel();
@@ -18,6 +20,8 @@ namespace TODO.PL
                 PictureBox pen = new PictureBox();
                 PictureBox trash = new PictureBox();
                 PictureBox complete = new PictureBox();
+                Panel newl = new Panel();
+                
                 // 
                 // label3
                 // 
@@ -76,13 +80,13 @@ namespace TODO.PL
                 pen.TabStop = false;
                 pen.Tag = i.ToString();
                 pen.Click += (object sender, EventArgs e) =>
-                { 
-                    
+                {
+
                     frmmyday.Hide();
-                    if(task is ShortTask) 
-                    new frmCreate(frmCreate.CreateType.ShortTerm, task).ShowDialog();
+                    if (task is ShortTask)
+                        new frmCreate(frmCreate.CreateType.ShortTerm, task).ShowDialog();
                     else
-                    new frmCreate(frmCreate.CreateType.LongTerm, task).ShowDialog();
+                        new frmCreate(frmCreate.CreateType.LongTerm, task).ShowDialog();
 
                     frmmyday.Close();
                 };
@@ -115,18 +119,18 @@ namespace TODO.PL
                 date.TabIndex = 3;
                 if (type == "importance")
                 {
-                    if(!isEmptyDate(task.NotiTime))
+                    if (!isEmptyDate(task.NotiTime))
                         date.Text = TypeConverter.ExchangeToDMYHMS(task.NotiTime);
-                    else if(task is LongTask)
+                    else if (task is LongTask)
                     {
                         LongTask longTask = (LongTask)task;
-                        date.Text = TypeConverter.ExchangeToDMY(longTask.FromDate) +" - "+ TypeConverter.ExchangeToDMY(longTask.ToDate);
+                        date.Text = TypeConverter.ExchangeToDMY(longTask.FromDate) + " - " + TypeConverter.ExchangeToDMY(longTask.ToDate);
                     }
                 }
-                else if ( type == "myday")
+                else if (type == "myday")
                 {
-                    if(task is ShortTask)
-                         date.Text = TypeConverter.GetHourTime( task.NotiTime);
+                    if (task is ShortTask)
+                        date.Text = TypeConverter.GetHourTime(task.NotiTime);
                     else
                     {
                         LongTask longTask = (LongTask)task;
@@ -147,7 +151,7 @@ namespace TODO.PL
                 panel.Controls.Add(pen);
                 panel.Controls.Add(trash);
                 panel.Controls.Add(complete);
-                panel.Location = new Point(0, i*(124+20));
+                panel.Location = new Point(0, i * (124 + 20));
                 panel.Margin = new Padding(0);
                 panel.Size = new Size(1040, 124);
                 panel.TabIndex = 7;
@@ -156,9 +160,16 @@ namespace TODO.PL
                 panel.Click += (object sender, EventArgs e) =>
                 {
                     frmmyday.Hide();
-                    new frmMyDayTasks().ShowDialog();
+                    new frmMyDayTasks(task).ShowDialog();
                     frmmyday.Close();
                 };
+                if (task is LongTask)
+                {
+                    panel.Controls.Add(newl);
+                    newl.Location = new Point(40, 114);
+                    newl.Size = new Size(960, 10);
+                    newl.BackColor = Color.Orange;
+                }
             }
         }
         public static void RenderListTaskNotification(IList<Task> tasks, FlowLayoutPanel container)
@@ -228,7 +239,7 @@ namespace TODO.PL
                 Label name = new Label();
                 Label percent = new Label();
                 Panel paneldad = new Panel();
-                Panel panelson = new Panel();
+                //Panel panelson = new Panel();
                 // 
                 // label4
                 // 
@@ -250,20 +261,20 @@ namespace TODO.PL
                 percent.Margin = new Padding(0);
                 percent.Size = new Size(77, 32);
                 percent.TabIndex = 0;
-                //percent.Text = plan.CalculateCurrentProgress().ToString()+"%";
+                percent.Text = plan.CalculateCurrentProgress().ToString()+"%";
                 percent.TextAlign = ContentAlignment.MiddleLeft;
                 percent.Tag = i.ToString();
                 // 
                 // panel Son
                 // 
-                panelson.BackColor = Color.Green;
-                panelson.BackgroundImageLayout = ImageLayout.Stretch;
-                panelson.Controls.Add(percent);
-                panelson.Location = new Point(30, 84);
-                panelson.Margin = new Padding(0);
-                panelson.Size = new Size(1015, 41);
-                panelson.TabIndex = 7;
-                panelson.Tag = i.ToString();
+                //panelson.BackColor = Color.Green;
+                //panelson.BackgroundImageLayout = ImageLayout.Stretch;
+                //panelson.Controls.Add(percent);
+                //panelson.Location = new Point(30, 84);
+                //panelson.Margin = new Padding(0);
+                //panelson.Size = new Size(1015, 41);
+                //panelson.TabIndex = 7;
+                //panelson.Tag = i.ToString();
                 // 
                 // panel9
                 // 
@@ -271,7 +282,7 @@ namespace TODO.PL
                 paneldad.BackgroundImage = Properties.Resources.task;
                 paneldad.BackgroundImageLayout = ImageLayout.Stretch;
                 paneldad.Controls.Add(name);
-                paneldad.Controls.Add(panelson);
+                //paneldad.Controls.Add(panelson);
                 paneldad.Location = new Point(0, i * (180 + 20));
                 paneldad.Margin = new Padding(0);
                 paneldad.Size = new Size(1075, 180);
@@ -298,6 +309,8 @@ namespace TODO.PL
                 PictureBox star = new PictureBox();
                 PictureBox pen = new PictureBox();
                 PictureBox trash = new PictureBox();
+                Panel newl = new Panel();
+                
                 // 
                 // label3
                 // 
@@ -307,7 +320,7 @@ namespace TODO.PL
                 title.Margin = new Padding(0);
                 title.Size = new Size(112, 32);
                 title.TabIndex = 0;
-                //title.Text = task.Title;
+                title.Text = task.Title;
                 title.TextAlign = ContentAlignment.MiddleLeft;
                 title.Tag = i.ToString();
                 // 
@@ -418,10 +431,89 @@ namespace TODO.PL
                 panel.Click += (object sender, EventArgs e) =>
                 {
                     frmmyday.Hide();
-                    new frmMyDayTasks().ShowDialog();
+                    new frmMyDayTasks(task).ShowDialog();
                     frmmyday.Close();
                 };
+                if (task is LongTask)
+                {
+                    panel.Controls.Add(newl);
+                    newl.Location = new Point(40, 114);
+                    newl.Size = new Size(960, 10);
+                    newl.BackColor = Color.Orange;
+                }
             }
+        }
+        public static void RenderTaskDetail(IList<Detail> tasks, FlowLayoutPanel container)
+        {
+            for(int i = 0; i <  tasks.Count; i++)
+            {
+                Detail detail = tasks[i];
+                Panel panel10 = new Panel();
+                Label label3 = new Label();
+                PictureBox pictureBox8 = new PictureBox();
+                PictureBox pictureBox10 = new PictureBox();
+
+                // 
+                // panel10
+                // 
+                panel10.BackColor = Color.Transparent;
+                panel10.BackgroundImage = Properties.Resources.task;
+                panel10.BackgroundImageLayout = ImageLayout.Stretch;
+                panel10.Controls.Add(label3);
+                panel10.Controls.Add(pictureBox8);
+                panel10.Controls.Add(pictureBox10);
+                panel10.Location = new Point(0, 21);
+                panel10.Margin = new Padding(0, 21, 0, 21);
+                panel10.Size = new Size(599, 112);
+                panel10.TabIndex = 10;
+                // 
+                // label3
+                // 
+                label3.AutoSize = true;
+                label3.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point);
+                label3.Location = new Point(91, 25);
+                label3.Margin = new Padding(22, 25, 22, 25);
+                label3.Size = new Size(305, 60);
+                label3.TabIndex = 8;
+                label3.Text = detail.Content;
+                // 
+                // pictureBox8
+                // 
+                pictureBox8.Image = Properties.Resources.trash_bin;
+                pictureBox8.Location = new Point(534, 32);
+                pictureBox8.Margin = new Padding(4);
+                pictureBox8.Size = new Size(50, 50);
+                pictureBox8.SizeMode = PictureBoxSizeMode.StretchImage;
+                pictureBox8.TabIndex = 7;
+                pictureBox8.TabStop = false;
+                // 
+                // pictureBox10
+                // 
+                if (detail.IsCompleted)
+                {
+                    pictureBox10.Image = Properties.Resources.radio_button_fill;
+                }
+                else
+                {
+                    pictureBox10.Image = Properties.Resources.radio_button;
+                }
+                pictureBox10.Location = new Point(19, 32);
+                pictureBox10.Margin = new Padding(0);
+                pictureBox10.Size = new Size(50, 50);
+                pictureBox10.SizeMode = PictureBoxSizeMode.StretchImage;
+                pictureBox10.TabIndex = 6;
+                pictureBox10.TabStop = false;
+                pictureBox10.Click += (object sender, EventArgs e) =>{
+                    int index = int.Parse(((Control)sender).Tag.ToString())!;
+                    tasks[index].IsCompleted = !tasks[index].IsCompleted;
+                    
+                    ((PictureBox)sender).Image = tasks[index].IsCompleted ? Properties.Resources.radio_button_fill : Properties.Resources.radio_button;
+                };
+                pictureBox10.Tag = i.ToString();
+
+                container.Controls.Add(panel10);
+            }
+            
         }
     }
 }

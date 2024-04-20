@@ -1,6 +1,9 @@
-﻿public sealed class Detail
+﻿using System.Runtime.Serialization;
+
+namespace TODO.DA;
+public sealed class Detail: ISerializable
 {
-    public string Id { get; }
+    public string Id { get; set; }
     public string Content { get; set; }
     public bool IsCompleted { get; set; }
     public DateTime? Time { get; set; }
@@ -13,5 +16,18 @@
     public void ToggleCompletion()
     {
         IsCompleted = !IsCompleted;
+    }
+
+    public void GetObjectData(SerializationInfo info, StreamingContext context)
+    {
+        info.AddValue("Id", Id);
+        info.AddValue("Content", Content);
+        info.AddValue("IsComplete", IsCompleted);
+    }
+    public Detail(SerializationInfo info, StreamingContext context)
+    {
+        Id = info.GetString("Id");
+        Content = info.GetString("Content");
+        IsCompleted = info.GetBoolean("Iscomplete");
     }
 }

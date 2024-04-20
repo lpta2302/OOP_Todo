@@ -17,7 +17,8 @@ public interface ITaskService
 
     public bool IsTime(Task task)
     {
-        return task.NotiTime == DateTime.Now;
+        return task.NotiTime.Hour == DateTime.Now.Hour &&
+        task.NotiTime.Minute == DateTime.Now.Minute;
     }
 
     public List<Task> IsTime(IList<Task> tasks)

@@ -43,6 +43,7 @@
             pictureBox1 = new PictureBox();
             panel4 = new Panel();
             panel3 = new Panel();
+            label6 = new Label();
             flowLayoutPanel1 = new FlowLayoutPanel();
             panel7 = new Panel();
             pictureBox12 = new PictureBox();
@@ -68,8 +69,6 @@
             label1 = new Label();
             pictureBox11 = new PictureBox();
             label2 = new Label();
-            panel11 = new Panel();
-            label6 = new Label();
             label5 = new Label();
             label4 = new Label();
             timer1 = new System.Windows.Forms.Timer(components);
@@ -97,7 +96,6 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox9).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox10).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox11).BeginInit();
-            panel11.SuspendLayout();
             SuspendLayout();
             // 
             // btnBack
@@ -107,13 +105,14 @@
             btnBack.FlatStyle = FlatStyle.Popup;
             btnBack.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
             btnBack.ForeColor = Color.White;
-            btnBack.Location = new Point(49, 45);
+            btnBack.Location = new Point(53, 122);
             btnBack.Margin = new Padding(0);
             btnBack.Name = "btnBack";
             btnBack.Size = new Size(175, 51);
             btnBack.TabIndex = 0;
             btnBack.Text = "Back";
             btnBack.UseVisualStyleBackColor = false;
+            btnBack.Click += btnBack_Click;
             // 
             // panel1
             // 
@@ -288,8 +287,8 @@
             // panel3
             // 
             panel3.BackColor = Color.Transparent;
+            panel3.Controls.Add(label6);
             panel3.Controls.Add(flowLayoutPanel1);
-            panel3.Controls.Add(panel11);
             panel3.Controls.Add(label5);
             panel3.Controls.Add(label4);
             panel3.Location = new Point(49, 178);
@@ -297,6 +296,18 @@
             panel3.Name = "panel3";
             panel3.Size = new Size(1385, 645);
             panel3.TabIndex = 1;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            label6.ForeColor = Color.White;
+            label6.Location = new Point(158, 86);
+            label6.Margin = new Padding(4, 0, 4, 0);
+            label6.Name = "label6";
+            label6.Size = new Size(77, 32);
+            label6.TabIndex = 0;
+            label6.Text = "100%";
             // 
             // flowLayoutPanel1
             // 
@@ -309,6 +320,7 @@
             flowLayoutPanel1.Name = "flowLayoutPanel1";
             flowLayoutPanel1.Size = new Size(1362, 429);
             flowLayoutPanel1.TabIndex = 8;
+            flowLayoutPanel1.Click += flowLayoutPanel1_Click;
             // 
             // panel7
             // 
@@ -604,28 +616,6 @@
             label2.Text = "To do list";
             label2.TextAlign = ContentAlignment.MiddleLeft;
             // 
-            // panel11
-            // 
-            panel11.BackColor = Color.SpringGreen;
-            panel11.Controls.Add(label6);
-            panel11.Location = new Point(11, 130);
-            panel11.Margin = new Padding(11);
-            panel11.Name = "panel11";
-            panel11.Size = new Size(1362, 44);
-            panel11.TabIndex = 7;
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label6.ForeColor = Color.White;
-            label6.Location = new Point(612, 5);
-            label6.Margin = new Padding(4, 0, 4, 0);
-            label6.Name = "label6";
-            label6.Size = new Size(77, 32);
-            label6.TabIndex = 0;
-            label6.Text = "100%";
-            // 
             // label5
             // 
             label5.AutoSize = true;
@@ -634,9 +624,9 @@
             label5.Location = new Point(4, 80);
             label5.Margin = new Padding(4, 0, 4, 0);
             label5.Name = "label5";
-            label5.Size = new Size(126, 38);
+            label5.Size = new Size(133, 38);
             label5.TabIndex = 6;
-            label5.Text = "Progress";
+            label5.Text = "Progress:";
             // 
             // label4
             // 
@@ -693,8 +683,6 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox9).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox10).EndInit();
             ((System.ComponentModel.ISupportInitialize)pictureBox11).EndInit();
-            panel11.ResumeLayout(false);
-            panel11.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -716,7 +704,6 @@
         private Panel panel3;
         private Label label4;
         private Label label5;
-        private Panel panel11;
         private Label label6;
         private FlowLayoutPanel flowLayoutPanel1;
         private Panel panel5;

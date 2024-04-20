@@ -12,21 +12,22 @@ namespace TODO.PL
 {
     public partial class frmPlansTasks : Form
     {
-        IList<Task> tasks= new List<Task>();
+        IList<Task> tasks = new List<Task>();
         Plan plan;
         public frmPlansTasks(Plan plan)
         {
             InitializeComponent();
             LoadTaskFormPlansTasks();
             this.plan = plan;
+            label6.Text = plan.CalculateCurrentProgress().ToString() + "%";
             foreach (TaskRef task in this.plan.Tasks)
             {
                 tasks.Add(SearchTaskService.Instance.Search(task.Id, SearchTaskService.SearchType.ByID)[0]);
             }
             flowLayoutPanel1.Controls.Clear();
-            Renderer.RenderPlansTask(tasks, flowLayoutPanel1, "", this);
+            Renderer.RenderListTask(tasks, flowLayoutPanel1, "", this);
             label4.Text = plan.Name;
-            }
+        }
         private void LoadTaskFormPlansTasks()
         {
 
@@ -75,5 +76,16 @@ namespace TODO.PL
         }
         #endregion
 
+        private void flowLayoutPanel1_Click(object sender, EventArgs e)
+        {
+            label6.Text = plan.CalculateCurrentProgress().ToString() + "%";
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            Hide();
+            new frmPlansTasks(plan).ShowDialog();
+            Close();
+        }
     }
 }

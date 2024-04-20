@@ -1,4 +1,5 @@
-﻿public class LongTaskCRUD : TaskCRUD
+﻿using TODO.DA;
+public class LongTaskCRUD : TaskCRUD
 {
     private static readonly LongTaskCRUD instance = new LongTaskCRUD();
     private LongTaskCRUD() { }

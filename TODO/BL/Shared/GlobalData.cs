@@ -15,6 +15,7 @@
             CurrentTasks = new List<Task>();
         if (CurrentPlans == null)
             CurrentPlans = new List<Plan>();
+        SortTaskService.Instance.Sort(CurrentTasks);
     }
 
 }

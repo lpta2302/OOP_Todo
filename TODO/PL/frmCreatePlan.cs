@@ -12,19 +12,42 @@ namespace TODO.PL
 {
     public partial class frmCreatePlan : Form
     {
-        Plan plan;  
-        public frmCreatePlan()
+        private Plan plan;
+        bool isCreating = true;
+        public frmCreatePlan(Plan plan = null)
         {
             InitializeComponent();
-            if(GlobalData.CurrentPlan == null)
-                GlobalData.CurrentPlan = new Plan();
-            plan = GlobalData.CurrentPlan;
+
+            if (plan == null)
+            {
+                isCreating = true;
+                this.plan = GlobalData.CurrentPlan;
+            }
+            else
+            {
+                isCreating = false;
+                this.plan = plan;
+            }
+            LoadForm();
+        }
+
+        private void LoadForm()
+        {
+            textBox2.Text = plan.Name;
+            for (int i = 0; i < plan.Tasks.Count; i++)
+            {
+                ListViewItem item = new ListViewItem("" + (i + 1));
+                LongTask task = (LongTask)Util.FindTask(plan.Tasks[i].Id);
+                item.SubItems.Add(task.Title);
+                item.SubItems.Add(task.Details.Count.ToString());
+                listView1.Items.Add(item);
+            }
         }
 
         private void button7_Click(object sender, EventArgs e)
         {
             Hide();
-            new frmCreate(frmCreate.CreateType.LongTerm);
+            new frmCreate(frmCreate.CreateType.LongTerm).ShowDialog();
             Close();
         }
 
@@ -68,6 +91,39 @@ namespace TODO.PL
             Hide();
             new frmPlanS().ShowDialog();
             Close();
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            plan.Name = textBox2.Text;
+            if (isCreating)
+            {
+                PlanCRUD.Instance.Create(plan);
+            }
+            else
+                PlanCRUD.Instance.Update(plan);
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            if (listView1.SelectedIndices.Count == 0)
+                return;
+            Hide();
+            new frmCreate(frmCreate.CreateType.LongTerm, Util.FindTask(plan.Tasks[listView1.SelectedIndices[0]].Id));
+            Close();
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            if (listView1.SelectedIndices.Count == 0)
+                return;
+            plan.Tasks.RemoveAt(listView1.SelectedIndices[0]);
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+            if(isCreating)
+                GlobalData.CurrentPlan.Name = textBox2.Text;
         }
     }
 }

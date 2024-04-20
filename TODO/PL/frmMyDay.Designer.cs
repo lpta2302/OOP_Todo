@@ -29,9 +29,11 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
+            System.Windows.Forms.Timer timer1;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMyDay));
             panel1 = new Panel();
             panel4 = new Panel();
+            label3 = new Label();
             label9 = new Label();
             button17 = new Button();
             button16 = new Button();
@@ -42,20 +44,10 @@
             button7 = new Button();
             button6 = new Button();
             flowLayoutPanel1 = new FlowLayoutPanel();
-            panel5 = new Panel();
-            pictureBox6 = new PictureBox();
-            pictureBox5 = new PictureBox();
-            pictureBox4 = new PictureBox();
-            label7 = new Label();
-            pictureBox3 = new PictureBox();
-            label3 = new Label();
             panel3 = new Panel();
             label1 = new Label();
             panel8 = new Panel();
             flowLayoutPanel2 = new FlowLayoutPanel();
-            panel9 = new Panel();
-            button11 = new Button();
-            label4 = new Label();
             flowLayoutPanel3 = new FlowLayoutPanel();
             panel2 = new Panel();
             button10 = new Button();
@@ -67,23 +59,23 @@
             button1 = new Button();
             textBox1 = new TextBox();
             pictureBox1 = new PictureBox();
+            timer2 = new System.Windows.Forms.Timer(components);
             timer1 = new System.Windows.Forms.Timer(components);
             panel1.SuspendLayout();
             panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
-            flowLayoutPanel1.SuspendLayout();
-            panel5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox6).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             panel3.SuspendLayout();
             panel8.SuspendLayout();
             flowLayoutPanel2.SuspendLayout();
-            panel9.SuspendLayout();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
+            // 
+            // timer1
+            // 
+            timer1.Enabled = true;
+            timer1.Interval = 1000;
+            timer1.Tick += timer1_Tick;
             // 
             // panel1
             // 
@@ -101,6 +93,7 @@
             panel4.BackColor = Color.White;
             panel4.BackgroundImage = Properties.Resources.background;
             panel4.BackgroundImageLayout = ImageLayout.Stretch;
+            panel4.Controls.Add(label3);
             panel4.Controls.Add(label9);
             panel4.Controls.Add(button17);
             panel4.Controls.Add(button16);
@@ -116,6 +109,21 @@
             panel4.Name = "panel4";
             panel4.Size = new Size(1106, 972);
             panel4.TabIndex = 3;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.BackColor = Color.Transparent;
+            label3.Font = new Font("Segoe UI", 28.2F, FontStyle.Bold, GraphicsUnit.Point);
+            label3.ForeColor = Color.White;
+            label3.ImageAlign = ContentAlignment.MiddleLeft;
+            label3.Location = new Point(78, 23);
+            label3.Margin = new Padding(4, 0, 4, 0);
+            label3.Name = "label3";
+            label3.Size = new Size(248, 76);
+            label3.TabIndex = 13;
+            label3.Text = "Planned";
+            label3.TextAlign = ContentAlignment.MiddleRight;
             // 
             // label9
             // 
@@ -144,7 +152,7 @@
             button17.Name = "button17";
             button17.Size = new Size(192, 51);
             button17.TabIndex = 10;
-            button17.Text = "Mini Task";
+            button17.Text = "Long Task";
             button17.UseVisualStyleBackColor = false;
             button17.Click += button17_Click;
             // 
@@ -160,7 +168,7 @@
             button16.Name = "button16";
             button16.Size = new Size(192, 51);
             button16.TabIndex = 9;
-            button16.Text = "Alert";
+            button16.Text = "Short Task";
             button16.UseVisualStyleBackColor = false;
             button16.Click += button16_Click;
             // 
@@ -259,99 +267,10 @@
             // 
             flowLayoutPanel1.AutoScroll = true;
             flowLayoutPanel1.BackColor = Color.Transparent;
-            flowLayoutPanel1.Controls.Add(panel5);
             flowLayoutPanel1.Location = new Point(16, 373);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
             flowLayoutPanel1.Size = new Size(1075, 480);
             flowLayoutPanel1.TabIndex = 12;
-            // 
-            // panel5
-            // 
-            panel5.BackColor = Color.Transparent;
-            panel5.BackgroundImage = Properties.Resources.task;
-            panel5.BackgroundImageLayout = ImageLayout.Stretch;
-            panel5.Controls.Add(pictureBox6);
-            panel5.Controls.Add(pictureBox5);
-            panel5.Controls.Add(pictureBox4);
-            panel5.Controls.Add(label7);
-            panel5.Controls.Add(pictureBox3);
-            panel5.Controls.Add(label3);
-            panel5.Location = new Point(0, 0);
-            panel5.Margin = new Padding(0);
-            panel5.Name = "panel5";
-            panel5.Size = new Size(1040, 124);
-            panel5.TabIndex = 7;
-            // 
-            // pictureBox6
-            // 
-            pictureBox6.Image = Properties.Resources.star;
-            pictureBox6.Location = new Point(17, 35);
-            pictureBox6.Margin = new Padding(4);
-            pictureBox6.Name = "pictureBox6";
-            pictureBox6.Size = new Size(50, 50);
-            pictureBox6.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox6.TabIndex = 8;
-            pictureBox6.TabStop = false;
-            // 
-            // pictureBox5
-            // 
-            pictureBox5.Image = Properties.Resources.trash_bin;
-            pictureBox5.Location = new Point(965, 35);
-            pictureBox5.Margin = new Padding(4);
-            pictureBox5.Name = "pictureBox5";
-            pictureBox5.Size = new Size(50, 50);
-            pictureBox5.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox5.TabIndex = 7;
-            pictureBox5.TabStop = false;
-            // 
-            // pictureBox4
-            // 
-            pictureBox4.Image = Properties.Resources.edit;
-            pictureBox4.Location = new Point(908, 35);
-            pictureBox4.Margin = new Padding(4);
-            pictureBox4.Name = "pictureBox4";
-            pictureBox4.Size = new Size(50, 50);
-            pictureBox4.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox4.TabIndex = 6;
-            pictureBox4.TabStop = false;
-            pictureBox4.Click += pictureBox4_Click;
-            // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Font = new Font("Segoe UI Semibold", 10F, FontStyle.Bold, GraphicsUnit.Point);
-            label7.ForeColor = SystemColors.WindowFrame;
-            label7.Location = new Point(73, 71);
-            label7.Margin = new Padding(0);
-            label7.Name = "label7";
-            label7.Size = new Size(95, 28);
-            label7.TabIndex = 3;
-            label7.Text = "To do list";
-            label7.TextAlign = ContentAlignment.MiddleLeft;
-            // 
-            // pictureBox3
-            // 
-            pictureBox3.Image = Properties.Resources.star;
-            pictureBox3.Location = new Point(850, 35);
-            pictureBox3.Margin = new Padding(4);
-            pictureBox3.Name = "pictureBox3";
-            pictureBox3.Size = new Size(50, 50);
-            pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox3.TabIndex = 2;
-            pictureBox3.TabStop = false;
-            pictureBox3.Click += pictureBox3_Click;
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label3.Location = new Point(71, 30);
-            label3.Margin = new Padding(0);
-            label3.Name = "label3";
-            label3.Size = new Size(112, 32);
-            label3.TabIndex = 0;
-            label3.Text = "To do list";
-            label3.TextAlign = ContentAlignment.MiddleLeft;
             // 
             // panel3
             // 
@@ -390,55 +309,15 @@
             // flowLayoutPanel2
             // 
             flowLayoutPanel2.AutoScroll = true;
-            flowLayoutPanel2.Controls.Add(panel9);
             flowLayoutPanel2.Controls.Add(flowLayoutPanel3);
             flowLayoutPanel2.Location = new Point(6, 119);
             flowLayoutPanel2.Name = "flowLayoutPanel2";
             flowLayoutPanel2.Size = new Size(366, 480);
             flowLayoutPanel2.TabIndex = 9;
             // 
-            // panel9
-            // 
-            panel9.BackColor = Color.Transparent;
-            panel9.BackgroundImage = Properties.Resources.notificationPanel;
-            panel9.BackgroundImageLayout = ImageLayout.Stretch;
-            panel9.Controls.Add(button11);
-            panel9.Controls.Add(label4);
-            panel9.Location = new Point(0, 0);
-            panel9.Margin = new Padding(0);
-            panel9.Name = "panel9";
-            panel9.Size = new Size(326, 124);
-            panel9.TabIndex = 8;
-            // 
-            // button11
-            // 
-            button11.Image = Properties.Resources.repeat;
-            button11.ImageAlign = ContentAlignment.MiddleRight;
-            button11.Location = new Point(54, 65);
-            button11.Margin = new Padding(0);
-            button11.Name = "button11";
-            button11.Size = new Size(103, 41);
-            button11.TabIndex = 1;
-            button11.Text = "Today";
-            button11.TextAlign = ContentAlignment.MiddleLeft;
-            button11.UseVisualStyleBackColor = true;
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.BackColor = Color.White;
-            label4.Font = new Font("Segoe UI Semibold", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
-            label4.Location = new Point(54, 30);
-            label4.Margin = new Padding(0);
-            label4.Name = "label4";
-            label4.Size = new Size(103, 30);
-            label4.TabIndex = 0;
-            label4.Text = "To do list";
-            label4.TextAlign = ContentAlignment.MiddleLeft;
-            // 
             // flowLayoutPanel3
             // 
-            flowLayoutPanel3.Location = new Point(329, 3);
+            flowLayoutPanel3.Location = new Point(3, 3);
             flowLayoutPanel3.Name = "flowLayoutPanel3";
             flowLayoutPanel3.Size = new Size(16, 8);
             flowLayoutPanel3.TabIndex = 0;
@@ -591,11 +470,6 @@
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
             // 
-            // timer1
-            // 
-            timer1.Enabled = true;
-            timer1.Interval = 1000;
-            // 
             // frmMyDay
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
@@ -611,19 +485,10 @@
             panel4.ResumeLayout(false);
             panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
-            flowLayoutPanel1.ResumeLayout(false);
-            panel5.ResumeLayout(false);
-            panel5.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox6).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
             panel8.ResumeLayout(false);
             flowLayoutPanel2.ResumeLayout(false);
-            panel9.ResumeLayout(false);
-            panel9.PerformLayout();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
@@ -644,12 +509,7 @@
         private Button button4;
         private Label label1;
         private Panel panel8;
-        private Panel panel9;
-        private Button button11;
-        private Label label4;
         private Panel panel4;
-        private Panel panel5;
-        private Label label3;
         private PictureBox pictureBox2;
         private Label label2;
         private Button button9;
@@ -659,16 +519,13 @@
         private Button button20;
         private Button button17;
         private Button button16;
-        private PictureBox pictureBox3;
         private Label label9;
         private FlowLayoutPanel flowLayoutPanel1;
-        private Label label7;
         private FlowLayoutPanel flowLayoutPanel2;
         private FlowLayoutPanel flowLayoutPanel3;
-        private PictureBox pictureBox5;
-        private PictureBox pictureBox4;
         private Button button10;
-        private PictureBox pictureBox6;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Timer timer2;
+        private Label label3;
     }
 }

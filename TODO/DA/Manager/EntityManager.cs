@@ -22,8 +22,6 @@ public class EntityManager<EntityType>
         }
         try
         {
-
-            if (!File.Exists(path))
                 File.WriteAllText(path, "[]");
         }
         catch (FileNotFoundException ex)

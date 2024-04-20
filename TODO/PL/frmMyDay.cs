@@ -15,10 +15,10 @@ namespace TODO
         {
             Myday,
             Importance,
-            AllTasks, 
+            AllTasks,
             TaskByDay
         }
-        public frmMyDay(MyDayType myDayType, DateTime ?specificDay = null)
+        public frmMyDay(MyDayType myDayType, DateTime? specificDay = null)
         {
             InitializeComponent();
             switch (myDayType)
@@ -44,7 +44,7 @@ namespace TODO
         private void GetTaskByDay(DateTime datetime)
         {
             flowLayoutPanel1.Controls.Clear();
-            tasks = search.Search(datetime,SearchTaskService.SearchType.ByNotiDate);
+            tasks = search.Search(datetime, SearchTaskService.SearchType.ByNotiDate);
             Renderer.RenderListTask(tasks, flowLayoutPanel1, "", this);
         }
         private void GetAllTasksInHistory()
@@ -75,7 +75,7 @@ namespace TODO
         }
         public void GetMyDay()
         {
-            label2.Text = "My Day";
+            label3.Text = "My Day";
             flowLayoutPanel1.Controls.Clear();
             tasks = search.Search(DateTime.Now, SearchTaskService.SearchType.ByNotiDate)!;
             Renderer.RenderListTask(tasks, flowLayoutPanel1, "myday", this);
@@ -86,7 +86,7 @@ namespace TODO
         }
         private void GetImportance()
         {
-            label2.Text = "Importance";
+            label3.Text = "Importance";
             flowLayoutPanel1.Controls.Clear();
             tasks = filter.DoFilter(FilterTaskService.TaskType.IsImportance);
             Renderer.RenderListTask(tasks, flowLayoutPanel1, "importance", this);
@@ -146,7 +146,7 @@ namespace TODO
         private void GetMiniTask()
         {
             flowLayoutPanel1.Controls.Clear();
-            label2.Text = "All Tasks";
+            label3.Text = "All Tasks";
             tasks = filter.DoFilter(FilterTaskService.TaskType.LongTerm);
             Renderer.RenderListTask(tasks, flowLayoutPanel1, "importance", this);
         }
@@ -212,6 +212,16 @@ namespace TODO
             Hide();
             new frmPlanS().ShowDialog();
             Close();
+        }
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            foreach (Task t in GlobalData.CurrentTasks)
+            {
+                if (t.CheckTime() && t.IsNotificated)
+                {
+                    MessageBox.Show(t.Content, t.Title);
+                }
+            }
         }
     }
 }

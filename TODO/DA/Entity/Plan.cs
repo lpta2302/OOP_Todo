@@ -64,6 +64,6 @@ public class Plan : ISerializable, IProgressService
                 count++;
         }
 
-        return (float)Math.Round(1.0 * count / Tasks.Count, 2);
+        return (float)Math.Round(1.0 * count*100 / Tasks.Count, 2);
     }
 }

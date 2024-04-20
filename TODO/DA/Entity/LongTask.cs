@@ -1,4 +1,5 @@
 ﻿using System.Runtime.Serialization;
+using TODO.DA;
 
 public class LongTask : Task, IProgressService
 {
@@ -52,7 +53,11 @@ public class LongTask : Task, IProgressService
             if (detail.IsCompleted)
                 count++;
         }
+        if (Details.Count ==0)
+        {
+            return 100f;
 
+        }
         return (float)Math.Round(1.0 * count / Details.Count, 2);
     }
 

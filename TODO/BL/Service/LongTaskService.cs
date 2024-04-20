@@ -1,4 +1,5 @@
 ﻿using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
+using TODO.DA;
 
 public class LongTaskService : ITaskService
 {
@@ -9,7 +10,7 @@ public class LongTaskService : ITaskService
     {
         _task.IsCompleted = !_task.IsCompleted;
         LongTask task = (_task as LongTask)!;
-        foreach (Detail detail in task.Details)
+        foreach (TODO.DA.Detail detail in task.Details)
         {
             detail.IsCompleted = !detail.IsCompleted;
         }

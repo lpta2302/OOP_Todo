@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
+            System.Windows.Forms.Timer timer1;
             label2 = new Label();
             panel2 = new Panel();
             button6 = new Button();
@@ -300,6 +301,7 @@
             btnBack.TabIndex = 32;
             btnBack.Text = "Back";
             btnBack.UseVisualStyleBackColor = false;
+            btnBack.Click += btnBack_Click;
             // 
             // tpkEndTaskTime
             // 
@@ -579,6 +581,7 @@
             btnDelete.TabIndex = 29;
             btnDelete.Text = "Delete";
             btnDelete.UseVisualStyleBackColor = false;
+            btnDelete.Click += btnDelete_Click;
             // 
             // btnAdd
             // 
@@ -621,6 +624,7 @@
             // 
             timer1.Enabled = true;
             timer1.Interval = 1000;
+            timer1.Tick += timer1_Tick;
             // 
             // frmCreate
             // 
@@ -691,6 +695,5 @@
         private TextBox textBox2;
         private ColumnHeader columnHeader1;
         private ColumnHeader columnHeader2;
-        private System.Windows.Forms.Timer timer1;
     }
 }

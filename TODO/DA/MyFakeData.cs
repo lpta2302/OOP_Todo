@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel;
+using TODO.DA;
 
 public sealed class MyFakeData
 {
@@ -9,7 +10,7 @@ public sealed class MyFakeData
         Task shortTerm;
         Random r = new Random();
 
-        for (int i = 0; i < 10; i++)
+        for (int i = 0; i < 2; i++)
         {
             ShortTaskCRUD.Instance.Create(
                 new object[]{
@@ -21,7 +22,7 @@ public sealed class MyFakeData
                     r.Next(0, 5) == 0 ? true : false}
             );
         }
-        for (int i = 0; i < 10; i++)
+        for (int i = 0; i < 2; i++)
         {
             ShortTaskCRUD.Instance.Create(
                 new object[]{
@@ -148,7 +149,8 @@ public sealed class MyFakeData
 
         plan.AddTask(task);
 
-        EntityManager<Plan>.Save(new List<Plan>() { plan });
+        //EntityManager<Plan>.Save(new List<Plan>() { plan });
+        PlanCRUD.Instance.Create(plan);
     }
 
     public static void Init()
