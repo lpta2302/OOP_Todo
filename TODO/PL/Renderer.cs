@@ -2,6 +2,7 @@
 
 namespace TODO.PL
 {
+    using System.Windows.Forms;
     using static Util;
     internal class Renderer
     {
@@ -198,6 +199,66 @@ namespace TODO.PL
                 panel.TabIndex = 7;
                 container.Controls.Add(panel);
                 panel.Tag = i.ToString();
+            }
+        }
+        public static void RenderListPlans(IList<Plan> plans, FlowLayoutPanel container)
+        {
+            for (int i = 0; i < plans.Count; i++)
+            {
+                Plan plan = plans[i];
+                Label name = new Label();
+                Label percent = new Label();
+                Panel paneldad = new Panel();
+                Panel panelson = new Panel();
+                // 
+                // label4
+                // 
+                name.AutoSize = true;
+                name.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+                name.Location = new Point(30, 30);
+                name.Margin = new Padding(0);
+                name.Size = new Size(232, 32);
+                name.TabIndex = 0;
+                name.Text = plan.Name;
+                name.TextAlign = ContentAlignment.MiddleLeft;
+                name.Tag = i.ToString();
+                // 
+                // label5
+                // 
+                percent.AutoSize = true;
+                percent.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+                percent.Location = new Point(452, 5);
+                percent.Margin = new Padding(0);
+                percent.Size = new Size(77, 32);
+                percent.TabIndex = 0;
+                //percent.Text = plan.CalculateCurrentProgress().ToString()+"%";
+                percent.TextAlign = ContentAlignment.MiddleLeft;
+                percent.Tag = i.ToString();
+                // 
+                // panel Son
+                // 
+                panelson.BackColor = Color.Green;
+                panelson.BackgroundImageLayout = ImageLayout.Stretch;
+                panelson.Controls.Add(percent);
+                panelson.Location = new Point(30, 84);
+                panelson.Margin = new Padding(0);
+                panelson.Size = new Size(1015, 41);
+                panelson.TabIndex = 7;
+                panelson.Tag = i.ToString();
+                // 
+                // panel9
+                // 
+                paneldad.BackColor = Color.Transparent;
+                paneldad.BackgroundImage = Properties.Resources.task;
+                paneldad.BackgroundImageLayout = ImageLayout.Stretch;
+                paneldad.Controls.Add(name);
+                paneldad.Controls.Add(panelson);
+                paneldad.Location = new Point(0, i * (180 + 20));
+                paneldad.Margin = new Padding(0);
+                paneldad.Size = new Size(1075, 180);
+                paneldad.TabIndex = 7;
+                container.Controls.Add(paneldad);
+                paneldad.Tag = i.ToString();
             }
         }
     }

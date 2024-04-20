@@ -1,4 +1,4 @@
-using Microsoft.VisualBasic;
+
 using OOP.BL;
 using System.Globalization;
 using TODO.PL;
@@ -15,7 +15,8 @@ namespace TODO
         {
             Myday,
             Importance,
-            AllTasks
+            AllTasks, 
+            TaskByDay
         }
         public frmMyDay(MyDayType myDayType, DateTime ?specificDay = null)
         {
@@ -34,7 +35,17 @@ namespace TODO
                     GetTaskNotification();
                     GetAllTasksInHistory();
                     break;
+                case MyDayType.TaskByDay:
+                    GetTaskByDay((DateTime)specificDay);
+                    GetTaskNotification();
+                    break;
             }
+        }
+        private void GetTaskByDay(DateTime datetime)
+        {
+            flowLayoutPanel1.Controls.Clear();
+            tasks = search.Search(datetime,SearchTaskService.SearchType.ByNotiDate);
+            Renderer.RenderListTask(tasks, flowLayoutPanel1, "", this);
         }
         private void GetAllTasksInHistory()
         {

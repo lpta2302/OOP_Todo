@@ -34,9 +34,6 @@
             panel9 = new Panel();
             label4 = new Label();
             flowLayoutPanel2 = new FlowLayoutPanel();
-            label9 = new Label();
-            pictureBox2 = new PictureBox();
-            label2 = new Label();
             panel3 = new Panel();
             panel1 = new Panel();
             panel2 = new Panel();
@@ -50,29 +47,23 @@
             textBox1 = new TextBox();
             pictureBox1 = new PictureBox();
             panel4 = new Panel();
-            panel7 = new Panel();
-            panel8 = new Panel();
-            panel10 = new Panel();
-            label6 = new Label();
-            label7 = new Label();
+            label9 = new Label();
+            pictureBox2 = new PictureBox();
+            label2 = new Label();
+            flowLayoutPanel1 = new FlowLayoutPanel();
             panel5 = new Panel();
             panel6 = new Panel();
             label5 = new Label();
             label3 = new Label();
-            button9 = new Button();
-            button8 = new Button();
-            button7 = new Button();
-            button6 = new Button();
             panel9.SuspendLayout();
             flowLayoutPanel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             panel3.SuspendLayout();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panel4.SuspendLayout();
-            panel7.SuspendLayout();
-            panel8.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            flowLayoutPanel1.SuspendLayout();
             panel5.SuspendLayout();
             panel6.SuspendLayout();
             SuspendLayout();
@@ -137,48 +128,6 @@
             flowLayoutPanel2.Name = "flowLayoutPanel2";
             flowLayoutPanel2.Size = new Size(354, 594);
             flowLayoutPanel2.TabIndex = 1;
-            // 
-            // label9
-            // 
-            label9.AutoSize = true;
-            label9.BackColor = Color.Transparent;
-            label9.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label9.ForeColor = Color.White;
-            label9.ImageAlign = ContentAlignment.MiddleLeft;
-            label9.Location = new Point(81, 99);
-            label9.Margin = new Padding(4, 0, 4, 0);
-            label9.Name = "label9";
-            label9.Size = new Size(222, 32);
-            label9.TabIndex = 11;
-            label9.Text = "Wednesday, April 3";
-            label9.TextAlign = ContentAlignment.MiddleRight;
-            // 
-            // pictureBox2
-            // 
-            pictureBox2.BackColor = Color.Transparent;
-            pictureBox2.Image = Properties.Resources.plans_white;
-            pictureBox2.Location = new Point(16, 35);
-            pictureBox2.Margin = new Padding(4);
-            pictureBox2.Name = "pictureBox2";
-            pictureBox2.Size = new Size(50, 50);
-            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox2.TabIndex = 5;
-            pictureBox2.TabStop = false;
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.BackColor = Color.Transparent;
-            label2.Font = new Font("Segoe UI", 28.2F, FontStyle.Bold, GraphicsUnit.Point);
-            label2.ForeColor = Color.White;
-            label2.ImageAlign = ContentAlignment.MiddleLeft;
-            label2.Location = new Point(70, 21);
-            label2.Margin = new Padding(4, 0, 4, 0);
-            label2.Name = "label2";
-            label2.Size = new Size(173, 76);
-            label2.TabIndex = 4;
-            label2.Text = "Plans";
-            label2.TextAlign = ContentAlignment.MiddleRight;
             // 
             // panel3
             // 
@@ -355,76 +304,66 @@
             panel4.BackColor = Color.White;
             panel4.BackgroundImage = Properties.Resources.background;
             panel4.BackgroundImageLayout = ImageLayout.Stretch;
-            panel4.Controls.Add(panel7);
-            panel4.Controls.Add(panel5);
             panel4.Controls.Add(label9);
             panel4.Controls.Add(pictureBox2);
             panel4.Controls.Add(label2);
-            panel4.Controls.Add(button9);
-            panel4.Controls.Add(button8);
-            panel4.Controls.Add(button7);
-            panel4.Controls.Add(button6);
+            panel4.Controls.Add(flowLayoutPanel1);
             panel4.Location = new Point(375, 0);
             panel4.Margin = new Padding(0);
             panel4.Name = "panel4";
             panel4.Size = new Size(1106, 972);
             panel4.TabIndex = 3;
             // 
-            // panel7
+            // label9
             // 
-            panel7.BackColor = Color.Transparent;
-            panel7.BackgroundImage = Properties.Resources.ttttttttttttt;
-            panel7.BackgroundImageLayout = ImageLayout.Stretch;
-            panel7.Controls.Add(panel8);
-            panel7.Controls.Add(label7);
-            panel7.Location = new Point(16, 589);
-            panel7.Margin = new Padding(4);
-            panel7.Name = "panel7";
-            panel7.Size = new Size(1075, 180);
-            panel7.TabIndex = 13;
+            label9.AutoSize = true;
+            label9.BackColor = Color.Transparent;
+            label9.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            label9.ForeColor = Color.White;
+            label9.ImageAlign = ContentAlignment.MiddleLeft;
+            label9.Location = new Point(81, 99);
+            label9.Margin = new Padding(4, 0, 4, 0);
+            label9.Name = "label9";
+            label9.Size = new Size(222, 32);
+            label9.TabIndex = 11;
+            label9.Text = "Wednesday, April 3";
+            label9.TextAlign = ContentAlignment.MiddleRight;
             // 
-            // panel8
+            // pictureBox2
             // 
-            panel8.BackColor = Color.SpringGreen;
-            panel8.Controls.Add(panel10);
-            panel8.Controls.Add(label6);
-            panel8.Location = new Point(30, 84);
-            panel8.Margin = new Padding(30);
-            panel8.Name = "panel8";
-            panel8.Size = new Size(1015, 41);
-            panel8.TabIndex = 1;
+            pictureBox2.BackColor = Color.Transparent;
+            pictureBox2.Image = Properties.Resources.plans_white;
+            pictureBox2.Location = new Point(16, 35);
+            pictureBox2.Margin = new Padding(4);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(50, 50);
+            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox2.TabIndex = 5;
+            pictureBox2.TabStop = false;
             // 
-            // panel10
+            // label2
             // 
-            panel10.BackColor = Color.Gainsboro;
-            panel10.Location = new Point(812, 0);
-            panel10.Margin = new Padding(0);
-            panel10.Name = "panel10";
-            panel10.Size = new Size(202, 41);
-            panel10.TabIndex = 1;
+            label2.AutoSize = true;
+            label2.BackColor = Color.Transparent;
+            label2.Font = new Font("Segoe UI", 28.2F, FontStyle.Bold, GraphicsUnit.Point);
+            label2.ForeColor = Color.White;
+            label2.ImageAlign = ContentAlignment.MiddleLeft;
+            label2.Location = new Point(70, 21);
+            label2.Margin = new Padding(4, 0, 4, 0);
+            label2.Name = "label2";
+            label2.Size = new Size(173, 76);
+            label2.TabIndex = 4;
+            label2.Text = "Plans";
+            label2.TextAlign = ContentAlignment.MiddleRight;
             // 
-            // label6
+            // flowLayoutPanel1
             // 
-            label6.AutoSize = true;
-            label6.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label6.ForeColor = Color.White;
-            label6.Location = new Point(452, 0);
-            label6.Margin = new Padding(0);
-            label6.Name = "label6";
-            label6.Size = new Size(63, 32);
-            label6.TabIndex = 0;
-            label6.Text = "80%";
-            // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            label7.Location = new Point(30, 30);
-            label7.Margin = new Padding(4, 0, 4, 0);
-            label7.Name = "label7";
-            label7.Size = new Size(232, 32);
-            label7.TabIndex = 0;
-            label7.Text = "This is a plan name";
+            flowLayoutPanel1.BackColor = Color.Transparent;
+            flowLayoutPanel1.Controls.Add(panel5);
+            flowLayoutPanel1.Location = new Point(16, 311);
+            flowLayoutPanel1.Name = "flowLayoutPanel1";
+            flowLayoutPanel1.Size = new Size(1087, 561);
+            flowLayoutPanel1.TabIndex = 14;
             // 
             // panel5
             // 
@@ -433,7 +372,7 @@
             panel5.BackgroundImageLayout = ImageLayout.Stretch;
             panel5.Controls.Add(panel6);
             panel5.Controls.Add(label3);
-            panel5.Location = new Point(16, 378);
+            panel5.Location = new Point(4, 4);
             panel5.Margin = new Padding(4);
             panel5.Name = "panel5";
             panel5.Size = new Size(1075, 180);
@@ -448,13 +387,14 @@
             panel6.Name = "panel6";
             panel6.Size = new Size(1015, 41);
             panel6.TabIndex = 1;
+            panel6.Paint += panel6_Paint;
             // 
             // label5
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             label5.ForeColor = Color.White;
-            label5.Location = new Point(452, 0);
+            label5.Location = new Point(452, 5);
             label5.Margin = new Padding(0);
             label5.Name = "label5";
             label5.Size = new Size(77, 32);
@@ -472,67 +412,6 @@
             label3.TabIndex = 0;
             label3.Text = "This is a plan name";
             // 
-            // button9
-            // 
-            button9.BackColor = Color.FromArgb(34, 34, 34);
-            button9.FlatAppearance.BorderSize = 0;
-            button9.FlatStyle = FlatStyle.Popup;
-            button9.Font = new Font("Segoe UI Black", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
-            button9.ForeColor = Color.White;
-            button9.Location = new Point(1035, 125);
-            button9.Margin = new Padding(4);
-            button9.Name = "button9";
-            button9.Size = new Size(56, 56);
-            button9.TabIndex = 3;
-            button9.Text = "+";
-            button9.TextAlign = ContentAlignment.TopCenter;
-            button9.UseVisualStyleBackColor = false;
-            // 
-            // button8
-            // 
-            button8.BackColor = Color.FromArgb(34, 34, 34);
-            button8.FlatAppearance.BorderSize = 0;
-            button8.FlatStyle = FlatStyle.Popup;
-            button8.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            button8.ForeColor = Color.White;
-            button8.Location = new Point(899, 201);
-            button8.Margin = new Padding(4);
-            button8.Name = "button8";
-            button8.Size = new Size(192, 51);
-            button8.TabIndex = 2;
-            button8.Text = "Uncompleted";
-            button8.UseVisualStyleBackColor = false;
-            // 
-            // button7
-            // 
-            button7.BackColor = Color.FromArgb(34, 34, 34);
-            button7.FlatAppearance.BorderSize = 0;
-            button7.FlatStyle = FlatStyle.Popup;
-            button7.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            button7.ForeColor = Color.White;
-            button7.Location = new Point(699, 201);
-            button7.Margin = new Padding(4);
-            button7.Name = "button7";
-            button7.Size = new Size(192, 51);
-            button7.TabIndex = 1;
-            button7.Text = "Completed";
-            button7.UseVisualStyleBackColor = false;
-            // 
-            // button6
-            // 
-            button6.BackColor = Color.FromArgb(34, 34, 34);
-            button6.FlatAppearance.BorderSize = 0;
-            button6.FlatStyle = FlatStyle.Popup;
-            button6.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            button6.ForeColor = Color.White;
-            button6.Location = new Point(499, 201);
-            button6.Margin = new Padding(4);
-            button6.Name = "button6";
-            button6.Size = new Size(192, 51);
-            button6.TabIndex = 0;
-            button6.Text = "All";
-            button6.UseVisualStyleBackColor = false;
-            // 
             // frmPlanS
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
@@ -545,7 +424,6 @@
             panel9.ResumeLayout(false);
             panel9.PerformLayout();
             flowLayoutPanel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
             panel1.ResumeLayout(false);
@@ -554,10 +432,8 @@
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panel4.ResumeLayout(false);
             panel4.PerformLayout();
-            panel7.ResumeLayout(false);
-            panel7.PerformLayout();
-            panel8.ResumeLayout(false);
-            panel8.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            flowLayoutPanel1.ResumeLayout(false);
             panel5.ResumeLayout(false);
             panel5.PerformLayout();
             panel6.ResumeLayout(false);
@@ -572,9 +448,6 @@
         private Panel panel9;
         private Label label4;
         private FlowLayoutPanel flowLayoutPanel2;
-        private Label label9;
-        private PictureBox pictureBox2;
-        private Label label2;
         private Panel panel3;
         private Panel panel1;
         private Panel panel2;
@@ -588,18 +461,13 @@
         private TextBox textBox1;
         private PictureBox pictureBox1;
         private Panel panel4;
-        private Button button9;
-        private Button button8;
-        private Button button7;
-        private Button button6;
+        private Label label9;
+        private PictureBox pictureBox2;
+        private Label label2;
+        private FlowLayoutPanel flowLayoutPanel1;
         private Panel panel5;
-        private Label label3;
         private Panel panel6;
         private Label label5;
-        private Panel panel7;
-        private Panel panel8;
-        private Label label6;
-        private Label label7;
-        private Panel panel10;
+        private Label label3;
     }
 }

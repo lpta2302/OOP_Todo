@@ -12,11 +12,19 @@ namespace TODO.PL
 {
     public partial class frmPlanS : Form
     {
+        private SortTaskService sort = SortTaskService.Instance;
+        private IList<Task> tasks;
+        private IList<Plan> plans;
         public frmPlanS()
         {
-            InitializeComponent();
-        }
 
+            InitializeComponent();
+            plans = GlobalData.CurrentPlans;
+            LoadNotification();
+            LoadPlans();
+
+        }
+        #region tranform
         private void button2_Click(object sender, EventArgs e)
         {
             Hide();
@@ -57,6 +65,27 @@ namespace TODO.PL
             Hide();
             new frmPlanS().ShowDialog();
             Close();
+        }
+        #endregion
+        private void LoadNotification()
+        {
+            flowLayoutPanel2.Controls.Clear();
+            tasks = sort.Sort(tasks);
+            Renderer.RenderListTaskNotification(tasks, flowLayoutPanel2);
+        }
+        private void LoadPlans()
+        {
+            flowLayoutPanel1.Controls.Clear();
+            Renderer.RenderListPlans(plans, flowLayoutPanel1);
+        }
+        private void panel6_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
