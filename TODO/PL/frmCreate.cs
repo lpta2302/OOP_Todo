@@ -9,60 +9,90 @@ using System.Security;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static TODO.PL.frmCreate;
 
 namespace TODO.PL
 {
+    using static Util;
     public partial class frmCreate : Form
     {
         private bool IsUpdate = false;
-        private Task task;
+        private bool IsShortTask = false;
+        Task task;
         public enum CreateType
         {
             ShortTerm,
             LongTerm
         }
-        public frmCreate(CreateType createType, Task task = null)
+        public void LoadForm(CreateType createType)
         {
-            InitializeComponent();
             switch (createType)
             {
                 case CreateType.ShortTerm:
-                    this.task = new ShortTask();
                     panel5.Visible = false;
                     listView1.Visible = false;
                     panel3.Visible = false;
+                    IsShortTask = true;
+                    task = new ShortTask();
+                    IsShortTask = true;
                     break;
                 case CreateType.LongTerm:
-                    this.task = new LongTask();
-
+                    pictureBox4.Visible = false;
+                    task = new LongTask();
                     break;
             }
-            if (task != null)
-            {
-                this.task = task;
-                IsUpdate = true;
-                Load(task);
-            }
-        }
-        private void Load(Task task)
-        {
-            txtTitle.Text = task.Title;
-            txtNote.Text = task.Content;
-            dtpkStartTaskTime.Value = task.NotiTime;
-            tpkStartTaskTime.Value = task.NotiTime;
-            dtpkEndTaskTime.Value = task.EndTime;
-            tpkEndTaskTime.Value = task.EndTime;
-            if (task is LongTask)
-            {
-                LongTask temp = (LongTask)task;
-                dtpkFromDay.Value = new DateTime(temp.FromDate.Year, temp.FromDate.Month, temp.FromDate.Day);
-                dtpkToday.Value = new DateTime(temp.FromDate.Year, temp.FromDate.Month, temp.FromDate.Day);
-            }
+
+
             if (IsUpdate)
             {
                 button7.Text = "Update";
                 label2.Text = "Update Task";
             }
+
+        }
+        public frmCreate(CreateType createType, Task task = null)
+        {
+            InitializeComponent();
+
+            if (task != null)
+            {
+                IsUpdate = true;
+                LoadTaskInfo(task);
+            }
+
+            LoadForm(createType);
+        }
+        private void LoadTaskInfo(Task task)
+        {
+            txtTitle.Text = task.Title;
+            txtNote.Text = task.Content;
+
+            if (isEmptyDate(task.NotiTime))
+            {
+                dtpkStartTaskTime.Value = task.NotiTime;
+                tpkStartTaskTime.Value = task.NotiTime;
+            }
+
+            if (isEmptyDate(task.EndTime))
+            {
+                dtpkEndTaskTime.Value = task.EndTime;
+                tpkEndTaskTime.Value = task.EndTime;
+            }
+
+            if (!IsShortTask)
+            {
+                LongTask temp = (LongTask)task;
+                dtpkFromDay.Value = new DateTime(temp.FromDate.Year, temp.FromDate.Month, temp.FromDate.Day);
+                dtpkToday.Value = new DateTime(temp.FromDate.Year, temp.FromDate.Month, temp.FromDate.Day);
+
+                int i = 1;
+                foreach (Detail detail in temp.Details)
+                {
+                    ListViewItem item = new ListViewItem("" + 1);
+                    item.SubItems.Add(detail.Content);
+                }
+            }
+
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -102,19 +132,34 @@ namespace TODO.PL
 
         private void button7_Click(object sender, EventArgs e)
         {
+            DateTime dtpkNotiTimeValue = dtpkStartTaskTime.Value;
+            DateTime dtpkEndTimeValue = dtpkEndTaskTime.Value;
+
+                task.NotiTime = new DateTime(dtpkNotiTimeValue.Hour, dtpkNotiTimeValue.Minute, dtpkNotiTimeValue.Second, tpkStartTaskTime.Value.Hour, tpkStartTaskTime.Value.Minute, 0);
+                task.NotiTime = new DateTime(dtpkEndTimeValue.Hour, dtpkEndTimeValue.Minute, dtpkEndTimeValue.Second, tpkEndTaskTime.Value.Hour, tpkEndTaskTime.Value.Minute, 0);
+            if(!IsShortTask)
+            {
+                LongTask longTask = (LongTask)task;
+                longTask.FromDate = DateOnly.FromDateTime(dtpkFromDay.Value);
+                longTask.ToDate = DateOnly.FromDateTime(dtpkToday.Value);
+            }
+
             if (IsUpdate)
             {
-                task.Update();
+                if(IsShortTask)
+                    shortTask.Update();
+                else 
+                    longTask.Update();
             }
             else
             {
-                if (task is ShortTask)
+                if (IsShortTask)
                 {
-                    ShortTaskCRUD.Instance.Create(task);
+                    ShortTaskCRUD.Instance.Create(shortTask);
                 }
                 else
                 {
-                    LongTaskCRUD.Instance.Create(task);
+                    LongTaskCRUD.Instance.Create(longTask);
                 }
             }
         }
@@ -167,6 +212,28 @@ namespace TODO.PL
             {
                 pic.Image = Properties.Resources.bell_mute;
             }
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            if (textBox2.Text.Trim().Length == 0)
+            {
+                return;
+            }
+            Detail detail = new Detail()
+            {
+                Content = textBox2.Text,
+            };
+        }
+
+        private void txtTitle_TextChanged(object sender, EventArgs e)
+        {
+            task.Title = txtTitle.Text;
+        }
+
+        private void txtNote_TextChanged(object sender, EventArgs e)
+        {
+            task.Content = txtNote.Text;
         }
     }
 }

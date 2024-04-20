@@ -2,6 +2,7 @@
 
 namespace TODO.PL
 {
+    using static Util;
     internal class Renderer
     {
         public static void RenderListTask(IList<Task> tasks, FlowLayoutPanel container, string type, Form frmmyday)
@@ -61,9 +62,9 @@ namespace TODO.PL
                     frmmyday.Hide();
                     if(task is ShortTask) 
                     new frmCreate(frmCreate.CreateType.ShortTerm, task).ShowDialog();
-
                     else
                     new frmCreate(frmCreate.CreateType.LongTerm, task).ShowDialog();
+
                     frmmyday.Close();
                 };
                 //
@@ -95,11 +96,23 @@ namespace TODO.PL
                 date.TabIndex = 3;
                 if (type == "importance")
                 {
-                    date.Text = TypeConverter.ExchangeToDMYHMS(task.NotiTime);
+                    if(!isEmptyDate(task.NotiTime))
+                        date.Text = TypeConverter.ExchangeToDMYHMS(task.NotiTime);
+                    else if(task is LongTask)
+                    {
+                        LongTask longTask = (LongTask)task;
+                        date.Text = TypeConverter.ExchangeToDMY(longTask.FromDate) +" - "+ TypeConverter.ExchangeToDMY(longTask.ToDate);
+                    }
                 }
                 else if ( type == "myday")
                 {
-                    date.Text = TypeConverter.GetHourTime( task.NotiTime);
+                    if(task is ShortTask)
+                         date.Text = TypeConverter.GetHourTime( task.NotiTime);
+                    else
+                    {
+                        LongTask longTask = (LongTask)task;
+                        date.Text = TypeConverter.ExchangeToDMY(longTask.FromDate) + " - " + TypeConverter.ExchangeToDMY(longTask.ToDate);
+                    }
                 }
                 date.TextAlign = ContentAlignment.MiddleLeft;
                 date.Tag = i.ToString();
@@ -133,6 +146,10 @@ namespace TODO.PL
             for (int i = 0; i < tasks.Count; i++)
             {
                 Task task = tasks[i];
+                if (isEmptyDate(task.NotiTime))
+                {
+                    continue;
+                }
                 Label title = new Label();
                 Label date = new Label();
                 Panel panel = new Panel();

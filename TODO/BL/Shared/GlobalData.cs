@@ -5,6 +5,7 @@
     public static IList<Plan> CurrentPlans { get; set; }
     public static ITaskService ShortTermService { get; set; }
     public static ITaskService LongTermService { get; set; }
+    public static Plan CurrentPlan { get; set; }
     static GlobalData()
     {
         CurrentTasks = EntityManager<Task>.GetAll()!;

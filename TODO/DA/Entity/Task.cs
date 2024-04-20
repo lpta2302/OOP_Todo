@@ -43,6 +43,11 @@ public abstract class Task : ISerializable
             return long1.FromDate > long2.FromDate;
         }
 
+        if (!task1.GetType().IsAssignableTo(task2.GetType()))
+        {
+            return task1 is ShortTask;
+        }
+
 
         return task1.NotiTime > task2.NotiTime;
     }
@@ -55,6 +60,11 @@ public abstract class Task : ISerializable
             LongTask long1 = (LongTask)task1;
             LongTask long2 = (LongTask)task2;
             return long1.FromDate < long2.FromDate;
+        }
+
+        if (!task1.GetType().IsAssignableTo(task2.GetType()))
+        {
+            return task1 is ShortTask;
         }
 
 

@@ -1,4 +1,6 @@
-﻿public class SearchTaskService
+﻿using static System.Runtime.InteropServices.JavaScript.JSType;
+
+public class SearchTaskService
 {
     private SearchTaskService() { }
     private static SearchTaskService instance;
@@ -62,9 +64,12 @@
     {
         DateTime keyDate = TypeConverter.Convert<object, DateTime>(key);
 
-        return
-            task.NotiTime.Day == keyDate.Day &&
-            task.NotiTime.Month == keyDate.Month &&
-            task.NotiTime.Year == keyDate.Year;
+        if (task is ShortTask)
+            return DateOnly.FromDateTime(keyDate) == DateOnly.FromDateTime(task.NotiTime);
+        else
+        {
+            LongTask longTask = (LongTask)task;
+            return longTask.FromDate <= DateOnly.FromDateTime(DateTime.Now) && longTask.ToDate >= DateOnly.FromDateTime(DateTime.Now);
+        }
     }
 }

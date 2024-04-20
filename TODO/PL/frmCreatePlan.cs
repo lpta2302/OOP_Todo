@@ -12,14 +12,20 @@ namespace TODO.PL
 {
     public partial class frmCreatePlan : Form
     {
+        Plan plan;  
         public frmCreatePlan()
         {
             InitializeComponent();
+            if(GlobalData.CurrentPlan == null)
+                GlobalData.CurrentPlan = new Plan();
+            plan = GlobalData.CurrentPlan;
         }
 
         private void button7_Click(object sender, EventArgs e)
         {
-
+            Hide();
+            new frmCreate(frmCreate.CreateType.LongTerm);
+            Close();
         }
 
         private void button2_Click(object sender, EventArgs e)

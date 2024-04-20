@@ -1,4 +1,5 @@
-﻿using System.Reflection;
+﻿using Microsoft.VisualBasic;
+using System.Reflection;
 using System.Text;
 
 public class Util
@@ -37,5 +38,13 @@ public class Util
                 prop.SetValue(coppiedInstance, prop.GetValue(intiInstance));
             }
         }
+    }
+    public static bool isEmptyDate(DateTime dateTime)
+    {
+        return DateOnly.FromDateTime(dateTime) == DateOnly.FromDateTime(DateTime.MinValue);
+    }
+    public static bool isEmptyDate(DateOnly dateOnly)
+    {
+        return dateOnly == DateOnly.FromDateTime(DateTime.MinValue);
     }
 }

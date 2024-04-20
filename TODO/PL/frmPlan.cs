@@ -192,7 +192,7 @@ namespace TODO.PL
         private void button20_Click(object sender, EventArgs e)
         {
             Hide();
-            new frmCreatePlan().ShowDialog();
+            new frmCreateLobby().ShowDialog();
             Close();
         }
 

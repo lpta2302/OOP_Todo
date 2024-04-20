@@ -3,21 +3,6 @@
 public class LongTask : Task, IProgressService
 {
     public string PlanId { get; set; }
-
-    public override DateTime NotiTime
-    {
-        get
-        {
-            if (DateOnly.FromDateTime(notiTime) == DateOnly.FromDateTime(DateTime.MinValue))
-            {
-                if (fromDate <= DateOnly.FromDateTime(DateTime.Now) && toDate >= DateOnly.FromDateTime(DateTime.Now))
-                {
-                    return DateTime.Now;
-                }
-            }
-            return notiTime;
-        }
-    }
     private DateOnly fromDate;
     public DateOnly FromDate { get { return fromDate; } set { fromDate = value; } }
     private DateOnly toDate;
