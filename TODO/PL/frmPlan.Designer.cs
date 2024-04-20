@@ -110,12 +110,13 @@
             button20.Image = Properties.Resources.plus_black1;
             button20.ImageAlign = ContentAlignment.MiddleLeft;
             button20.Location = new Point(4, 572);
-            button20.Margin = new Padding(8, 8, 8, 8);
+            button20.Margin = new Padding(8);
             button20.Name = "button20";
             button20.Size = new Size(368, 68);
             button20.TabIndex = 7;
             button20.Text = "Create";
             button20.UseVisualStyleBackColor = true;
+            button20.Click += button20_Click;
             // 
             // button5
             // 
@@ -125,12 +126,13 @@
             button5.Image = Properties.Resources.check_square;
             button5.ImageAlign = ContentAlignment.MiddleLeft;
             button5.Location = new Point(4, 490);
-            button5.Margin = new Padding(8, 8, 8, 8);
+            button5.Margin = new Padding(8);
             button5.Name = "button5";
             button5.Size = new Size(368, 68);
             button5.TabIndex = 6;
             button5.Text = "Tasks";
             button5.UseVisualStyleBackColor = true;
+            button5.Click += button5_Click;
             // 
             // button4
             // 
@@ -140,12 +142,13 @@
             button4.Image = Properties.Resources.calendar_dots;
             button4.ImageAlign = ContentAlignment.MiddleLeft;
             button4.Location = new Point(4, 408);
-            button4.Margin = new Padding(8, 8, 8, 8);
+            button4.Margin = new Padding(8);
             button4.Name = "button4";
             button4.Size = new Size(368, 68);
             button4.TabIndex = 5;
             button4.Text = "Planned";
             button4.UseVisualStyleBackColor = true;
+            button4.Click += button4_Click;
             // 
             // button3
             // 
@@ -155,12 +158,13 @@
             button3.Image = Properties.Resources.star;
             button3.ImageAlign = ContentAlignment.MiddleLeft;
             button3.Location = new Point(4, 325);
-            button3.Margin = new Padding(8, 8, 8, 8);
+            button3.Margin = new Padding(8);
             button3.Name = "button3";
             button3.Size = new Size(368, 68);
             button3.TabIndex = 4;
             button3.Text = "Important";
             button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click;
             // 
             // button2
             // 
@@ -170,7 +174,7 @@
             button2.Image = Properties.Resources.sun;
             button2.ImageAlign = ContentAlignment.MiddleLeft;
             button2.Location = new Point(4, 242);
-            button2.Margin = new Padding(8, 8, 8, 8);
+            button2.Margin = new Padding(8);
             button2.Name = "button2";
             button2.Size = new Size(368, 68);
             button2.TabIndex = 3;
@@ -185,7 +189,7 @@
             button1.FlatStyle = FlatStyle.Flat;
             button1.Image = Properties.Resources.magnifying_glass;
             button1.Location = new Point(306, 122);
-            button1.Margin = new Padding(4, 4, 4, 4);
+            button1.Margin = new Padding(4);
             button1.Name = "button1";
             button1.Size = new Size(65, 59);
             button1.TabIndex = 2;
@@ -194,7 +198,7 @@
             // textBox1
             // 
             textBox1.Location = new Point(4, 122);
-            textBox1.Margin = new Padding(4, 4, 4, 4);
+            textBox1.Margin = new Padding(4);
             textBox1.Multiline = true;
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(294, 58);
@@ -217,7 +221,7 @@
             panel1.Controls.Add(panel3);
             panel1.Controls.Add(panel2);
             panel1.Location = new Point(2, 4);
-            panel1.Margin = new Padding(4, 4, 4, 4);
+            panel1.Margin = new Padding(4);
             panel1.Name = "panel1";
             panel1.Size = new Size(1856, 972);
             panel1.TabIndex = 1;
@@ -273,7 +277,7 @@
             btnNext.FlatStyle = FlatStyle.Flat;
             btnNext.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
             btnNext.Location = new Point(1015, 401);
-            btnNext.Margin = new Padding(4, 4, 4, 4);
+            btnNext.Margin = new Padding(4);
             btnNext.Name = "btnNext";
             btnNext.Size = new Size(62, 62);
             btnNext.TabIndex = 2;
@@ -290,7 +294,7 @@
             btnPrevious.FlatStyle = FlatStyle.Flat;
             btnPrevious.Font = new Font("Segoe UI Semibold", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
             btnPrevious.Location = new Point(0, 401);
-            btnPrevious.Margin = new Padding(4, 4, 4, 4);
+            btnPrevious.Margin = new Padding(4);
             btnPrevious.Name = "btnPrevious";
             btnPrevious.Size = new Size(62, 62);
             btnPrevious.TabIndex = 1;
@@ -325,7 +329,7 @@
             button14.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
             button14.ForeColor = Color.White;
             button14.Location = new Point(789, 4);
-            button14.Margin = new Padding(4, 4, 4, 4);
+            button14.Margin = new Padding(4);
             button14.Name = "button14";
             button14.Size = new Size(148, 80);
             button14.TabIndex = 11;
@@ -342,7 +346,7 @@
             button10.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
             button10.ForeColor = Color.White;
             button10.Location = new Point(634, 4);
-            button10.Margin = new Padding(4, 4, 4, 4);
+            button10.Margin = new Padding(4);
             button10.Name = "button10";
             button10.Size = new Size(148, 80);
             button10.TabIndex = 3;
@@ -359,7 +363,7 @@
             button9.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
             button9.ForeColor = Color.White;
             button9.Location = new Point(944, 4);
-            button9.Margin = new Padding(4, 4, 4, 4);
+            button9.Margin = new Padding(4);
             button9.Name = "button9";
             button9.Size = new Size(148, 80);
             button9.TabIndex = 10;
@@ -376,7 +380,7 @@
             button8.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
             button8.ForeColor = Color.White;
             button8.Location = new Point(479, 4);
-            button8.Margin = new Padding(4, 4, 4, 4);
+            button8.Margin = new Padding(4);
             button8.Name = "button8";
             button8.Size = new Size(148, 80);
             button8.TabIndex = 9;
@@ -393,7 +397,7 @@
             button7.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
             button7.ForeColor = Color.White;
             button7.Location = new Point(324, 4);
-            button7.Margin = new Padding(4, 4, 4, 4);
+            button7.Margin = new Padding(4);
             button7.Name = "button7";
             button7.Size = new Size(148, 80);
             button7.TabIndex = 8;
@@ -410,7 +414,7 @@
             button6.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
             button6.ForeColor = Color.White;
             button6.Location = new Point(169, 4);
-            button6.Margin = new Padding(4, 4, 4, 4);
+            button6.Margin = new Padding(4);
             button6.Name = "button6";
             button6.Size = new Size(148, 80);
             button6.TabIndex = 7;
@@ -427,7 +431,7 @@
             Mon.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
             Mon.ForeColor = Color.White;
             Mon.Location = new Point(14, 4);
-            Mon.Margin = new Padding(4, 4, 4, 4);
+            Mon.Margin = new Padding(4);
             Mon.Name = "Mon";
             Mon.Size = new Size(148, 80);
             Mon.TabIndex = 0;
@@ -437,7 +441,7 @@
             // dtpkDate
             // 
             dtpkDate.Location = new Point(70, 100);
-            dtpkDate.Margin = new Padding(4, 4, 4, 4);
+            dtpkDate.Margin = new Padding(4);
             dtpkDate.Name = "dtpkDate";
             dtpkDate.Size = new Size(285, 31);
             dtpkDate.TabIndex = 6;
@@ -447,7 +451,7 @@
             pictureBox2.BackColor = Color.Transparent;
             pictureBox2.Image = Properties.Resources.calendar_dots_white;
             pictureBox2.Location = new Point(14, 32);
-            pictureBox2.Margin = new Padding(4, 4, 4, 4);
+            pictureBox2.Margin = new Padding(4);
             pictureBox2.Name = "pictureBox2";
             pictureBox2.Size = new Size(50, 50);
             pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -484,7 +488,7 @@
             // 
             flowLayoutPanel2.Controls.Add(panel9);
             flowLayoutPanel2.Location = new Point(18, 242);
-            flowLayoutPanel2.Margin = new Padding(4, 4, 4, 4);
+            flowLayoutPanel2.Margin = new Padding(4);
             flowLayoutPanel2.Name = "flowLayoutPanel2";
             flowLayoutPanel2.Size = new Size(354, 594);
             flowLayoutPanel2.TabIndex = 2;
@@ -534,7 +538,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1862, 979);
             Controls.Add(panel1);
-            Margin = new Padding(4, 4, 4, 4);
+            Margin = new Padding(4);
             Name = "frmPlan";
             Text = "Form2";
             Load += frmPlan_Load;

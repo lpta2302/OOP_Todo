@@ -21,7 +21,7 @@ namespace TODO.PL
         {
             InitializeComponent();
             textBox1.Enabled = true;
-            switch(createType)
+            switch (createType)
             {
                 case CreateType.ShortTerm:
                     panel5.Visible = false;
@@ -46,6 +46,41 @@ namespace TODO.PL
         private void label11_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Hide();
+            new frmMyDay(frmMyDay.MyDayType.Myday).ShowDialog();
+            Close();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Hide();
+            new frmMyDay(frmMyDay.MyDayType.Importance).ShowDialog();
+            Close();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Hide();
+            new frmPlan().ShowDialog();
+            Close();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            Hide();
+            new frmMyDay(frmMyDay.MyDayType.AllTasks).ShowDialog();
+            Close();
+        }
+
+        private void button20_Click(object sender, EventArgs e)
+        {
+            Hide();
+            new frmCreate(frmCreate.CreateType.ShortTerm).ShowDialog();
+            Close();
         }
     }
 }

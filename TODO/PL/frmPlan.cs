@@ -36,8 +36,8 @@ namespace TODO.PL
         {
             public static int DayOfRows = 7;
             public static int DayOfColumn = 5;
-            public static int DayButtonWidth = 118;
-            public static int DayButtonHeight = 64;
+            public static int DayButtonWidth = 148;
+            public static int DayButtonHeight = 80;
             public static int margin = 6;
         }
 
@@ -159,6 +159,34 @@ namespace TODO.PL
         {
             Hide();
             new frmMyDay(frmMyDay.MyDayType.Myday).ShowDialog();
+            Close();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Hide();
+            new frmMyDay(frmMyDay.MyDayType.Importance).ShowDialog();
+            Close();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Hide();
+            new frmPlan().ShowDialog();
+            Close();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            Hide();
+            new frmMyDay(frmMyDay.MyDayType.AllTasks).ShowDialog();
+            Close();
+        }
+
+        private void button20_Click(object sender, EventArgs e)
+        {
+            Hide();
+            new frmCreatePlan().ShowDialog();
             Close();
         }
     }

@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             panel4 = new Panel();
+            button9 = new Button();
+            button6 = new Button();
             btnBack = new Button();
             listBox1 = new ListBox();
             button8 = new Button();
@@ -47,8 +49,6 @@
             panel1 = new Panel();
             panel2 = new Panel();
             pictureBox1 = new PictureBox();
-            button6 = new Button();
-            button9 = new Button();
             panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
             panel1.SuspendLayout();
@@ -76,6 +76,36 @@
             panel4.Name = "panel4";
             panel4.Size = new Size(1106, 972);
             panel4.TabIndex = 3;
+            // 
+            // button9
+            // 
+            button9.BackColor = Color.White;
+            button9.FlatAppearance.BorderSize = 0;
+            button9.FlatStyle = FlatStyle.Popup;
+            button9.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            button9.ForeColor = Color.Black;
+            button9.Location = new Point(408, 795);
+            button9.Margin = new Padding(4);
+            button9.Name = "button9";
+            button9.Size = new Size(188, 62);
+            button9.TabIndex = 35;
+            button9.Text = "Add Task";
+            button9.UseVisualStyleBackColor = false;
+            // 
+            // button6
+            // 
+            button6.BackColor = Color.White;
+            button6.FlatAppearance.BorderSize = 0;
+            button6.FlatStyle = FlatStyle.Popup;
+            button6.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            button6.ForeColor = Color.Black;
+            button6.Location = new Point(212, 795);
+            button6.Margin = new Padding(4);
+            button6.Name = "button6";
+            button6.Size = new Size(188, 62);
+            button6.TabIndex = 34;
+            button6.Text = "Add Task";
+            button6.UseVisualStyleBackColor = false;
             // 
             // btnBack
             // 
@@ -177,9 +207,9 @@
             label2.Location = new Point(70, 21);
             label2.Margin = new Padding(4, 0, 4, 0);
             label2.Name = "label2";
-            label2.Size = new Size(206, 76);
+            label2.Size = new Size(338, 76);
             label2.TabIndex = 4;
-            label2.Text = "Create";
+            label2.Text = "Create Plan";
             label2.TextAlign = ContentAlignment.MiddleRight;
             // 
             // button20
@@ -196,6 +226,7 @@
             button20.TabIndex = 8;
             button20.Text = "Create";
             button20.UseVisualStyleBackColor = true;
+            button20.Click += button20_Click;
             // 
             // button5
             // 
@@ -211,6 +242,7 @@
             button5.TabIndex = 6;
             button5.Text = "Tasks";
             button5.UseVisualStyleBackColor = true;
+            button5.Click += button5_Click;
             // 
             // button4
             // 
@@ -226,6 +258,7 @@
             button4.TabIndex = 5;
             button4.Text = "Planned";
             button4.UseVisualStyleBackColor = true;
+            button4.Click += button4_Click;
             // 
             // button3
             // 
@@ -241,6 +274,7 @@
             button3.TabIndex = 4;
             button3.Text = "Important";
             button3.UseVisualStyleBackColor = true;
+            button3.Click += button3_Click;
             // 
             // button2
             // 
@@ -256,6 +290,7 @@
             button2.TabIndex = 3;
             button2.Text = "My Day";
             button2.UseVisualStyleBackColor = true;
+            button2.Click += button2_Click;
             // 
             // button1
             // 
@@ -316,36 +351,6 @@
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
-            // 
-            // button6
-            // 
-            button6.BackColor = Color.White;
-            button6.FlatAppearance.BorderSize = 0;
-            button6.FlatStyle = FlatStyle.Popup;
-            button6.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            button6.ForeColor = Color.Black;
-            button6.Location = new Point(212, 795);
-            button6.Margin = new Padding(4);
-            button6.Name = "button6";
-            button6.Size = new Size(188, 62);
-            button6.TabIndex = 34;
-            button6.Text = "Add Task";
-            button6.UseVisualStyleBackColor = false;
-            // 
-            // button9
-            // 
-            button9.BackColor = Color.White;
-            button9.FlatAppearance.BorderSize = 0;
-            button9.FlatStyle = FlatStyle.Popup;
-            button9.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            button9.ForeColor = Color.Black;
-            button9.Location = new Point(408, 795);
-            button9.Margin = new Padding(4);
-            button9.Name = "button9";
-            button9.Size = new Size(188, 62);
-            button9.TabIndex = 35;
-            button9.Text = "Add Task";
-            button9.UseVisualStyleBackColor = false;
             // 
             // frmCreatePlan
             // 
