@@ -40,7 +40,16 @@ namespace TODO.PL
         public frmCreate(CreateType createType, Task task = null)
         {
             InitializeComponent();
-
+            int[] mang = { 0, 1, 2,3,4 ,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23};
+            List<int> list = new List<int>();
+            for(int i = 0; i < 60; i++)
+            {
+                list.Add(i);
+            }
+            sh.DataSource = mang;
+            eh.DataSource = mang;
+            sm.DataSource = list;
+            em.DataSource = list;
             if (task is ShortTask)
             {
                 IsShortTask = true;
@@ -145,8 +154,8 @@ namespace TODO.PL
             DateTime dtpkNotiTimeValue = dtpkStartTaskTime.Value;
             DateTime dtpkEndTimeValue = dtpkEndTaskTime.Value;
 
-            task.NotiTime = new DateTime(dtpkNotiTimeValue.Year, dtpkNotiTimeValue.Month, dtpkNotiTimeValue.Day, tpkStartTaskTime.Value.Hour, tpkStartTaskTime.Value.Minute, 0);
-            task.NotiTime = new DateTime(dtpkEndTimeValue.Year, dtpkEndTimeValue.Month, dtpkEndTimeValue.Day, tpkEndTaskTime.Value.Hour, tpkEndTaskTime.Value.Minute, 0);
+            task.NotiTime = new DateTime(dtpkNotiTimeValue.Year, dtpkNotiTimeValue.Month, dtpkNotiTimeValue.Day, int.Parse(sh.Text), int.Parse(sm.Text), 0);
+            task.NotiTime = new DateTime(dtpkEndTimeValue.Year, dtpkEndTimeValue.Month, dtpkEndTimeValue.Day, int.Parse(eh.Text), int.Parse(em.Text), 0);
             task.Title = txtTitle.Text;
             task.Content = txtNote.Text;
             if (!IsShortTask)
@@ -184,7 +193,15 @@ namespace TODO.PL
         private void pictureBox3_Click(object sender, EventArgs e)
         {
             PictureBox pic = (PictureBox)sender;
-            task.ToggleImportant();
+            if (IsUpdate)
+            {
+                task.ToggleImportant();
+
+            }
+            else
+            {
+                task.IsImportant = !task.IsImportant;
+            }
             if (task.IsImportant)
             {
                 pic.Image = Properties.Resources.star_fill;
@@ -199,7 +216,14 @@ namespace TODO.PL
         {
             ShortTask t = (ShortTask)task;
             PictureBox pic = (PictureBox)sender;
-            t.ToggleRepeated();
+            if (IsUpdate)
+            {
+                t.ToggleRepeated();
+            }
+            else
+            {
+                t.IsRepeated = !t.IsRepeated;
+            }
             if (t.IsRepeated)
             {
                 pic.BackColor = Color.AliceBlue;
@@ -213,7 +237,14 @@ namespace TODO.PL
         private void pictureBox5_Click(object sender, EventArgs e)
         {
             PictureBox pic = (PictureBox)sender;
-            task.ToggleIsNotificated();
+            if (IsUpdate)
+            {
+                task.ToggleIsNotificated();
+            }
+            else
+            {
+                task.IsNotificated = !task.IsNotificated;
+            }
             if (task.IsNotificated)
             {
                 pic.Image = Properties.Resources.bell;
@@ -268,12 +299,23 @@ namespace TODO.PL
             {
                 if (t.CheckTime() && t.IsNotificated)
                 {
+                    if (t is ShortTask)
+                    {
+                        ShortTask st = (ShortTask)t;
+                        if (st.IsRepeated)
+                        {
+                            st.NotiTime.AddDays(1);
+                        }
+                        st.IsNotificated = false;
+                        MessageBox.Show(t.Content, t.Title);
+                        return;
+                    }
+
+                    t.IsNotificated = false;
                     MessageBox.Show(t.Content,t.Title);
-                }
-                else
-                {
                     return;
                 }
+        
             }
         }
     }

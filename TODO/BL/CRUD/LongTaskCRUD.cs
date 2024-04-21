@@ -15,8 +15,8 @@ public class LongTaskCRUD : TaskCRUD
             (DateOnly)args[5],
             (bool)args[6],
             (bool)args[7],
-            new List<Detail>()
-        );
+            (List<Detail>)args[8]
+        ) ;
 
         GlobalData.CurrentTasks.Add(task);
 

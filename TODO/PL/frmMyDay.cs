@@ -45,7 +45,7 @@ namespace TODO
         {
             flowLayoutPanel1.Controls.Clear();
             tasks = search.Search(datetime, SearchTaskService.SearchType.ByNotiDate);
-            Renderer.RenderListTask(tasks, flowLayoutPanel1, "", this);
+            Renderer.RenderListTask(tasks, flowLayoutPanel1, "myday", this);
         }
         private void GetAllTasksInHistory()
         {
@@ -219,7 +219,20 @@ namespace TODO
             {
                 if (t.CheckTime() && t.IsNotificated)
                 {
+                    if (t is ShortTask)
+                    {
+                        ShortTask st = (ShortTask)t;
+                        if (st.IsRepeated)
+                        {
+                            st.NotiTime.AddDays(1);
+                        }
+                        st.IsNotificated = false;
+                        MessageBox.Show(t.Content, t.Title);
+                        return;
+                    }
+                    t.IsNotificated = false;
                     MessageBox.Show(t.Content, t.Title);
+                    return;
                 }
             }
         }

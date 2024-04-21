@@ -58,7 +58,7 @@ public class LongTask : Task, IProgressService
             return 100f;
 
         }
-        return (float)Math.Round(1.0 * count / Details.Count, 2);
+        return (float)Math.Round(1.0 * count *100/ Details.Count, 2);
     }
 
     public LongTask(string title, string planId, string content,

@@ -43,6 +43,10 @@
             pictureBox1 = new PictureBox();
             panel1 = new Panel();
             panel4 = new Panel();
+            eh = new ComboBox();
+            em = new ComboBox();
+            sm = new ComboBox();
+            sh = new ComboBox();
             btnBack = new Button();
             tpkEndTaskTime = new DateTimePicker();
             tpkStartTaskTime = new DateTimePicker();
@@ -84,6 +88,12 @@
             panel3.SuspendLayout();
             panel5.SuspendLayout();
             SuspendLayout();
+            // 
+            // timer1
+            // 
+            timer1.Enabled = true;
+            timer1.Interval = 1000;
+            timer1.Tick += timer1_Tick;
             // 
             // label2
             // 
@@ -262,6 +272,10 @@
             panel4.BackColor = Color.Transparent;
             panel4.BackgroundImage = Properties.Resources.background;
             panel4.BackgroundImageLayout = ImageLayout.Stretch;
+            panel4.Controls.Add(eh);
+            panel4.Controls.Add(em);
+            panel4.Controls.Add(sm);
+            panel4.Controls.Add(sh);
             panel4.Controls.Add(btnBack);
             panel4.Controls.Add(tpkEndTaskTime);
             panel4.Controls.Add(tpkStartTaskTime);
@@ -286,6 +300,40 @@
             panel4.Name = "panel4";
             panel4.Size = new Size(1481, 972);
             panel4.TabIndex = 3;
+            // 
+            // eh
+            // 
+            eh.FormattingEnabled = true;
+            eh.Location = new Point(334, 669);
+            eh.Name = "eh";
+            eh.Size = new Size(77, 33);
+            eh.TabIndex = 35;
+            eh.Visible = false;
+            // 
+            // em
+            // 
+            em.FormattingEnabled = true;
+            em.Location = new Point(334, 704);
+            em.Name = "em";
+            em.Size = new Size(77, 33);
+            em.TabIndex = 35;
+            em.Visible = false;
+            // 
+            // sm
+            // 
+            sm.FormattingEnabled = true;
+            sm.Location = new Point(331, 607);
+            sm.Name = "sm";
+            sm.Size = new Size(82, 33);
+            sm.TabIndex = 34;
+            // 
+            // sh
+            // 
+            sh.FormattingEnabled = true;
+            sh.Location = new Point(331, 574);
+            sh.Name = "sh";
+            sh.Size = new Size(82, 33);
+            sh.TabIndex = 34;
             // 
             // btnBack
             // 
@@ -312,6 +360,7 @@
             tpkEndTaskTime.Name = "tpkEndTaskTime";
             tpkEndTaskTime.Size = new Size(83, 31);
             tpkEndTaskTime.TabIndex = 26;
+            tpkEndTaskTime.Visible = false;
             // 
             // tpkStartTaskTime
             // 
@@ -331,6 +380,7 @@
             dtpkEndTaskTime.Name = "dtpkEndTaskTime";
             dtpkEndTaskTime.Size = new Size(300, 31);
             dtpkEndTaskTime.TabIndex = 22;
+            dtpkEndTaskTime.Visible = false;
             // 
             // dtpkStartTaskTime
             // 
@@ -392,6 +442,7 @@
             label9.Size = new Size(198, 37);
             label9.TabIndex = 16;
             label9.Text = "End Task Time";
+            label9.Visible = false;
             // 
             // label8
             // 
@@ -620,12 +671,6 @@
             columnHeader2.Text = "Content";
             columnHeader2.Width = 350;
             // 
-            // timer1
-            // 
-            timer1.Enabled = true;
-            timer1.Interval = 1000;
-            timer1.Tick += timer1_Tick;
-            // 
             // frmCreate
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
@@ -695,5 +740,9 @@
         private TextBox textBox2;
         private ColumnHeader columnHeader1;
         private ColumnHeader columnHeader2;
+        private ComboBox eh;
+        private ComboBox em;
+        private ComboBox sm;
+        private ComboBox sh;
     }
 }

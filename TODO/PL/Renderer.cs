@@ -7,8 +7,21 @@ namespace TODO.PL
     using static Util;
     internal class Renderer
     {
-        public static void RenderListTask(IList<Task> tasks, FlowLayoutPanel container, string type, Form frmmyday)
+         
+    public static void RenderListTask(IList<Task> tasks, FlowLayoutPanel container, string type, Form frmmyday)
         {
+            void LoadImportance(object sender, EventArgs e)
+            {
+                int index = int.Parse(((Control)sender).Tag.ToString())!;
+                tasks[index].ToggleImportant();
+                ((PictureBox)sender).Image = tasks[index].IsImportant ? Properties.Resources.star_fill : Properties.Resources.star;
+            }
+            void LoadComplete(object sender, EventArgs e)
+            {
+                int index = int.Parse(((Control)sender).Tag.ToString())!;
+                tasks[index].CompleteTask();
+                ((PictureBox)sender).Image = tasks[index].IsCompleted ? Properties.Resources.radio_button_fill : Properties.Resources.radio_button;
+            }
             for (int i = 0; i < tasks.Count; i++)
             {
                 Task task = tasks[i];
@@ -20,8 +33,7 @@ namespace TODO.PL
                 PictureBox pen = new PictureBox();
                 PictureBox trash = new PictureBox();
                 PictureBox complete = new PictureBox();
-                Panel newl = new Panel();
-                
+                Panel newl = new Panel();            
                 // 
                 // label3
                 // 
@@ -45,12 +57,13 @@ namespace TODO.PL
                 star.TabIndex = 2;
                 star.TabStop = false;
                 star.Tag = i.ToString();
-                star.Click += (object sender, EventArgs e) =>
-                {
-                    int index = int.Parse(((Control)sender).Tag.ToString())!;
-                    tasks[index].ToggleImportant();
-                    ((PictureBox)sender).Image = tasks[index].IsImportant ? Properties.Resources.star_fill : Properties.Resources.star;
-                };
+                star.Click += LoadImportance;
+                //star.Click += (object sender, EventArgs e) =>
+                //{
+                //    int index = int.Parse(((Control)sender).Tag.ToString())!;
+                //    tasks[index].ToggleImportant();
+                //    ((PictureBox)sender).Image = tasks[index].IsImportant ? Properties.Resources.star_fill : Properties.Resources.star;
+                //};
                 // 
                 // pictureBox Complete
                 // 
@@ -62,12 +75,13 @@ namespace TODO.PL
                 complete.TabIndex = 2;
                 complete.TabStop = false;
                 complete.Tag = i.ToString();
-                complete.Click += (object sender, EventArgs e) =>
-                {
-                    int index = int.Parse(((Control)sender).Tag.ToString())!;
-                    tasks[index].CompleteTask();
-                    ((PictureBox)sender).Image = tasks[index].IsCompleted ? Properties.Resources.radio_button_fill : Properties.Resources.radio_button;
-                };
+                complete.Click += LoadComplete;
+                //complete.Click += (object sender, EventArgs e) =>
+                //{
+                //    int index = int.Parse(((Control)sender).Tag.ToString())!;
+                //    tasks[index].CompleteTask();
+                //    ((PictureBox)sender).Image = tasks[index].IsCompleted ? Properties.Resources.radio_button_fill : Properties.Resources.radio_button;
+                //};
                 //
                 // pictureBoxPen
                 //
@@ -181,6 +195,9 @@ namespace TODO.PL
                 {
                     continue;
                 }
+                if (task.NotiTime< DateTime.Now.AddMinutes(-1)) {
+                    continue;
+                }
                 Label title = new Label();
                 Label date = new Label();
                 Panel panel = new Panel();
@@ -223,7 +240,7 @@ namespace TODO.PL
                 panel.BackgroundImageLayout = ImageLayout.Stretch;
                 panel.Controls.Add(date);
                 panel.Controls.Add(title);
-                panel.Location = new Point(0, i * (124 + 20));
+                //panel.Location = new Point(0, i * (124 + 20));
                 panel.Margin = new Padding(0);
                 panel.Size = new Size(326, 124);
                 panel.TabIndex = 7;
@@ -257,11 +274,11 @@ namespace TODO.PL
                 // 
                 percent.AutoSize = true;
                 percent.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point);
-                percent.Location = new Point(452, 5);
+                percent.Location = new Point(452, 100);
                 percent.Margin = new Padding(0);
                 percent.Size = new Size(77, 32);
                 percent.TabIndex = 0;
-                percent.Text = plan.CalculateCurrentProgress().ToString()+"%";
+                percent.Text = "Progress: "+ plan.CalculateCurrentProgress().ToString()+"%";
                 percent.TextAlign = ContentAlignment.MiddleLeft;
                 percent.Tag = i.ToString();
                 // 
@@ -282,10 +299,11 @@ namespace TODO.PL
                 paneldad.BackgroundImage = Properties.Resources.task;
                 paneldad.BackgroundImageLayout = ImageLayout.Stretch;
                 paneldad.Controls.Add(name);
+                paneldad.Controls.Add(percent);
                 //paneldad.Controls.Add(panelson);
-                paneldad.Location = new Point(0, i * (180 + 20));
+                paneldad.Location = new Point(0, i * (140 + 20));
                 paneldad.Margin = new Padding(0);
-                paneldad.Size = new Size(1075, 180);
+                paneldad.Size = new Size(1075, 140);
                 paneldad.TabIndex = 7;
                 container.Controls.Add(paneldad);
                 paneldad.Tag = i.ToString();
